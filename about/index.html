@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>page.title - 心上人是心上人</title>
+  <title>About - 心上人是心上人</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -56,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -80,6 +80,18 @@
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
               </a>
             </li>
           
@@ -138,7 +150,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/1.png') no-repeat center center;
+         style="background: url('/img/5.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -151,6 +163,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -160,18 +176,31 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
+          
+            <div class="about-avatar">
+              <img src="/img/head.png" srcset="/img/loading.gif"
+                   class="img-fluid" alt="avatar">
+            </div>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="page-content">
-  <hr>
-<p>2020-10-03 10:50:00</p>
-<p>人与人之间的悲欢并不相通,就像你不懂我的快乐,我不明白你为何难过</p>
-
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">hiahia</div>
+    <div class="about-intro"><h3>我想留下点什么,但是又什么都不想</h3></div>
+    <div class="about-icons">
+      
+    </div>
+  </div>
+</div>
+<div class="mt-5 markdown-body">
+  <html>
+<h3>人与人之间的悲欢并不相通,就像你不懂我的快乐,我不明白你为何难过</h3>
+</html>
 </div>
 
               </div>
@@ -267,10 +296,10 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "page.title&nbsp;",
+        "Somthing's run,somthing's wrong&nbsp;",
       ],
       cursorChar: "",
-      typeSpeed: 130,
+      typeSpeed: 100,
       loop: false,
     });
     typed.stop();

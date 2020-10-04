@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -67,6 +67,18 @@
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
               </a>
             </li>
           
@@ -125,7 +137,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/1.png') no-repeat center center;
+         style="background: url('/img/6.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -138,6 +150,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -147,7 +163,7 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
@@ -155,12 +171,18 @@
                 
 
 <div class="list-group">
-  <p class="h4">1 posts in total.</p>
+  <p class="h4">2 posts in total.</p>
   <hr>
   
     
       
       <p class="h5">2020</p>
+    
+    <a href="/2020/10/04/windows%E5%9F%BA%E7%A1%80/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">windows基础</span>
+      <time style="float: right;">10-04</time>
+    </a>
+  
     
     <a href="/2020/10/02/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">写在前面</span>
@@ -264,10 +286,10 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "我定能去到任何想去的地方&nbsp;",
       ],
       cursorChar: "",
-      typeSpeed: 130,
+      typeSpeed: 100,
       loop: false,
     });
     typed.stop();
