@@ -246,7 +246,8 @@
 
  ​    5.remote desktop组：内置组，远程连接权限（administrator默认自带该权限） 
 
- ​    6.print users组：打印机</code></pre>
+ ​    6.print users组：打印机
+</code></pre>
 <p>​    <code>net localgroup</code> 查看当前系统所有的组</p>
 <p>SID:安全标识符，创建组或者用户时分配的唯一标识符 查看sid：<code>whoami /user</code></p>
 <h2 id="5-常用的命令"><a href="#5-常用的命令" class="headerlink" title="5.常用的命令"></a>5.常用的命令</h2><h3 id="1-用户命令"><a href="#1-用户命令" class="headerlink" title="1.用户命令"></a>1.用户命令</h3><p>​            <code>whoami</code> ：查看当前用户权限 (最高system权限显示： <code>nt authoritysystem</code>）</p>
@@ -264,7 +265,8 @@ xx					 S-1-5-21-xxxxxxxxxx-xxxxxxxxx-xxxxxxxxxx-1001</code></pre>
 <p>​                     S：SID标识符，将数字标识为一个SID</p>
 <p>​                      R：Revision（修订），Windows生成的所有SID都使用修订级别 1.</p>
 <p>​                      IA：颁发机构。在Widnwos中，几乎所有SID都指定NT机构作为颁发机构，ID编号为5，代表                             已知组和账户的SID例外。</p>
-<pre><code>                   SA：代一个子机构。SA指定特殊的组或职能。例如，21表明SID由一个域控制器或者一台单机                                颁发。随后的一长串数字（xxxxxxxxxx-xxxxxxxxx-xxxxxxxxxx）就是颁发SID的那个域或                                机器的SA。</code></pre>
+<pre><code>                   SA：代一个子机构。SA指定特殊的组或职能。例如，21表明SID由一个域控制器或者一台单机                                颁发。随后的一长串数字（xxxxxxxxxx-xxxxxxxxx-xxxxxxxxxx）就是颁发SID的那个域或                                机器的SA。
+</code></pre>
 <p>​                        RID：指派给用户、计算机和组的RID从1000开始。500-999的RID被专门保留起来、表示在每                                 个Windows计算机和域中通用的账户和组，它们称为“已知RID”有些已知RID会附加到一个                                 域SID上，从而构成一个惟一的标识符。另一些则附加到BuiltinSID(S-1-5-32)上，指出它们                                  是可能具有特权的Builtin账户，特权要么是硬编码到操作系统中的，要么是在安全数据库                                中指派的。</p>
 <p>​            <code>net user 用户名</code>：查看具体用户的信息</p>
 <p>​            <code>net user 用户名 密码 /add</code>：添加一个指定的用户（需要管理员权限，注意密码复杂度）</p>
