@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>kerberos - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-10 16:24" pubdate>
+        October 10, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      36
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">kerberos</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文介绍kerberos的相关知识以及利用攻击方法</p>
+<a id="more"></a>
+<p>攻击机：kali：192.168.43.30</p>
+<p>客户机DC：win2012：192.168.8.211</p>
+<p>客户机：win7： 182.168.8.57</p>
+<p>下列有关在win7上没有复现成功的，在win2008上复现成功，没有贴图。</p>
+<h2 id="1-kerberos介绍"><a href="#1-kerberos介绍" class="headerlink" title="1.kerberos介绍"></a>1.kerberos介绍</h2><p>在古希腊神话中Kerberos指的是：有着一只三头犬守护在地狱之门外,禁止任何人类闯入地狱之中。而现实中的Kerberos是一种网络身份验证协议,旨在通过密钥加密技术为客户端/服务器应用程序提供身份验证,主要用在域环境下的身份验证。</p>
+<p>Kerberos是一种由MIT （麻省理工大学）提出的一种网络身份验证协议。它旨在通过使用密钥加密技术为客户端/服务器应用程序提供强身份验证。</p>
+<p>Kerberos是一种网络认证协议，其设计目标是通过密钥系统为 客户机/服务器应用程序提供强大的认证服务。该认证过程的实现不依赖于主机操作系统的认证，无需基于主机地址的信任，不要求网络上所有主机的物理安全，并假定网络上传送的数据包可以被任意地读取、修改和插入数据。在以上情况下，Kerberos作为一种可信任的第三方认证服务，是通过传统的密码技术(如:共享密钥)执行认证服务的。</p>
+<p><img src="/2020/10/10/kerberos/image-20210202131840081.png" srcset="/img/loading.gif" alt="image-20210202131840081"></p>
+<h3 id="1-域认证所参与的角色"><a href="#1-域认证所参与的角色" class="headerlink" title="1.域认证所参与的角色:"></a>1.域认证所参与的角色:</h3><ul>
+<li>访问服务的client</li>
+<li>提供服务的server</li>
+<li>KDC(Key Distribution Center) = DC(Domain Controller)密钥分发中心，一般为域控制器 </li>
+</ul>
+<p>票据(Ticket ):是网络对象互相访问的凭证。TGT ( Ticket Granting Ticket ):入场券，通过入场券能够获得票据，是一种临时凭证的存在。<br>KDC负责管理票据、认证票据、分发票据，但是KDC不是一个独立的服务，它由以下服务组成:</p>
+<ul>
+<li>Authentication Service:为client生成TGT的服务，简称AS</li>
+<li>Ticket Granting Service: 为client生成某个服务的ticket，简称TGS。 </li>
+</ul>
+<p>另外还需要介绍一个类似于本机SAM的一个数据库:AD，全称叫account database，存储所有client的白名单，只有存在于白名单的client才能顺利申请到TGT。</p>
+<p><img src="/2020/10/10/kerberos/image-20210202014237001.png" srcset="/img/loading.gif" alt="image-20210202014237001"></p>
+<p>KDC服务框架中包含一个KRBTGT账户，它是在创建域时系统自动创建的一个账号，可以暂时理解为他就是一个无法登陆的账号。在整个kerberos认证中会多次用到它的Hash值去做验证。</p>
+<p><img src="/2020/10/10/kerberos/image-20210202014455121.png" srcset="/img/loading.gif" alt="image-20210202014455121"></p>
+<h3 id="2-域认证粗略流程"><a href="#2-域认证粗略流程" class="headerlink" title="2.域认证粗略流程"></a>2.域认证粗略流程</h3><p>1.client向kerberos服务请求，希望获取访问server的权限。kerberos得到了这个消息，首先得判断client是否是可信赖的，也就是白名单黑名单的说法。这就是AS服务完成的工作，通过在AD中存储黑名单和白名单来区分client。成功后，返回AS返回TGT给client.</p>
+<p>2.client得到了TGT后，继续向kerberos请求，希望获取访问server的权限。kerberos又得到了这个消息，这时候通过client消息中的TGT，判断出了client拥有了这个权限，给了client访问server的权限ticket。</p>
+<p>3.client得到ticket后，终于可以成功访问server。这个ticket只是针对这个server,其他server需要向TGS申请。</p>
+<p>The Authentication Service Exchange: Client与 AS 的交互;(请求TGT)</p>
+<p>The Ticket-Granting Service (TGS)Exchange: Client 与 TGS的交互;(请求ServerTicket)</p>
+<p>The ClientlServer Authentication Exchange: Client 与 Server的交互。(访问)</p>
+<p><img src="/2020/10/10/kerberos/image-20210202015026043.png" srcset="/img/loading.gif" alt="image-20210202015026043"></p>
+<h3 id="3-域认证"><a href="#3-域认证" class="headerlink" title="3.域认证:"></a>3.域认证:</h3><ul>
+<li><p><strong>第一步:Client 与 AS 的交互</strong><br>首先，客户端需要发送自己的身份信息到KDC，身份信息中起码包含用户名，KDC根据用户名在AD中寻找是否在白名单中，然后根据用户名提取到对应的NTLM Hash.<br>KDC此时生成一个随机字符串，叫Session Key，使用用户名对应的NTLM Hash加密Session Key，作为AS数据，使用KDC中某个用户的NTLM Hash加密Session Key和客户端的信息，生成TGT. </p>
+<ul>
+<li><p>Session Key用于客户端向TGS服务通信。</p>
+</li>
+<li><p>域内所有网络对象的凭证都在AD中保存.。</p>
+</li>
+<li><p>KDC中某个用户指的是krbtgt</p>
+<p><strong>具体流程:</strong></p>
+<p>KRB_AS_REQ<br>client-&gt;AS:发送Authenticator1(Client密码加密TimeStamp)<br>第一步client 先向KDC的AS 发送Authenticator1，内容为通过client密码 Hash加密的时间戳、ClientID、网络地址、加密类型等内容。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2020/10/10/kerberos/image-20210202015819837.png" srcset="/img/loading.gif" alt="image-20210202015819837"></p>
+<p>​                KRB_AS_REP<br>​                AS-&gt; Client:发送 client密码加密的sessionkey-as和票据TGT(KRBTGT HASH加密的sessionkey-as和TimeStamp)<br>​                在KDC中存储了域中所有用户的密码HASH，当AS接收到Client的请求之后会根据KDC中存储的密码来解密，解密成功并且验证                信息。验证成功后返回给client 由 client密码HASH加密的sessionkey-as 和TGT (由KRBTGT HASH加密的sessionkey-as和Timestamp等信息)。<br>​                其中，TGT的到期时间为8小时，如果超过了8小时，还需要重新申请TGT，不能之间进入下一步获取Ticket. </p>
+<ul>
+<li><strong>第二步:Client 与 TGS 的交互,Client使用TGT从KDC获得基于某个Server的Ticket</strong><br> 客户端需要提供TGT与第一步中使用自己NTLM Hash解密出来的Session Key加密的客户端信息跟时间戳。如果假设这个数据被中间人窃取到，也无法在段时间内破解，因为KDC会校验时间戳。<br> KDC接到TGT与其他内容后，会首先解密TGT，只有KDC可以解密TGT，从TGT中提取到Session Key，再使用Session Key解密其他内容，解密出来的内容同TGT中的信息进行校验来确认客户端是否受信。<br> 验证通过后，就会生成一个新的Session Key，我们称之为Server Session Key，这个Server Session Key主要用于和服务器进行通信。同时还会生成一个Ticket，也就是最后的票据了<br> Server Hash:这个Hash是在AD中服务器计算机的NTLM Hash。</li>
+</ul>
+<p>​    <strong>具体流程:</strong><br>  Client -&gt;TGS 发送 Authenticator2(sessionkey-as加密Timestamp)和票据TGT(KRBTGTHASH加密的sessionkey-as和Timestamp)<br>  Client接收到了加密后的Sessionkey-as 和TGT之后，用自身密码解密得到sSessionkey-as,TGT是由KDC 密码加密，Client 无法解密。这时Client再用Sessionkey-as加密 TimeStamp和TGT一起发送给KDC 中的TGS ( TicketGranting Server )票据授权服务器换取能够访问Server的票据。</p>
+<p><img src="/2020/10/10/kerberos/image-20210202021236912.png" srcset="/img/loading.gif" alt="image-20210202021236912"></p>
+<p>​    TGS-&gt; Client 发送密文1(sessionkey-as 加密sessionkey-tgs)和票据ST(Server密码 HASH加密sessionkey-tgs)</p>
+<p>​    TGS 收到Client 发送过来的TGT和Sessionkey-as 加密的Timestamp 之后，首先会检查自身是否存在Client所请求的服务。如果服务存在，则用KRBTGT密码解密TGT。一般情况下TGS 会检查TGT中的时间戳查看TGT是否过期，且原始地址是否和TGT中保存的地址相同。验证成功之后将用sessionkey-as加密的sessionkey-tgs 和Server密码 HASH加密的Sessionkey-tgs 发送给client。</p>
+<ul>
+<li><p><strong>第三步:Client 与 Server 的交互–双向验证</strong><br>客户端向服务器请求，需要提供Ticket，Server Session Key加密的客户端信息与时间戳。 </p>
+<ul>
+<li><p>Ticket客户端无法解密</p>
+</li>
+<li><p>服务器端通过解密Ticket解密Server Session Key(Client info + Timestamp)。</p>
+</li>
+<li><p>比较时间长度</p>
+<p><strong>具体流程:</strong></p>
+<p>client -&gt;Server 发送Authenticator3(sessionkey-tgs 加密TimeStamp)和票据ST(Server密码HASH加密sessionkey-tgs)<br>client 收到sessionkey-as 加密的sessionkey-tgs 和Server密码 HAsA加密的sessionkey-tgs 之后用sessionkey-as解密得到sessionkey-tgs，然后把sessionkey-tgs 加密的<br>Timestamp和 ST一起发送给Server.</p>
+<p><img src="/2020/10/10/kerberos/image-20210202021708277.png" srcset="/img/loading.gif" alt="image-20210202021708277"></p>
+<p>Server-&gt; Client<br>server通过自己的密码解密ST，得到 sessionkey-tgs,再用sessionkey-tgs解密Authenticator3得到Timestamp，验证正确返回验证成功。<br>校验通过后，认证成功，该票据会一直存在客户端内存中。 </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-PAC"><a href="#4-PAC" class="headerlink" title="4.PAC"></a>4.PAC</h3><p>在Kerberos最初设计的几个流程里说明了如何证明client 是client而不是由其他人来冒充的，但并没有声明client有没有访问Server服务的权限，因为在域中不同权限的用户能够访问的资源是有区别的。<br>所以微软为了解决这个问题在实现 Kerberos 时加入了PAC的概念，PAC的全称是<strong>PrivilegeAttribute Certificate(特权属性证书)**。可以理解为火车有一等座，也有二等座，而</strong>PAC就是为了区别不同权限的一种方式。**</p>
+<h4 id="1-PAC的实现"><a href="#1-PAC的实现" class="headerlink" title="(1)PAC的实现"></a>(1)PAC的实现</h4><p>当用户与KDC之间完成了认证过程之后，Client需要访问Server所提供的某项服务时，Server为了判断用户是否具有合法的权限需要将client 的 User SID等信息传递给KDC,KDC通过SID判断用户的用户组信息，用户权限等，进而将结果返回给Server，Server再将此信息与用户所索取的资源的ACL进行比较，最后决定是否给用户提供相应的服务。<br>PAC会在 KRB_AS_REP中AS 放在TGT里加密发送给Client，然后由Client转发给TGS来验证Client所请求的服务。<br>在PAC中包含有两个数字签名PAC_SERVER_CHECKSuM和PAC_PRIVSVR_CHECKSUM，这两个数字签名分别由Server端密码HASH和KDC的密码HASH加密。<br>同时TGS解密之后验证签名是否正确，然后再重新构造新的PAC放在ST里返回给客户端，客户端将ST发送给服务端进行验证。</p>
+<h4 id="2-Server-与-KDC"><a href="#2-Server-与-KDC" class="headerlink" title="(2)Server 与 KDC"></a>(2)Server 与 KDC</h4><p>PAC可以理解为一串校验信息，为了防止被伪造和串改，原则上是存放在TGT里，并且TGT由KDC hash加密。<strong>同时尾部会有两个数字签名，分别由KDC密码和server密码加密，防止数字签名内容被篡改</strong></p>
+<p><img src="/2020/10/10/kerberos/image-20210202022906946.png" srcset="/img/loading.gif" alt="image-20210202022906946"></p>
+<p>同时 PAC指定了固定的User SID和Groups ID，还有其他一些时间等信息，Server的程序收到ST之后解密得到PAC 会将PAC的数字签名发送给KDC，KDC再进行校验然后将结果已RPC返回码的形式返回给Server.</p>
+<p><img src="/2020/10/10/kerberos/image-20210202022957560.png" srcset="/img/loading.gif" alt="image-20210202022957560"></p>
+<h3 id="5-SPN"><a href="#5-SPN" class="headerlink" title="5.SPN"></a>5.SPN</h3><h4 id="1-SPN定义"><a href="#1-SPN定义" class="headerlink" title="1.SPN定义"></a>1.SPN定义</h4><p>服务主体名称( SPN )是Kerberos客户端用于唯一标识给特定Kerberos目标计算机的服务实例名称。Kerberos身份验证使用SPN将服务实例与服务登录帐户相关联。如果在整个林中的计算机上安装多个服务实例，则每个实例都必预具有自己的SPN。如果客户端可能使用多个名称进行身份验证，则给定的服务实例可以具有多个SPN。例如，SPN总是包含运行服务实例的主机名称，所以服务实例可以为其主机的每个名称或别名注册一个SPN.</p>
+<p>全称Service Principal Names</p>
+<p>SPN是服务器上所运行服务的唯一标识，每个使用Kerberos的服务都需要一个SPN<br>SPN分为两种，一种注册在AD上机器帐户(Computers)下，另一种注册在域用户帐户(Users)下</p>
+<p>当一个服务的权限为Local System或Network Service，则SPN注册在机器帐户(Computers)下</p>
+<p>当一个服务的权限为一个域用户，则SPN注册在域用户帐户(Users)下</p>
+<h4 id="2-SPN格式"><a href="#2-SPN格式" class="headerlink" title="2.SPN格式"></a>2.SPN格式</h4><pre><code class="hljs vala">servicelass/host:port/servicename
+<span class="hljs-meta"># serviceclass可以理解为服务的名称，常见的有www, ldap, SMTP, DNSHOST等</span>
+<span class="hljs-meta"># host有两种形式，FQDN和NetBIOS名，例如server01.test.com和server01</span>
+<span class="hljs-meta"># 如果服务运行在默认端口上，则端口号(port)可以省略</span></code></pre>
+
+<p><img src="/2020/10/10/kerberos/image-20210202023344004.png" srcset="/img/loading.gif" alt="image-20210202023344004"></p>
+<h4 id="3-查询SPN"><a href="#3-查询SPN" class="headerlink" title="3.查询SPN"></a>3.查询SPN</h4><p>对域控制器发起LDAP查询，这是正常kerberos票据行为的一部分，因此查询SPN的操作很难被检测<br>1、使用SetSPN<br>Win7和Windows Server2008自带的工具</p>
+<p>查看当前域内的所有SPN：<code>setspn.exe -q */*</code></p>
+<p><img src="/2020/10/10/kerberos/image-20210202023724091.png" srcset="/img/loading.gif" alt="image-20210202023724091"></p>
+<p>查看指定的域：<code>setspn.exe -T test -q */*</code></p>
+<p><img src="/2020/10/10/kerberos/image-20210202023857881.png" srcset="/img/loading.gif" alt="image-20210202023857881"></p>
+<p>2、Windows系统通过SPN查询获得服务和服务实例帐户的对应关系这里举一个例子:<br>用户a要访问MySQL服务的资源，进行到4.tgs_reply时，步骤如下:</p>
+<p>(1)Domain Controller查询MySQL服务的SPN<br>如果该SPN注册在机器帐户(Computers)下，将会查询所有机器帐户(Computers)的servicePrincipalName属性，找到对应的帐户<br>如果该SPN注册在域用户帐户(Users)下，将会查询所有域用户(Users)的servicePrincipalName属性，找到对应的帐户</p>
+<p>(2)找到对应的帐户后，使用该帐户的NTLM hash，生成TGS</p>
+<p>3、域内的主机都能查询SPN</p>
+<p>4、域内的任何用户都可以向域内的任何服务请求TGs</p>
+<p>综上，域内的任何一台主机，都能够通过查询SPN，向域内的所有服务请求TGS，拿到TGS后对其进行暴力破解<br>对于破解出的明文口令，只有域用户帐户(Users)的口令存在价值，不必考虑机器帐户的口令(无法用于远程连接)</p>
+<p><strong>因此，高效率的利用思路如下:</strong></p>
+<p>1.查询SPN，找到有价值的SPN，需要满足以下条件:<br>    1.该SPN注册在域用户帐户(Users)下<br>    2.域用户账户的权限很高</p>
+<p>2.请求TGS</p>
+<p>3.导出TGS</p>
+<p>4.暴力破解</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/kerberos%E4%BB%8B%E7%BB%8D/">kerberos介绍</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/11/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">横向移动</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/09/%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD-bloodhound/">
+                        <span class="hidden-mobile">出网协议判断+bloodhound</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "kerberos&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

