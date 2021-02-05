@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="SE_Null">
   <meta name="keywords" content="">
-  <title>出网协议判断+bloodhound - SE_Null</title>
+  <title>出网协议判断 - SE_Null</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      257 字
+      225 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      2
        分钟
     </span>
   
@@ -217,14 +217,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">出网协议判断+bloodhound</h1>
+            <h1 style="display: none">出网协议判断</h1>
             
             <div class="markdown-body" id="post-body">
               <p>本文介绍常见几种出网协议的判断方法以及一款工具bloodhound</p>
 <a id="more"></a>
 
 
-<h2 id="1-出网协议判断"><a href="#1-出网协议判断" class="headerlink" title="1.出网协议判断"></a>1.出网协议判断</h2><p>常见的出网协议有tcp、dns、http、icmp</p>
+<p>常见的出网协议有tcp、dns、http、icmp</p>
 <h3 id="1-tcp协议"><a href="#1-tcp协议" class="headerlink" title="1.tcp协议"></a>1.tcp协议</h3><p>在目标机上传一个nc，攻击机监听：<code>nc -lvp 4444</code></p>
 <p><img src="/2020/10/09/%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD-bloodhound/image-20210201144513817.png" srcset="/img/loading.gif" alt="image-20210201144513817"></p>
 <p>目标机执行，连接攻击机：<code>nc 192.168.43.30 4444</code></p>
@@ -245,11 +245,6 @@
 <p><img src="/2020/10/09/%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD-bloodhound/image-20210201145319587.png" srcset="/img/loading.gif" alt="image-20210201145319587"></p>
 <h3 id="4-icmp协议"><a href="#4-icmp协议" class="headerlink" title="4.icmp协议"></a>4.icmp协议</h3><p>目标机ping外网机器，若能成功，代表可以icmp出网</p>
 <p><img src="/2020/10/09/%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD-bloodhound/image-20210201145406077.png" srcset="/img/loading.gif" alt="image-20210201145406077"></p>
-<h2 id="2-bloodhound"><a href="#2-bloodhound" class="headerlink" title="2.bloodhound"></a>2.bloodhound</h2><p>安装</p>
-<pre><code class="hljs sql">apt-get <span class="hljs-keyword">update</span>  
-apt-<span class="hljs-keyword">get</span> dist-<span class="hljs-keyword">upgrade</span>	<span class="hljs-comment">#软件包更新</span>
-apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> bloodhound	<span class="hljs-comment">#下载安装bloodhound</span></code></pre>
-
 <p>.</p>
 
             </div>
@@ -269,8 +264,6 @@ apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</sp
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/tcp%E3%80%81dns%E3%80%81http%E3%80%81icmp%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD/">    - tcp、dns、http、icmp出网协议判断</a>
-                    
-                      <a class="hover-with-bg" href="/tags/bloodhound/">bloodhound</a>
                     
                   </div>
                 
@@ -463,7 +456,7 @@ apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</sp
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "出网协议判断+bloodhound&nbsp;",
+        "出网协议判断&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 100,

@@ -15,12 +15,25 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="SE_Null">
   <meta name="keywords" content="">
-  <title>Tags - bloodhound - SE_Null</title>
+  <title>bloodhound+sharphound - SE_Null</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +150,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/4.png') no-repeat center center;
+         style="background: url('/img/5.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -147,12 +160,45 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-15 16:24" pubdate>
+        October 15, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      221 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      2
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -161,37 +207,102 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">1 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/10/09/%E5%87%BA%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%88%A4%E6%96%AD-bloodhound/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">出网协议判断+bloodhound</span>
-      <time style="float: right;">10-09</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">bloodhound+sharphound</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文介绍域内一神器的简单安装和使用</p>
+<a id="more"></a>
+<p><strong>sharphound</strong>：<a target="_blank" rel="noopener" href="https://github.com/BloodHoundAD/SharpHound3">https://github.com/BloodHoundAD/SharpHound3</a></p>
+<p>使用sharphound将目标及的域信息打包下来。</p>
+<p>可将sharphound集成到cs中，方便一点</p>
+<p><img src="/2020/10/15/bloodhound-sharphound/1.png" srcset="/img/loading.gif" alt="1"></p>
+<p><img src="/2020/10/15/bloodhound-sharphound/2.png" srcset="/img/loading.gif" alt="2"></p>
+<p>用插件将其数据打包，会生成一个zip文件</p>
+<p><img src="/2020/10/15/bloodhound-sharphound/3.png" srcset="/img/loading.gif" alt="3"></p>
+<p>然后用cs将其下载到本地</p>
+<p><img src="/2020/10/15/bloodhound-sharphound/4.png" srcset="/img/loading.gif" alt="4"></p>
+<p><img src="/2020/10/15/bloodhound-sharphound/5.png" srcset="/img/loading.gif" alt="5"><br>后面只需将压缩包上传到bloodhound分析即可。</p>
+<p><strong>bloodhound安装</strong></p>
+<pre><code class="hljs sql">apt-get <span class="hljs-keyword">update</span>  
+apt-<span class="hljs-keyword">get</span> dist-<span class="hljs-keyword">upgrade</span>	<span class="hljs-comment">#软件包更新</span>
+apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> bloodhound	<span class="hljs-comment">#下载安装bloodhound</span></code></pre>
 
+<p>启动</p>
+<pre><code class="hljs crmsh">neo4j <span class="hljs-literal">start</span>
+bloodhound</code></pre>
 
-              </div>
+<p>启动后，账户密码默认是Neo4j</p>
+<p><img src="/2020/10/15/bloodhound-sharphound/6.png" srcset="/img/loading.gif" alt="6"></p>
+<p>不过第一次登录会提示你到浏览器修改密码，初次登录默认账户密码都是neo4j，修改成功后，再登录bloodhound，账户任然是neo4j，密码是新密码(记录一下我的是neo4j123)</p>
+<p>使用上传数据的功能将zi包解压后的jsv文件上传，之后会自动分析。</p>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/14/%E7%A5%A8%E6%8D%AE%E5%92%8C%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE/">
+                        <span class="hidden-mobile">白银票据和黄金票据</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -299,6 +410,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -306,7 +442,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Tag - bloodhound&nbsp;",
+        "bloodhound+sharphound&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 100,
@@ -321,6 +457,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -334,6 +485,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 

